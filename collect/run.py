@@ -104,11 +104,18 @@ def aggregate():
         if hot:
             latest_hot = hot
             break
+    bili_current = []
+    for s in reversed(snaps):
+        anchors = (s.get("bili") or {}).get("anchors")
+        if anchors:
+            bili_current = anchors
+            break
     latest = {
         "generated_at": cn_now().strftime("%Y-%m-%d %H:%M:%S") + " (UTC+8)",
         "steam": steam_series,
         "steamcharts": steamcharts,
         "bili": bili_series,
+        "bili_current": bili_current,
         "bili_hot": latest_hot,
         "weibo": weibo_series,
     }

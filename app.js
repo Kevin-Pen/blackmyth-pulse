@@ -138,13 +138,30 @@
     }, true);
   }
 
-  /* ================= B站锚点当前值 ================= */
+  /* ================= B站官号最新7视频：当前值对比 ================= */
+  function shortName(name, n) {
+    if (!name) return "";
+    return name.length > n ? name.slice(0, n) + "…" : name;
+  }
+  function currentAnchors() {
+    var cur = (L.bili_current || []).slice();
+    if (!cur.length) {
+      // 兜底：从历史锚点序列取各视频最新值
+      cur = Object.keys(L.bili || {}).map(function (bv) {
+        var s = L.bili[bv];
+        var p = s.points && s.points.length ? s.points[s.points.length - 1] : {};
+        return { bvid: bv, name: s.name, pubdate: s.pubdate, views: p.views, likes: p.likes, coins: p.coins, shares: p.shares };
+      });
+    }
+    cur.sort(function (a, b) { return (a.pubdate || 0) - (b.pubdate || 0); });  // 发布时间递增
+    return cur;
+  }
   function renderBiliBar() {
-    var names = ["黑猴·首曝实机", "黑猴·发售日预告", "黑猴·最终预告", "钟馗·先导预告", "钟馗·实机演示"];
-    var keys = ["BV1x54y1e7zf", "BV1SQ4y1V7do", "BV1oH4y1c7Kk", "BV1sHePzWEbG", "BV1kS8H6VERt"];
-    var cur = keys.map(function (bv) { return lastOf(bv); });
+    var cur = currentAnchors();
     var c = initChart("c_bili_bar");
-    if (!c || !cur.some(function (p) { return p.views != null; })) return;
+    if (!c || !cur.some(function (v) { return v.views != null; })) return;
+    var names = cur.map(function (v) { return shortName(v.name, 8); });
+    var fullNames = cur.map(function (v) { return v.name; });
     var metrics = [
       { key: "views", name: "播放", color: GS },
       { key: "likes", name: "点赞", color: GOLD },
@@ -152,20 +169,30 @@
       { key: "shares", name: "分享", color: GREEN },
     ];
     c.setOption({
-      tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtNum(v); } },
+      tooltip: {
+        trigger: "axis",
+        valueFormatter: function (v) { return fmtNum(v); },
+        formatter: function (params) {
+          var i = params[0].dataIndex;
+          var head = "<b>" + fullNames[i] + "</b><br>";
+          return head + params.map(function (p) { return p.marker + p.seriesName + "：" + fmtNum(p.value); }).join("<br>");
+        },
+      },
       legend: { top: 4 },
       grid: COMMON.grid,
-      xAxis: { type: "category", data: names, axisLabel: { fontSize: 10.5 } },
+      xAxis: { type: "category", data: names, axisLabel: { fontSize: 10, rotate: 14, width: 70, overflow: "truncate" } },
       yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
       series: metrics.map(function (m) {
-        return { name: m.name, type: "bar", data: cur.map(function (p) { return p[m.key]; }), itemStyle: { color: m.color }, barMaxWidth: 24 };
+        return { name: m.name, type: "bar", data: cur.map(function (v) { return v[m.key]; }), itemStyle: { color: m.color }, barMaxWidth: 22 };
       }),
     }, true);
   }
 
-  /* ================= B站播放趋势 ================= */
+  /* ================= B站官号最新7视频：播放趋势 ================= */
   function renderBiliLine() {
-    var keys = ["BV1x54y1e7zf", "BV1SQ4y1V7do", "BV1oH4y1c7Kk", "BV1sHePzWEbG", "BV1kS8H6VERt"];
+    var curBvs = currentAnchors().map(function (v) { return v.bvid; });
+    var keys = Object.keys(L.bili || {}).filter(function (bv) { return curBvs.indexOf(bv) >= 0; });
+    if (!keys.length) keys = Object.keys(L.bili || {});
     var c = initChart("c_bili_line");
     if (!c) return;
     var dateSet = [];
@@ -179,13 +206,13 @@
       var byDate = {};
       (L.bili[bv].points || []).forEach(function (p) { byDate[p.date] = p.views; });
       return {
-        name: L.bili[bv].name, type: "line", smooth: true, connectNulls: true,
+        name: shortName(L.bili[bv].name, 10), type: "line", smooth: true, connectNulls: true,
         data: dateSet.map(function (d) { return byDate[d] != null ? byDate[d] : null; }),
       };
     });
     c.setOption({
       tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtWan(v); } },
-      legend: { top: 4, textStyle: { fontSize: 11 } },
+      legend: { top: 4, type: "scroll", textStyle: { fontSize: 10 } },
       grid: COMMON.grid,
       xAxis: { type: "category", data: dateSet },
       yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
