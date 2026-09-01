@@ -1,0 +1,48 @@
+{
+ "date": "2026-08-20",
+ "collected_at": "(backfill from weibo-trending-hot-search archive)",
+ "steam": null,
+ "bili": null,
+ "weibo": {
+  "date": "2026-08-20",
+  "topics": [
+   {
+    "keyword": "黑神话",
+    "rank": 5
+   },
+   {
+    "keyword": "#黑神话钟馗主角脸模说很兴奋#",
+    "rank": 6
+   },
+   {
+    "keyword": "#黑神话钟馗新实机#",
+    "rank": 11
+   },
+   {
+    "keyword": "#冯骥黑神话的十条开发原则#",
+    "rank": 17
+   },
+   {
+    "keyword": "#管泽元谈黑神话钟馗#",
+    "rank": 31
+   },
+   {
+    "keyword": "#杨奇回应黑神话悟空为什么不做续集#",
+    "rank": 32
+   },
+   {
+    "keyword": "#黑神话系列第二部作品来了#",
+    "rank": 37
+   },
+   {
+    "keyword": "#冯骥杨奇黑神话转发区#",
+    "rank": 38
+   },
+   {
+    "keyword": "#黑神话钟馗制作成本#",
+    "rank": 41
+   }
+  ]
+ },
+ "errors": {}
+}

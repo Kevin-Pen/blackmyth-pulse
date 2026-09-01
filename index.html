@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「黑神话」IP 宣发监测面板</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root {
+    --gs: #8B1E1E;        /* 游科红 */
+    --gold: #C9A227;
+    --ink: #26211C;
+    --sub: #7A736B;
+    --bg: #F7F4EE;
+    --card: #FFFFFF;
+    --line: #E7E1D5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; }
+  header {
+    background: linear-gradient(135deg, #6E1515 0%, var(--gs) 55%, #A53131 100%);
+    color: #fff; padding: 34px 6% 26px;
+  }
+  header h1 { font-size: 26px; letter-spacing: 2px; }
+  header .sub { margin-top: 8px; font-size: 13.5px; color: #F3E3C0; }
+  header .meta { margin-top: 6px; font-size: 12px; color: #D9C8B8; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 22px 4% 40px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+  .kpi {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06);
+  }
+  .kpi .v { font-size: 24px; font-weight: 700; color: var(--gs); line-height: 1.15; }
+  .kpi .v small { font-size: 13px; font-weight: 400; color: var(--sub); }
+  .kpi .l { margin-top: 6px; font-size: 12px; color: var(--sub); }
+  .sec { margin-top: 26px; }
+  .sec h2 {
+    font-size: 16px; color: var(--gs); border-left: 4px solid var(--gold);
+    padding-left: 10px; margin-bottom: 12px;
+  }
+  .sec .note { font-size: 12px; color: var(--sub); margin: -6px 0 10px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06);
+  }
+  .chart { width: 100%; height: 340px; }
+  .chart.tall { height: 400px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { padding: 7px 9px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { color: var(--sub); font-weight: 500; font-size: 12px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .rank { display: inline-block; min-width: 26px; text-align: center; padding: 1px 6px;
+          border-radius: 20px; background: var(--gs); color: #fff; font-weight: 600; font-size: 11.5px; }
+  .rank.r16 { background: #B08D1B; } .rank.r33 { background: #9A8F80; }
+  .chip { display: inline-block; margin: 2px 4px 2px 0; padding: 2px 8px; border-radius: 6px;
+          background: #FBF6EA; border: 1px solid var(--line); font-size: 12px; }
+  .timeline { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tl {
+    flex: 1 1 150px; background: var(--card); border: 1px solid var(--line);
+    border-top: 3px solid var(--gs); border-radius: 8px; padding: 10px 12px; font-size: 12px;
+  }
+  .tl .d { font-weight: 700; color: var(--gs); font-size: 12.5px; }
+  .tl .t { margin-top: 4px; color: var(--ink); line-height: 1.5; }
+  .tl.gold { border-top-color: var(--gold); }
+  footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--line);
+           font-size: 11.5px; color: var(--sub); line-height: 1.8; }
+  .tag { display: inline-block; padding: 1px 7px; margin-right: 6px; border-radius: 4px;
+         background: #F0EAE0; font-size: 11px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>「黑神话」IP 宣发监测面板</h1>
+  <div class="sub">追踪新作《黑神话：钟馗》宣发对前作《黑神话：悟空》社区数据的实时影响</div>
+  <div class="meta" id="meta">数据加载中…</div>
+</header>
+
+<div class="wrap">
+  <!-- KPI -->
+  <div class="kpis" id="kpis"></div>
+
+  <!-- 事件时间轴 -->
+  <div class="sec">
+    <h2>关键事件时间轴</h2>
+    <div class="timeline">
+      <div class="tl"><div class="d">2024-08-20</div><div class="t">《黑神话：悟空》发售<br>Steam 峰值 240.7 万在线</div></div>
+      <div class="tl gold"><div class="d">2025-08-20 凌晨</div><div class="t">《黑神话：钟馗》首支先导预告<br>微博热搜第 1 · B站当日 800万+ 播放</div></div>
+      <div class="tl gold"><div class="d">2026-08-05 / 12</div><div class="t">官宣全平台七折促销（8/12 开启）<br>玩家评论区集体「催更」钟馗</div></div>
+      <div class="tl gold"><div class="d">2026-08-20 10:00</div><div class="t">《黑神话：钟馗》15分钟实机演示<br>B站 50 分钟近百万 · 峰值 10 万同时观看</div></div>
+      <div class="tl"><div class="d">2026-09 起</div><div class="t">本面板每日 23:30 自动更新<br>持续监测前作回流与社区舆情</div></div>
+    </div>
+  </div>
+
+  <!-- Steam 月度在线 -->
+  <div class="sec">
+    <h2>《黑神话：悟空》Steam 月度在线人数</h2>
+    <div class="note">数据源：SteamCharts（每月自动刷新）。红线标注新作两次重大宣发节点。</div>
+    <div class="card"><div class="chart tall" id="c_players"></div></div>
+  </div>
+
+  <!-- Steam 评价趋势 -->
+  <div class="sec">
+    <h2>Steam 评价总量与好评率（按日累积）</h2>
+    <div class="note">数据源：Steam 官方评价接口。面板上线后每日快照累积，趋势随观测天数增长。</div>
+    <div class="card"><div class="chart" id="c_reviews"></div></div>
+  </div>
+
+  <!-- B站锚点视频 -->
+  <div class="sec">
+    <h2>B站官方视频数据（当前值对比）</h2>
+    <div class="note">数据源：B站公开接口，每日自动刷新。</div>
+    <div class="card"><div class="chart" id="c_bili_bar"></div></div>
+  </div>
+  <div class="sec">
+    <h2>B站官方视频播放趋势（按日累积）</h2>
+    <div class="note">上线后逐日累积增长曲线。</div>
+    <div class="card"><div class="chart" id="c_bili_line"></div></div>
+  </div>
+
+  <!-- 微博热搜追踪 -->
+  <div class="sec">
+    <h2>微博热搜·黑神话相关话题追踪</h2>
+    <div class="note">数据源：微博热搜每日存档（GitHub 开源项目）。位次为当日出现最高位次。</div>
+    <div class="card" id="weibo_table"></div>
+  </div>
+
+  <!-- B站检索热度 -->
+  <div class="sec">
+    <h2>B站「黑神话钟馗」检索热度 Top 10</h2>
+    <div class="note">站内视频检索综合排序，每日刷新。</div>
+    <div class="card" id="hot_table"></div>
+  </div>
+
+  <footer>
+    <div>
+      <span class="tag">采集</span>Steam 官方接口（当前在线 / 评价）· SteamCharts 月表 · B站公开接口（视频数据 / wbi 检索）· 微博热搜每日存档
+      <br><span class="tag">更新</span>GitHub Actions 每日 23:30（UTC+8）自动采集并提交快照，本页随数据文件自动更新
+      <br><span class="tag">口径</span>数据为公开接口快照；Steam 日度数据自面板上线起累积；微博仅收录「黑神话/钟馗/悟空」相关上榜话题；抓取失败时该源当日留空并在原始快照中记录错误
+      <br><span class="tag">项目</span>源码见 GitHub 仓库 blackmyth-pulse · 求职作品集（数据分析与工具开发向）· 制作者：彭泽凯
+    </div>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

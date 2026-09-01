@@ -1,0 +1,40 @@
+{
+ "date": "2025-08-20",
+ "collected_at": "(backfill from weibo-trending-hot-search archive)",
+ "steam": null,
+ "bili": null,
+ "weibo": {
+  "date": "2025-08-20",
+  "topics": [
+   {
+    "keyword": "黑神话",
+    "rank": 1
+   },
+   {
+    "keyword": "#黑神话官号更名#",
+    "rank": 16
+   },
+   {
+    "keyword": "#冯骥杨奇谈黑神话钟馗#",
+    "rank": 33
+   },
+   {
+    "keyword": "黑神话钟馗的前世今生",
+    "rank": 40
+   },
+   {
+    "keyword": "#黑神话第二部为什么是钟馗#",
+    "rank": 42
+   },
+   {
+    "keyword": "#黑神话钟馗发售时间#",
+    "rank": 49
+   },
+   {
+    "keyword": "冯骥回应不做黑神话DLC",
+    "rank": 50
+   }
+  ]
+ },
+ "errors": {}
+}

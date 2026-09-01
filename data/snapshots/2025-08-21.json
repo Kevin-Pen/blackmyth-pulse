@@ -1,0 +1,16 @@
+{
+ "date": "2025-08-21",
+ "collected_at": "(backfill from weibo-trending-hot-search archive)",
+ "steam": null,
+ "bili": null,
+ "weibo": {
+  "date": "2025-08-21",
+  "topics": [
+   {
+    "keyword": "韩国网民碰瓷黑神话钟馗",
+    "rank": 38
+   }
+  ]
+ },
+ "errors": {}
+}

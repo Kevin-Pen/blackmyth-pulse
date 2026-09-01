@@ -1,0 +1,20 @@
+{
+ "date": "2026-08-21",
+ "collected_at": "(backfill from weibo-trending-hot-search archive)",
+ "steam": null,
+ "bili": null,
+ "weibo": {
+  "date": "2026-08-21",
+  "topics": [
+   {
+    "keyword": "#黑神话钟馗新实机考据#",
+    "rank": 35
+   },
+   {
+    "keyword": "#冯骥称黑神话钟馗成本上了个档次#",
+    "rank": 36
+   }
+  ]
+ },
+ "errors": {}
+}
