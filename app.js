@@ -260,7 +260,8 @@
         "<td class='num'>" + (avg != null ? fmtNum(avg) : "—") + "</td></tr>";
     });
     html += "</table>";
-    document.getElementById("bili_table").innerHTML = html;
+    var el = document.getElementById("bili_table");
+    if (el) el.innerHTML = html;
   }
 
   /* ================= 微博热搜表 ================= */
@@ -278,7 +279,8 @@
       html += "<tr><td style='white-space:nowrap'>" + d.date + "</td><td>" + (chips || "当日无相关上榜话题") + "</td></tr>";
     });
     html += "</table>";
-    document.getElementById("weibo_table").innerHTML = html;
+    var wbEl = document.getElementById("weibo_table");
+    if (wbEl) wbEl.innerHTML = html;
   }
 
   /* ================= B站检索热度 ================= */
@@ -290,7 +292,8 @@
     });
     if (!hot.length) html += "<tr><td colspan='4'>暂无数据</td></tr>";
     html += "</table>";
-    document.getElementById("hot_table").innerHTML = html;
+    var hotEl = document.getElementById("hot_table");
+    if (hotEl) hotEl.innerHTML = html;
   }
 
   /* ================= 工具栏 ================= */
