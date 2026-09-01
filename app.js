@@ -1,7 +1,14 @@
-/* 「黑神话」IP 宣发监测面板 —— 前端渲染逻辑 */
+/* 「黑神话」IP 宣发监测面板 —— 交互式监测工具 */
 (function () {
   "use strict";
-  var GS = "#8B1E1E", GOLD = "#C9A227", BLUE = "#2E5E8C", GREEN = "#2E7D5B", GRAY = "#9A928A";
+  var GS = "#8B1E1E", GOLD = "#C9A227", BLUE = "#2E5E8C", GREEN = "#2E7D5B";
+  var COMMON = {
+    textStyle: { fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
+    grid: { left: 62, right: 30, top: 42, bottom: 50 },
+  };
+  var L = null;              // latest.json
+  var charts = {};           // echarts 实例
+  var wbRange = 0;           // 微博表时间范围（0=全部）
 
   function fmtWan(n) {
     if (n == null) return "—";
@@ -18,35 +25,56 @@
     var d = new Date(ts * 1000);
     return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
   }
-  var COMMON = {
-    textStyle: { fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
-    grid: { left: 60, right: 28, top: 40, bottom: 46 },
-  };
-
   function kpiCard(v, vSmall, label) {
     return '<div class="kpi"><div class="v">' + v + (vSmall ? " <small>" + vSmall + "</small>" : "") + '</div><div class="l">' + label + "</div></div>";
   }
+  function lastOf(bv) {
+    var s = L.bili[bv];
+    return s && s.points && s.points.length ? s.points[s.points.length - 1] : {};
+  }
+  function initChart(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    if (charts[id]) { charts[id].dispose(); }
+    var c = echarts.init(el);
+    charts[id] = c;
+    return c;
+  }
+  function zoom() {
+    return [{ type: "inside", filterMode: "none" }, { type: "slider", height: 18, bottom: 4 }];
+  }
 
-  fetch("data/latest.json")
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(render)
-    .catch(function (e) {
+  /* ================= 数据加载 ================= */
+  function load() {
+    return fetch("data/latest.json?t=" + Date.now())
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  }
+  function render() {
+    document.getElementById("meta").textContent =
+      "数据截至 " + L.generated_at + " ｜ 每日 23:30（UTC+8）自动更新";
+    document.getElementById("toolbarHint").textContent = "已加载 " + (L.steam || []).length + " 天快照";
+    renderKpis();
+    renderPlayers();
+    renderReviews();
+    renderBiliBar();
+    renderBiliLine();
+    renderWeibo();
+    renderHot();
+  }
+  function boot() {
+    load().then(function (data) {
+      L = data;
+      render();
+    }).catch(function (e) {
       document.getElementById("meta").textContent = "数据加载失败：" + e.message;
       document.getElementById("kpis").innerHTML = kpiCard("—", "", "数据暂不可用");
     });
+  }
 
-  function render(L) {
-    document.getElementById("meta").textContent =
-      "数据截至 " + L.generated_at + " ｜ 每日 23:30（UTC+8）自动更新";
-
-    // ---- KPI ----
+  /* ================= KPI ================= */
+  function renderKpis() {
     var steam = L.steam || [];
     var last = steam.length ? steam[steam.length - 1] : {};
-    var bili = L.bili || {};
-    function lastOf(bv) {
-      var s = bili[bv];
-      return s && s.points && s.points.length ? s.points[s.points.length - 1] : {};
-    }
     var pv = lastOf("BV1sHePzWEbG"), demo = lastOf("BV1kS8H6VERt");
     var wb = L.weibo || [];
     var wbTopics = wb.reduce(function (a, d) { return a + (d.topics ? d.topics.length : 0); }, 0);
@@ -58,134 +86,235 @@
     html += kpiCard(fmtWan((pv.likes || 0) + (demo.likes || 0)), "", "钟馗两条视频 点赞合计");
     html += kpiCard(String(wbTopics), "近 " + Math.max(wb.length, 1) + " 个观察日", "微博黑神话相关上榜话题（席）");
     document.getElementById("kpis").innerHTML = html;
+  }
 
-    // ---- Steam 月度在线 ----
+  /* ================= Steam 月度在线 ================= */
+  function renderPlayers() {
     var sc = L.steamcharts || [];
-    if (sc.length) {
-      var c1 = echarts.init(document.getElementById("c_players"));
-      var months = sc.map(function (r) { return r.month.replace("Last 30 Days", "近30天"); });
-      var markLines = [];
-      ["August 2025", "August 2026"].forEach(function (m) {
-        var i = sc.findIndex(function (r) { return r.month === m; });
-        if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "start", color: GS, fontSize: 11 }, lineStyle: { color: GS, type: "dashed" } });
-      });
-      c1.setOption({
-        textStyle: COMMON.textStyle,
-        tooltip: { trigger: "axis" },
-        legend: { top: 6 },
-        grid: COMMON.grid,
-        xAxis: { type: "category", data: months, axisLabel: { fontSize: 10, rotate: 45 } },
-        yAxis: [
-          { type: "value", name: "月均在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
-          { type: "value", name: "月峰值在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
-        ],
-        series: [
-          { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: BLUE, opacity: .8 }, barMaxWidth: 16 },
-          { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: GS }, markLine: { symbol: "none", data: markLines } },
-        ],
-      });
-      window.addEventListener("resize", function () { c1.resize(); });
-    }
+    var c = initChart("c_players");
+    if (!c || !sc.length) return;
+    var months = sc.map(function (r) { return r.month.replace("Last 30 Days", "近30天"); });
+    var markLines = [];
+    ["August 2025", "August 2026"].forEach(function (m) {
+      var i = sc.findIndex(function (r) { return r.month === m; });
+      if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "insideEndTop", color: GS, fontSize: 11 }, lineStyle: { color: GS, type: "dashed" } });
+    });
+    c.setOption({
+      tooltip: { trigger: "axis" },
+      legend: { top: 4 },
+      grid: COMMON.grid,
+      xAxis: { type: "category", data: months, axisLabel: { fontSize: 10 } },
+      yAxis: [
+        { type: "value", name: "月均在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
+        { type: "value", name: "月峰值在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
+      ],
+      dataZoom: zoom(),
+      series: [
+        { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: BLUE, opacity: .8 }, barMaxWidth: 16 },
+        { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: GS }, markLine: { symbol: "none", data: markLines } },
+      ],
+    }, true);
+  }
 
-    // ---- Steam 评价趋势（按日累积）----
-    if (steam.length) {
-      var c2 = echarts.init(document.getElementById("c_reviews"));
-      c2.setOption({
-        textStyle: COMMON.textStyle,
-        tooltip: { trigger: "axis" },
-        legend: { top: 6 },
-        grid: COMMON.grid,
-        xAxis: { type: "category", data: steam.map(function (s) { return s.date; }) },
-        yAxis: [
-          { type: "value", name: "评价总数", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
-          { type: "value", name: "好评率 %", min: 90, max: 100 },
-        ],
-        series: [
-          { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: BLUE }, areaStyle: { opacity: .12 } },
-          { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: GREEN } },
-        ],
-      });
-      window.addEventListener("resize", function () { c2.resize(); });
-    }
+  /* ================= Steam 评价趋势 ================= */
+  function renderReviews() {
+    var steam = L.steam || [];
+    var c = initChart("c_reviews");
+    if (!c || !steam.length) return;
+    c.setOption({
+      tooltip: { trigger: "axis" },
+      legend: { top: 4 },
+      grid: COMMON.grid,
+      xAxis: { type: "category", data: steam.map(function (s) { return s.date; }) },
+      yAxis: [
+        { type: "value", name: "评价总数", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
+        { type: "value", name: "好评率 %", min: 90, max: 100 },
+      ],
+      dataZoom: zoom(),
+      series: [
+        { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: BLUE }, areaStyle: { opacity: .12 } },
+        { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: GREEN } },
+      ],
+    }, true);
+  }
 
-    // ---- B站锚点当前值对比 ----
-    var anchorNames = ["黑猴·首曝实机", "黑猴·发售日预告", "黑猴·最终预告", "钟馗·先导预告", "钟馗·实机演示"];
+  /* ================= B站锚点当前值 ================= */
+  function renderBiliBar() {
+    var names = ["黑猴·首曝实机", "黑猴·发售日预告", "黑猴·最终预告", "钟馗·先导预告", "钟馗·实机演示"];
     var keys = ["BV1x54y1e7zf", "BV1SQ4y1V7do", "BV1oH4y1c7Kk", "BV1sHePzWEbG", "BV1kS8H6VERt"];
     var cur = keys.map(function (bv) { return lastOf(bv); });
-    var any = cur.some(function (p) { return p.views != null; });
-    if (any) {
-      var c3 = echarts.init(document.getElementById("c_bili_bar"));
-      var names4 = anchorNames;
-      var metrics = [
-        { key: "views", name: "播放", color: GS },
-        { key: "likes", name: "点赞", color: GOLD },
-        { key: "coins", name: "投币", color: BLUE },
-        { key: "shares", name: "分享", color: GREEN },
-      ];
-      c3.setOption({
-        textStyle: COMMON.textStyle,
-        tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtNum(v); } },
-        legend: { top: 6 },
-        grid: COMMON.grid,
-        xAxis: { type: "category", data: names4, axisLabel: { fontSize: 11, rotate: 18 } },
-        yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
-        series: metrics.map(function (m) {
-          return { name: m.name, type: "bar", data: cur.map(function (p) { return p[m.key]; }), itemStyle: { color: m.color }, barMaxWidth: 26 };
-        }),
-      });
-      window.addEventListener("resize", function () { c3.resize(); });
-    }
+    var c = initChart("c_bili_bar");
+    if (!c || !cur.some(function (p) { return p.views != null; })) return;
+    var metrics = [
+      { key: "views", name: "播放", color: GS },
+      { key: "likes", name: "点赞", color: GOLD },
+      { key: "coins", name: "投币", color: BLUE },
+      { key: "shares", name: "分享", color: GREEN },
+    ];
+    c.setOption({
+      tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtNum(v); } },
+      legend: { top: 4 },
+      grid: COMMON.grid,
+      xAxis: { type: "category", data: names, axisLabel: { fontSize: 10.5 } },
+      yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
+      series: metrics.map(function (m) {
+        return { name: m.name, type: "bar", data: cur.map(function (p) { return p[m.key]; }), itemStyle: { color: m.color }, barMaxWidth: 24 };
+      }),
+    }, true);
+  }
 
-    // ---- B站播放趋势（按日累积）----
-    var c4 = echarts.init(document.getElementById("c_bili_line"));
+  /* ================= B站播放趋势 ================= */
+  function renderBiliLine() {
+    var keys = ["BV1x54y1e7zf", "BV1SQ4y1V7do", "BV1oH4y1c7Kk", "BV1sHePzWEbG", "BV1kS8H6VERt"];
+    var c = initChart("c_bili_line");
+    if (!c) return;
     var dateSet = [];
     keys.forEach(function (bv) {
-      var s = bili[bv];
+      var s = L.bili[bv];
       if (!s) return;
       (s.points || []).forEach(function (p) { if (dateSet.indexOf(p.date) < 0) dateSet.push(p.date); });
     });
     dateSet.sort();
-    var c4series = keys.filter(function (bv) { return bili[bv] && bili[bv].points && bili[bv].points.length; }).map(function (bv) {
+    var series = keys.filter(function (bv) { return L.bili[bv] && L.bili[bv].points && L.bili[bv].points.length; }).map(function (bv) {
       var byDate = {};
-      (bili[bv].points || []).forEach(function (p) { byDate[p.date] = p.views; });
+      (L.bili[bv].points || []).forEach(function (p) { byDate[p.date] = p.views; });
       return {
-        name: bili[bv].name, type: "line", smooth: true, connectNulls: true,
+        name: L.bili[bv].name, type: "line", smooth: true, connectNulls: true,
         data: dateSet.map(function (d) { return byDate[d] != null ? byDate[d] : null; }),
       };
     });
-    c4.setOption({
-      textStyle: COMMON.textStyle,
+    c.setOption({
       tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtWan(v); } },
-      legend: { top: 6, textStyle: { fontSize: 11 } },
+      legend: { top: 4, textStyle: { fontSize: 11 } },
       grid: COMMON.grid,
       xAxis: { type: "category", data: dateSet },
       yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
-      series: c4series,
-    });
-    window.addEventListener("resize", function () { c4.resize(); });
+      dataZoom: zoom(),
+      series: series,
+    }, true);
+  }
 
-    // ---- 微博表格 ----
-    var wbHtml = "<table><tr><th>日期</th><th>相关话题与位次（#N = 热搜位次）</th></tr>";
-    var days = wb.slice().reverse();
-    if (!days.length) wbHtml += "<tr><td colspan='2'>暂无数据</td></tr>";
+  /* ================= 微博热搜表 ================= */
+  function renderWeibo() {
+    var days = (L.weibo || []).slice();
+    if (wbRange > 0) days = days.slice(-wbRange);
+    days.reverse();
+    var html = "<table><tr><th>日期</th><th>相关话题与位次（#N = 热搜位次）</th></tr>";
+    if (!days.length) html += "<tr><td colspan='2'>暂无数据</td></tr>";
     days.forEach(function (d) {
       var chips = (d.topics || []).map(function (t) {
         var cls = t.rank <= 10 ? "rank" : (t.rank <= 20 ? "rank r16" : "rank r33");
         return '<span class="chip">' + t.keyword + ' <span class="' + cls + '">#' + t.rank + "</span></span>";
       }).join("");
-      wbHtml += "<tr><td style='white-space:nowrap'>" + d.date + "</td><td>" + (chips || "当日无相关上榜话题") + "</td></tr>";
+      html += "<tr><td style='white-space:nowrap'>" + d.date + "</td><td>" + (chips || "当日无相关上榜话题") + "</td></tr>";
     });
-    wbHtml += "</table>";
-    document.getElementById("weibo_table").innerHTML = wbHtml;
-
-    // ---- B站检索热度 ----
-    var hot = L.bili_hot || [];
-    var hotHtml = "<table><tr><th>#</th><th>标题</th><th class='num'>播放</th><th>发布</th></tr>";
-    hot.slice(0, 10).forEach(function (v, i) {
-      hotHtml += "<tr><td>" + (i + 1) + "</td><td>" + (v.title || "") + "</td><td class='num'>" + fmtWan(v.play) + "</td><td>" + dateOf(v.pubdate) + "</td></tr>";
-    });
-    if (!hot.length) hotHtml += "<tr><td colspan='4'>暂无数据</td></tr>";
-    hotHtml += "</table>";
-    document.getElementById("hot_table").innerHTML = hotHtml;
+    html += "</table>";
+    document.getElementById("weibo_table").innerHTML = html;
   }
+
+  /* ================= B站检索热度 ================= */
+  function renderHot() {
+    var hot = L.bili_hot || [];
+    var html = "<table><tr><th>#</th><th>标题</th><th class='num'>播放</th><th>发布</th></tr>";
+    hot.slice(0, 10).forEach(function (v, i) {
+      html += "<tr><td>" + (i + 1) + "</td><td>" + (v.title || "") + "</td><td class='num'>" + fmtWan(v.play) + "</td><td>" + dateOf(v.pubdate) + "</td></tr>";
+    });
+    if (!hot.length) html += "<tr><td colspan='4'>暂无数据</td></tr>";
+    html += "</table>";
+    document.getElementById("hot_table").innerHTML = html;
+  }
+
+  /* ================= 工具栏 ================= */
+  var Tool = {
+    refresh: function () {
+      document.getElementById("toolbarHint").textContent = "刷新中…";
+      load().then(function (data) {
+        L = data;
+        render();
+        document.getElementById("toolbarHint").textContent = "刷新完成";
+      }).catch(function (e) {
+        document.getElementById("toolbarHint").textContent = "刷新失败：" + e.message;
+      });
+    },
+    exportData: function () {
+      var blob = new Blob([JSON.stringify(L, null, 2)], { type: "application/json" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "blackmyth-pulse-data-" + new Date().toISOString().slice(0, 10) + ".json";
+      a.click();
+    },
+    brief: function () {
+      var steam = L.steam || [];
+      var lines = [];
+      lines.push("【黑神话 IP 宣发监测简报】" + (L.generated_at || ""));
+      var last = steam[steam.length - 1] || {};
+      lines.push("");
+      lines.push("一、黑猴 Steam");
+      lines.push("· 实时在线：" + fmtNum(last.players) + " 人");
+      lines.push("· 累计评价：" + fmtWan(last.reviews_total) + "（好评率 " + (last.reviews_rate != null ? last.reviews_rate + "%" : "—") + "）");
+      if (steam.length >= 2) {
+        var prev = steam[steam.length - 2];
+        if (prev.reviews_total != null && last.reviews_total != null) {
+          lines.push("· 较上快照评价增量：+" + fmtNum(last.reviews_total - prev.reviews_total));
+        }
+      }
+      lines.push("");
+      lines.push("二、B站官方视频");
+      var bili = L.bili || {};
+      Object.keys(bili).forEach(function (bv) {
+        var s = bili[bv];
+        if (!s || !s.points || !s.points.length) return;
+        var p = s.points[s.points.length - 1];
+        var line = "· " + s.name + "：" + fmtWan(p.views) + " 播放";
+        if (s.points.length >= 2) {
+          var pp = s.points[s.points.length - 2];
+          if (pp.views != null) line += "（日增 " + fmtWan(p.views - pp.views) + "）";
+        }
+        lines.push(line);
+      });
+      var wb = L.weibo || [];
+      lines.push("");
+      lines.push("三、微博热搜");
+      var latestWb = wb[wb.length - 1];
+      if (latestWb && latestWb.topics && latestWb.topics.length) {
+        lines.push("· " + latestWb.date + " 黑神话相关上榜话题 " + latestWb.topics.length + " 个：");
+        latestWb.topics.forEach(function (t) { lines.push("  #" + t.rank + " " + t.keyword); });
+      } else {
+        lines.push("· 最近观测日无相关上榜话题");
+      }
+      lines.push("");
+      lines.push("（数据来源：黑神话 IP 宣发监测面板 · 每日 23:30 自动更新）");
+      var text = lines.join("\n");
+      document.getElementById("briefText").value = text;
+      document.getElementById("briefMask").style.display = "block";
+    },
+    copyBrief: function () {
+      var ta = document.getElementById("briefText");
+      ta.select();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(function () {
+          document.getElementById("toolbarHint").textContent = "简报已复制";
+        });
+      } else {
+        document.execCommand("copy");
+        document.getElementById("toolbarHint").textContent = "简报已复制";
+      }
+    },
+  };
+  window.Tool = Tool;
+
+  /* 微博时间范围切换 */
+  document.getElementById("wbRange").addEventListener("click", function (e) {
+    var btn = e.target;
+    if (btn.tagName !== "BUTTON") return;
+    wbRange = parseInt(btn.getAttribute("data-n"), 10) || 0;
+    this.querySelectorAll("button").forEach(function (b) { b.classList.toggle("on", b === btn); });
+    renderWeibo();
+  });
+
+  window.addEventListener("resize", function () {
+    Object.keys(charts).forEach(function (k) { charts[k].resize(); });
+  });
+
+  boot();
 })();

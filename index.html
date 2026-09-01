@@ -4,78 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>「黑神话」IP 宣发监测面板</title>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="echarts.min.js"></script>
 <style>
   :root {
-    --gs: #8B1E1E;        /* 游科红 */
-    --gold: #C9A227;
-    --ink: #26211C;
-    --sub: #7A736B;
-    --bg: #F7F4EE;
-    --card: #FFFFFF;
-    --line: #E7E1D5;
+    --gs: #8B1E1E; --gold: #C9A227; --ink: #26211C; --sub: #7A736B;
+    --bg: #F7F4EE; --card: #FFFFFF; --line: #E7E1D5;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--bg); color: var(--ink); font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; }
-  header {
-    background: linear-gradient(135deg, #6E1515 0%, var(--gs) 55%, #A53131 100%);
-    color: #fff; padding: 34px 6% 26px;
-  }
-  header h1 { font-size: 26px; letter-spacing: 2px; }
+  header { background: linear-gradient(135deg, #6E1515 0%, var(--gs) 55%, #A53131 100%); color: #fff; padding: 30px 6% 24px; }
+  header h1 { font-size: 25px; letter-spacing: 2px; }
   header .sub { margin-top: 8px; font-size: 13.5px; color: #F3E3C0; }
   header .meta { margin-top: 6px; font-size: 12px; color: #D9C8B8; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 22px 4% 40px; }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
-  .kpi {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    padding: 16px 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06);
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 4% 40px; }
+  /* 工具栏 */
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toolbar .btn {
+    border: 1px solid var(--gs); background: #fff; color: var(--gs); font-size: 12.5px;
+    padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all .15s;
+    font-family: inherit;
   }
+  .toolbar .btn:hover { background: var(--gs); color: #fff; }
+  .toolbar .btn.primary { background: var(--gs); color: #fff; }
+  .toolbar .btn.primary:hover { background: #6E1515; }
+  .toolbar .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .toolbar .seg button { border: none; background: #fff; color: var(--sub); font-size: 12px; padding: 6px 12px; cursor: pointer; font-family: inherit; }
+  .toolbar .seg button.on { background: var(--gs); color: #fff; }
+  .toolbar .hint { font-size: 11.5px; color: var(--sub); margin-left: auto; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06); }
   .kpi .v { font-size: 24px; font-weight: 700; color: var(--gs); line-height: 1.15; }
   .kpi .v small { font-size: 13px; font-weight: 400; color: var(--sub); }
   .kpi .l { margin-top: 6px; font-size: 12px; color: var(--sub); }
   .sec { margin-top: 26px; }
-  .sec h2 {
-    font-size: 16px; color: var(--gs); border-left: 4px solid var(--gold);
-    padding-left: 10px; margin-bottom: 12px;
-  }
+  .sec h2 { font-size: 16px; color: var(--gs); border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 12px; }
   .sec .note { font-size: 12px; color: var(--sub); margin: -6px 0 10px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    padding: 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06);
-  }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06); }
   .chart { width: 100%; height: 340px; }
-  .chart.tall { height: 400px; }
+  .chart.tall { height: 420px; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   th, td { padding: 7px 9px; text-align: left; border-bottom: 1px solid var(--line); }
   th { color: var(--sub); font-weight: 500; font-size: 12px; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-  .rank { display: inline-block; min-width: 26px; text-align: center; padding: 1px 6px;
-          border-radius: 20px; background: var(--gs); color: #fff; font-weight: 600; font-size: 11.5px; }
+  .rank { display: inline-block; min-width: 26px; text-align: center; padding: 1px 6px; border-radius: 20px; background: var(--gs); color: #fff; font-weight: 600; font-size: 11.5px; }
   .rank.r16 { background: #B08D1B; } .rank.r33 { background: #9A8F80; }
-  .chip { display: inline-block; margin: 2px 4px 2px 0; padding: 2px 8px; border-radius: 6px;
-          background: #FBF6EA; border: 1px solid var(--line); font-size: 12px; }
+  .chip { display: inline-block; margin: 2px 4px 2px 0; padding: 2px 8px; border-radius: 6px; background: #FBF6EA; border: 1px solid var(--line); font-size: 12px; }
   .timeline { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tl {
-    flex: 1 1 150px; background: var(--card); border: 1px solid var(--line);
-    border-top: 3px solid var(--gs); border-radius: 8px; padding: 10px 12px; font-size: 12px;
-  }
+  .tl { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gs); border-radius: 8px; padding: 10px 12px; font-size: 12px; }
   .tl .d { font-weight: 700; color: var(--gs); font-size: 12.5px; }
   .tl .t { margin-top: 4px; color: var(--ink); line-height: 1.5; }
   .tl.gold { border-top-color: var(--gold); }
-  footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--line);
-           font-size: 11.5px; color: var(--sub); line-height: 1.8; }
-  .tag { display: inline-block; padding: 1px 7px; margin-right: 6px; border-radius: 4px;
-         background: #F0EAE0; font-size: 11px; }
+  footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--sub); line-height: 1.8; }
+  .tag { display: inline-block; padding: 1px 7px; margin-right: 6px; border-radius: 4px; background: #F0EAE0; font-size: 11px; }
+  /* 简报弹窗 */
+  .modal-mask { display: none; position: fixed; inset: 0; background: rgba(30,20,10,.45); z-index: 99; }
+  .modal { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: min(640px, 92vw); max-height: 82vh; background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; }
+  .modal h3 { font-size: 15px; color: var(--gs); margin-bottom: 10px; }
+  .modal textarea { width: 100%; flex: 1; min-height: 260px; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 12.5px; line-height: 1.7; resize: none; font-family: inherit; }
+  .modal .acts { margin-top: 10px; text-align: right; }
 </style>
 </head>
 <body>
 <header>
   <h1>「黑神话」IP 宣发监测面板</h1>
-  <div class="sub">追踪新作《黑神话：钟馗》宣发对前作《黑神话：悟空》社区数据的实时影响</div>
+  <div class="sub">追踪新作《黑神话：钟馗》宣发对前作《黑神话：悟空》社区数据的实时影响 · 可交互监测工具</div>
   <div class="meta" id="meta">数据加载中…</div>
 </header>
 
 <div class="wrap">
+  <!-- 工具栏 -->
+  <div class="toolbar">
+    <button class="btn primary" onclick="Tool.refresh()">↻ 立即刷新</button>
+    <button class="btn" onclick="Tool.exportData()">⬇ 导出数据 (JSON)</button>
+    <button class="btn" onclick="Tool.brief()">📋 生成今日监测简报</button>
+    <span class="seg" id="wbRange">
+      <button class="on" data-n="0">微博·全部</button>
+      <button data-n="3">微博·近3天</button>
+    </span>
+    <span class="hint" id="toolbarHint"></span>
+  </div>
+
   <!-- KPI -->
   <div class="kpis" id="kpis"></div>
 
@@ -93,26 +101,26 @@
 
   <!-- Steam 月度在线 -->
   <div class="sec">
-    <h2>《黑神话：悟空》Steam 月度在线人数</h2>
-    <div class="note">数据源：SteamCharts（每月自动刷新）。红线标注新作两次重大宣发节点。</div>
+    <h2>《黑神话：悟空》Steam 月度在线人数 <small style="color:var(--sub);font-size:12px">（可滚轮缩放 · 拖拽平移）</small></h2>
+    <div class="note">数据源：SteamCharts（每日自动刷新）。红线标注新作两次重大宣发节点。</div>
     <div class="card"><div class="chart tall" id="c_players"></div></div>
   </div>
 
   <!-- Steam 评价趋势 -->
   <div class="sec">
     <h2>Steam 评价总量与好评率（按日累积）</h2>
-    <div class="note">数据源：Steam 官方评价接口。面板上线后每日快照累积，趋势随观测天数增长。</div>
+    <div class="note">数据源：Steam 官方评价接口。面板上线后每日快照累积。</div>
     <div class="card"><div class="chart" id="c_reviews"></div></div>
   </div>
 
   <!-- B站锚点视频 -->
   <div class="sec">
-    <h2>B站官方视频数据（当前值对比）</h2>
+    <h2>B站官方视频数据（当前值对比 · 点击图例切换维度）</h2>
     <div class="note">数据源：B站公开接口，每日自动刷新。</div>
     <div class="card"><div class="chart" id="c_bili_bar"></div></div>
   </div>
   <div class="sec">
-    <h2>B站官方视频播放趋势（按日累积）</h2>
+    <h2>B站官方视频播放趋势（按日累积 · 点击图例切换视频）</h2>
     <div class="note">上线后逐日累积增长曲线。</div>
     <div class="card"><div class="chart" id="c_bili_line"></div></div>
   </div>
@@ -120,7 +128,7 @@
   <!-- 微博热搜追踪 -->
   <div class="sec">
     <h2>微博热搜·黑神话相关话题追踪</h2>
-    <div class="note">数据源：微博热搜每日存档（GitHub 开源项目）。位次为当日出现最高位次。</div>
+    <div class="note">数据源：微博热搜每日存档（GitHub 开源项目）。位次为当日出现最高位次，可用上方工具栏切换时间范围。</div>
     <div class="card" id="weibo_table"></div>
   </div>
 
@@ -139,6 +147,18 @@
       <br><span class="tag">项目</span>源码见 GitHub 仓库 blackmyth-pulse · 求职作品集（数据分析与工具开发向）· 制作者：彭泽凯
     </div>
   </footer>
+</div>
+
+<!-- 简报弹窗 -->
+<div class="modal-mask" id="briefMask">
+  <div class="modal">
+    <h3>今日监测简报（可复制发送）</h3>
+    <textarea id="briefText" readonly></textarea>
+    <div class="acts">
+      <button class="btn" onclick="Tool.copyBrief()">复制简报</button>
+      <button class="btn" onclick="document.getElementById('briefMask').style.display='none'">关闭</button>
+    </div>
+  </div>
 </div>
 
 <script src="app.js"></script>

@@ -15,7 +15,7 @@ APPID = "2358720"
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
 
-def _get(url, timeout=25, tries=3):
+def _get(url, timeout=45, tries=4):
     last = None
     for a in range(tries):
         try:

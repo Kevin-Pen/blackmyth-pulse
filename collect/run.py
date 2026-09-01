@@ -24,6 +24,15 @@ def cn_now():
 def collect_all():
     t = cn_now()
     date_str = t.strftime("%Y-%m-%d")
+    path = os.path.join(SNAP, "%s.json" % date_str)
+    # 当天早前的成功数据：单源失败时保留，避免失败覆盖成功
+    old = {}
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                old = json.load(f)
+        except Exception:  # noqa: BLE001
+            old = {}
     snap = {"date": date_str, "collected_at": t.strftime("%Y-%m-%d %H:%M:%S") + " (UTC+8)"}
     errors = {}
     for name, fn in (("steam", steam.collect), ("bili", bilibili.collect)):
@@ -31,15 +40,16 @@ def collect_all():
             snap[name] = fn()
         except Exception as e:  # noqa: BLE001
             errors[name] = str(e)
-            snap[name] = None
+            if old.get(name) is not None:
+                snap[name] = old[name]  # 保留早前成功数据
     try:
         snap["weibo"] = weibo.collect(date_str)
     except Exception as e:  # noqa: BLE001
         errors["weibo"] = str(e)
-        snap["weibo"] = None
+        if old.get("weibo") is not None:
+            snap["weibo"] = old["weibo"]
     snap["errors"] = errors
     os.makedirs(SNAP, exist_ok=True)
-    path = os.path.join(SNAP, "%s.json" % date_str)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
     return date_str, errors
