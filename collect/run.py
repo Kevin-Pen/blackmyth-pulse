@@ -98,6 +98,12 @@ def aggregate():
         if sc:
             steamcharts = sc
             break
+    steam_histogram = None
+    for s in reversed(snaps):
+        hist = (s.get("steam") or {}).get("histogram")
+        if hist:
+            steam_histogram = hist
+            break
     latest_hot = []
     for s in reversed(snaps):
         hot = (s.get("bili") or {}).get("hot")
@@ -114,6 +120,7 @@ def aggregate():
         "generated_at": cn_now().strftime("%Y-%m-%d %H:%M:%S") + " (UTC+8)",
         "steam": steam_series,
         "steamcharts": steamcharts,
+        "steam_histogram": steam_histogram,
         "bili": bili_series,
         "bili_current": bili_current,
         "bili_hot": latest_hot,

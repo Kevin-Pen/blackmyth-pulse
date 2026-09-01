@@ -1,12 +1,12 @@
 {
  "date": "2026-09-02",
- "collected_at": "2026-09-02 07:01:27 (UTC+8)",
+ "collected_at": "2026-09-02 07:19:14 (UTC+8)",
  "steam": {
-  "players": 11281,
+  "players": 6297,
   "reviews": {
-   "total": 1209657,
-   "positive": 1167280,
-   "negative": 42377,
+   "total": 1209688,
+   "positive": 1167306,
+   "negative": 42382,
    "rate": 96.5
   },
   "steamcharts": [
@@ -137,18 +137,155 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17251.39,
+    "avg": 17201.65,
     "peak": 47042.0
    }
-  ]
+  ],
+  "histogram": {
+   "start_date": 1724112000,
+   "end_date": 1788220800,
+   "rollups": [
+    {
+     "date": 1722470400,
+     "recommendations_up": 482011,
+     "recommendations_down": 22487
+    },
+    {
+     "date": 1725148800,
+     "recommendations_up": 171395,
+     "recommendations_down": 6748
+    },
+    {
+     "date": 1727740800,
+     "recommendations_up": 33474,
+     "recommendations_down": 1139
+    },
+    {
+     "date": 1730419200,
+     "recommendations_up": 50605,
+     "recommendations_down": 927
+    },
+    {
+     "date": 1733011200,
+     "recommendations_up": 38876,
+     "recommendations_down": 1083
+    },
+    {
+     "date": 1735689600,
+     "recommendations_up": 15637,
+     "recommendations_down": 565
+    },
+    {
+     "date": 1738368000,
+     "recommendations_up": 6304,
+     "recommendations_down": 394
+    },
+    {
+     "date": 1740787200,
+     "recommendations_up": 4944,
+     "recommendations_down": 314
+    },
+    {
+     "date": 1743465600,
+     "recommendations_up": 3669,
+     "recommendations_down": 267
+    },
+    {
+     "date": 1746057600,
+     "recommendations_up": 3323,
+     "recommendations_down": 238
+    },
+    {
+     "date": 1748736000,
+     "recommendations_up": 5478,
+     "recommendations_down": 436
+    },
+    {
+     "date": 1751328000,
+     "recommendations_up": 8518,
+     "recommendations_down": 581
+    },
+    {
+     "date": 1754006400,
+     "recommendations_up": 6410,
+     "recommendations_down": 631
+    },
+    {
+     "date": 1756684800,
+     "recommendations_up": 2960,
+     "recommendations_down": 252
+    },
+    {
+     "date": 1759276800,
+     "recommendations_up": 2709,
+     "recommendations_down": 191
+    },
+    {
+     "date": 1761955200,
+     "recommendations_up": 2149,
+     "recommendations_down": 170
+    },
+    {
+     "date": 1764547200,
+     "recommendations_up": 1837,
+     "recommendations_down": 158
+    },
+    {
+     "date": 1767225600,
+     "recommendations_up": 1875,
+     "recommendations_down": 170
+    },
+    {
+     "date": 1769904000,
+     "recommendations_up": 3050,
+     "recommendations_down": 370
+    },
+    {
+     "date": 1772323200,
+     "recommendations_up": 2480,
+     "recommendations_down": 263
+    },
+    {
+     "date": 1775001600,
+     "recommendations_up": 1480,
+     "recommendations_down": 145
+    },
+    {
+     "date": 1777593600,
+     "recommendations_up": 1360,
+     "recommendations_down": 121
+    },
+    {
+     "date": 1780272000,
+     "recommendations_up": 1552,
+     "recommendations_down": 145
+    },
+    {
+     "date": 1782864000,
+     "recommendations_up": 1600,
+     "recommendations_down": 165
+    },
+    {
+     "date": 1785542400,
+     "recommendations_up": 4231,
+     "recommendations_down": 517
+    },
+    {
+     "date": 1788220800,
+     "recommendations_up": 129,
+     "recommendations_down": 5
+    }
+   ],
+   "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
+  }
  },
  "bili": {
   "anchors": [
    {
     "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "views": 16042900,
+    "views": 16042901,
     "danmaku": 31519,
-    "likes": 835241,
+    "likes": 835242,
     "coins": 646305,
     "favorites": 179666,
     "shares": 354782,
@@ -170,7 +307,7 @@
    },
    {
     "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "views": 13590802,
+    "views": 13590806,
     "danmaku": 13323,
     "likes": 573089,
     "coins": 298724,
@@ -182,7 +319,7 @@
    },
    {
     "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "views": 24761551,
+    "views": 24761559,
     "danmaku": 112176,
     "likes": 1561797,
     "coins": 1324673,
@@ -194,7 +331,7 @@
    },
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "views": 16501155,
+    "views": 16501156,
     "danmaku": 256671,
     "likes": 1073780,
     "coins": 532221,
@@ -206,7 +343,7 @@
    },
    {
     "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "views": 10973237,
+    "views": 10973240,
     "danmaku": 84182,
     "likes": 708867,
     "coins": 353977,
@@ -218,12 +355,12 @@
    },
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "views": 12428780,
+    "views": 12428947,
     "danmaku": 148108,
-    "likes": 927073,
-    "coins": 718295,
-    "favorites": 225133,
-    "shares": 496766,
+    "likes": 927079,
+    "coins": 718296,
+    "favorites": 225131,
+    "shares": 496768,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示"
@@ -232,7 +369,7 @@
   "hot": [
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "play": 16501155,
+    "play": 16501156,
     "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
     "author": "黑神话",
@@ -240,7 +377,7 @@
    },
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "play": 12428780,
+    "play": 12428947,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "author": "黑神话",
@@ -248,7 +385,7 @@
    },
    {
     "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "play": 10973237,
+    "play": 10973240,
     "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
     "author": "黑神话",
@@ -264,7 +401,7 @@
    },
    {
     "title": "【万字硬核考据】全方位拆解《黑钟馗》-主角/怪物/战斗/剧情/符箓",
-    "play": 2944062,
+    "play": 2944104,
     "pubdate": 1787232927,
     "bvid": "BV1Ew8P6pEUE",
     "author": "天师道的白山正",
@@ -280,7 +417,7 @@
    },
    {
     "title": "《黑神话：牛来》",
-    "play": 2572807,
+    "play": 2572829,
     "pubdate": 1787367662,
     "bvid": "BV1UR8C6JEs8",
     "author": "增殖的发呆",
@@ -304,7 +441,7 @@
    },
    {
     "title": "什么？黑神话钟馗抢先版",
-    "play": 2299447,
+    "play": 2299451,
     "pubdate": 1757846592,
     "bvid": "BV1o7pczuE2V",
     "author": "Z贤者",
@@ -328,7 +465,7 @@
    },
    {
     "title": "全面拆解钟馗隐藏细节！《黑神话钟馗》PV逐帧解析",
-    "play": 2201642,
+    "play": 2201698,
     "pubdate": 1787217575,
     "bvid": "BV1Ns8w6fE4k",
     "author": "利维坦mY",
@@ -344,7 +481,7 @@
    },
    {
     "title": "《黑神话：钟馗》实机终极深扒，游科成为世界第一ARPG开发商的底气！【游戏之外】",
-    "play": 1834487,
+    "play": 1834516,
     "pubdate": 1787213588,
     "bvid": "BV1Vxbf6aE9H",
     "author": "智能路障",
@@ -352,7 +489,7 @@
    },
    {
     "title": "【IGN】《黑神话：钟馗》实机演示",
-    "play": 1823804,
+    "play": 1823843,
     "pubdate": 1787191500,
     "bvid": "BV1SDbZ6sETi",
     "author": "IGN中国",
@@ -368,7 +505,7 @@
    },
    {
     "title": "你告诉我这是黑神话钟馗？",
-    "play": 1699687,
+    "play": 1699688,
     "pubdate": 1757728800,
     "bvid": "BV1Jfp5zUEdx",
     "author": "拧不动啊真拧不动",
@@ -384,7 +521,7 @@
    },
    {
     "title": "完整还原！【黑神话钟馗】预告片到底讲了什么故事",
-    "play": 1553228,
+    "play": 1553229,
     "pubdate": 1755687368,
     "bvid": "BV1CiegzMEPJ",
     "author": "附魔星Fms",
@@ -394,10 +531,9 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-09-02",
-  "topics": []
+  "date": "2026-09-01",
+  "topics": [],
+  "error": "archive not available"
  },
- "errors": {
-  "steam": "<urlopen error timed out>"
- }
+ "errors": {}
 }

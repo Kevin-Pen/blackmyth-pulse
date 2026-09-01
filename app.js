@@ -57,7 +57,7 @@
     renderPlayers();
     renderReviews();
     renderBiliBar();
-    renderBiliLine();
+    renderBiliTable();
     renderWeibo();
     renderHot();
   }
@@ -116,11 +116,66 @@
     }, true);
   }
 
-  /* ================= Steam 评价趋势 ================= */
+  /* ================= Steam 评价：发售至今（总评论数 & 月好评率） ================= */
   function renderReviews() {
-    var steam = L.steam || [];
     var c = initChart("c_reviews");
-    if (!c || !steam.length) return;
+    if (!c) return;
+    var hist = L.steam_histogram;
+    var rollups = (hist && hist.rollups) || [];
+    var steam = L.steam || [];
+    var last = steam.length ? steam[steam.length - 1] : {};
+    if (rollups.length) {
+      var months = [], cum = [], adds = [], rates = [];
+      var total = 0;
+      rollups.forEach(function (r) {
+        var m = new Date(r.date * 1000);
+        var label = m.getFullYear() + "-" + String(m.getMonth() + 1).padStart(2, "0");
+        var n = r.recommendations_up + r.recommendations_down;
+        total += n;
+        months.push(label); cum.push(total); adds.push(n);
+        rates.push(n ? +(r.recommendations_up / n * 100).toFixed(2) : null);
+      });
+      var mark = [];
+      if (last.reviews_total) {
+        mark.push({ name: "官方全量 " + fmtWan(last.reviews_total), yAxis: last.reviews_total });
+      }
+      c.setOption({
+        tooltip: {
+          trigger: "axis",
+          formatter: function (params) {
+            var i = params[0].dataIndex;
+            var lines = ["<b>" + months[i] + "</b>",
+              "当月新增评价：" + fmtNum(adds[i]),
+              "累计评价（直方图口径）：" + fmtNum(cum[i]),
+              "月好评率：" + (rates[i] != null ? rates[i] + "%" : "—")];
+            return lines.join("<br>");
+          },
+        },
+        legend: { top: 4 },
+        grid: COMMON.grid,
+        xAxis: { type: "category", data: months, axisLabel: { rotate: 45, fontSize: 9 } },
+        yAxis: [
+          { type: "value", name: "累计评价", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
+          { type: "value", name: "月好评率 %", min: 80, max: 100 },
+        ],
+        dataZoom: zoom(),
+        series: [
+          {
+            name: "累计评价（直方图口径）", type: "line", smooth: true, data: cum,
+            itemStyle: { color: BLUE }, areaStyle: { opacity: .14 },
+            markLine: mark.length ? {
+              symbol: "none", data: mark,
+              label: { fontSize: 10, color: GOLD, formatter: "{b}" },
+              lineStyle: { color: GOLD, type: "dashed" },
+            } : undefined,
+          },
+          { name: "月好评率", type: "bar", yAxisIndex: 1, data: rates, barMaxWidth: 14, itemStyle: { color: GREEN, opacity: .8 } },
+        ],
+      }, true);
+      return;
+    }
+    // 兜底：无直方图时退回日度序列
+    if (!steam.length) return;
     c.setOption({
       tooltip: { trigger: "axis" },
       legend: { top: 4 },
@@ -188,37 +243,24 @@
     }, true);
   }
 
-  /* ================= B站官号最新7视频：播放趋势 ================= */
-  function renderBiliLine() {
-    var curBvs = currentAnchors().map(function (v) { return v.bvid; });
-    var keys = Object.keys(L.bili || {}).filter(function (bv) { return curBvs.indexOf(bv) >= 0; });
-    if (!keys.length) keys = Object.keys(L.bili || {});
-    var c = initChart("c_bili_line");
-    if (!c) return;
-    var dateSet = [];
-    keys.forEach(function (bv) {
-      var s = L.bili[bv];
-      if (!s) return;
-      (s.points || []).forEach(function (p) { if (dateSet.indexOf(p.date) < 0) dateSet.push(p.date); });
+  /* ================= B站官号最新7视频：发布至今数据表 ================= */
+  function renderBiliTable() {
+    var cur = currentAnchors();
+    var now = Math.floor(Date.now() / 1000);
+    var html = "<table><tr><th>视频</th><th>发布时间</th><th>上线天数</th>" +
+      "<th class='num'>播放</th><th class='num'>点赞</th><th class='num'>投币</th><th class='num'>分享</th>" +
+      "<th class='num'>日均播放</th></tr>";
+    cur.forEach(function (v) {
+      var days = v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
+      var avg = (v.views != null && days) ? Math.round(v.views / days) : null;
+      html += "<tr><td>" + (v.name || "") + "</td><td style='white-space:nowrap'>" + (v.pubdate ? dateOf(v.pubdate) : "—") + "</td>" +
+        "<td>" + (days != null ? days + " 天" : "—") + "</td>" +
+        "<td class='num'>" + fmtWan(v.views) + "</td><td class='num'>" + fmtWan(v.likes) + "</td>" +
+        "<td class='num'>" + fmtWan(v.coins) + "</td><td class='num'>" + fmtWan(v.shares) + "</td>" +
+        "<td class='num'>" + (avg != null ? fmtNum(avg) : "—") + "</td></tr>";
     });
-    dateSet.sort();
-    var series = keys.filter(function (bv) { return L.bili[bv] && L.bili[bv].points && L.bili[bv].points.length; }).map(function (bv) {
-      var byDate = {};
-      (L.bili[bv].points || []).forEach(function (p) { byDate[p.date] = p.views; });
-      return {
-        name: shortName(L.bili[bv].name, 10), type: "line", smooth: true, connectNulls: true,
-        data: dateSet.map(function (d) { return byDate[d] != null ? byDate[d] : null; }),
-      };
-    });
-    c.setOption({
-      tooltip: { trigger: "axis", valueFormatter: function (v) { return fmtWan(v); } },
-      legend: { top: 4, type: "scroll", textStyle: { fontSize: 10 } },
-      grid: COMMON.grid,
-      xAxis: { type: "category", data: dateSet },
-      yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
-      dataZoom: zoom(),
-      series: series,
-    }, true);
+    html += "</table>";
+    document.getElementById("bili_table").innerHTML = html;
   }
 
   /* ================= 微博热搜表 ================= */

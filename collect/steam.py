@@ -77,6 +77,22 @@ def steamcharts_monthly():
     return rows
 
 
+def review_histogram():
+    """Steam 商店评价直方图：自发售起的月度好评/差评 rollups
+    口径说明：该接口仅覆盖约 74% 的评价（全量总数以 review_summary 为准），
+    月度趋势与月好评率具有代表性。"""
+    d = json.loads(_get("https://store.steampowered.com/appreviewhistogram/%s?l=schinese" % APPID))
+    if d.get("success") != 1:
+        raise RuntimeError("histogram unavailable")
+    res = d.get("results") or {}
+    return {
+        "start_date": res.get("start_date"),
+        "end_date": res.get("end_date"),
+        "rollups": res.get("rollups") or [],
+        "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准",
+    }
+
+
 def collect():
     out = {
         "players": current_players(),
@@ -87,6 +103,11 @@ def collect():
     except Exception as e:  # noqa: BLE001
         out["steamcharts"] = None
         out["steamcharts_error"] = str(e)
+    try:
+        out["histogram"] = review_histogram()
+    except Exception as e:  # noqa: BLE001
+        out["histogram"] = None
+        out["histogram_error"] = str(e)
     return out
 
 
