@@ -57,7 +57,7 @@
     renderPlayers();
     renderReviews();
     renderBiliBar();
-    renderBiliTable();
+    renderBiliLifetime();
     renderWeibo();
     renderHot();
   }
@@ -243,45 +243,53 @@
     }, true);
   }
 
-  /* ================= B站官号最新7视频：发布至今可视化数据表 ================= */
-  function barCell(value, max, color, bold) {
-    var pct = max > 0 ? Math.max(2, Math.round(value / max * 100)) : 0;
-    return '<td class="num"><div class="cellbar">' +
-      '<div class="bar ' + color + '" style="width:' + pct + '%"></div>' +
-      '<span class="val' + (bold ? " top" : "") + '">' + fmtWan(value) + "</span></div></td>";
-  }
-  function renderBiliTable() {
+  /* ================= B站官号最新7视频：发布至今（同款柱状图） ================= */
+  function renderBiliLifetime() {
     var cur = currentAnchors();
+    var c = initChart("c_bili_lifetime");
+    if (!c || !cur.some(function (v) { return v.views != null; })) return;
     var now = Math.floor(Date.now() / 1000);
-    // 各列最大值（用于数据条归一化）
-    var maxs = { views: 0, likes: 0, coins: 0, shares: 0, avg: 0 };
-    cur.forEach(function (v) {
-      ["views", "likes", "coins", "shares"].forEach(function (k) { if (v[k] > maxs[k]) maxs[k] = v[k]; });
-      var days = v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
-      var avg = (v.views != null && days) ? Math.round(v.views / days) : 0;
-      if (avg > maxs.avg) maxs.avg = avg;
+    var names = cur.map(function (v) { return shortName(v.name, 8); });
+    var fullNames = cur.map(function (v) { return v.name; });
+    var days = cur.map(function (v) {
+      return v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
     });
-    var html = "<table><tr><th>视频</th><th>发布时间</th><th>上线天数</th>" +
-      "<th class='num'>播放</th><th class='num'>点赞</th><th class='num'>投币</th><th class='num'>分享</th>" +
-      "<th class='num'>日均播放</th></tr>";
-    cur.forEach(function (v) {
-      var days = v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
-      var avg = (v.views != null && days) ? Math.round(v.views / days) : null;
-      var dayCls = days != null && days <= 30 ? " style='color:#8B1E1E;font-weight:700'" : "";
-      html += "<tr><td>" + (v.name || "") + "</td>" +
-        "<td style='white-space:nowrap'>" + (v.pubdate ? dateOf(v.pubdate) : "—") + "</td>" +
-        "<td" + dayCls + ">" + (days != null ? days + " 天" : "—") + "</td>" +
-        barCell(v.views || 0, maxs.views, "gs", v.views === maxs.views) +
-        barCell(v.likes || 0, maxs.likes, "gold", v.likes === maxs.likes) +
-        barCell(v.coins || 0, maxs.coins, "blue", v.coins === maxs.coins) +
-        barCell(v.shares || 0, maxs.shares, "green", v.shares === maxs.shares) +
-        '<td class="num"><div class="cellbar">' +
-        '<div class="bar gold" style="width:' + (avg != null ? Math.max(2, Math.round(avg / maxs.avg * 100)) : 0) + '%"></div>' +
-        '<span class="val' + (avg === maxs.avg ? " top" : "") + '">' + (avg != null ? fmtNum(avg) : "—") + "</span></div></td></tr>";
+    var avgs = cur.map(function (v, i) {
+      return (v.views != null && days[i]) ? Math.round(v.views / days[i]) : null;
     });
-    html += "</table>";
-    var el = document.getElementById("bili_table");
-    if (el) el.innerHTML = html;
+    var metrics = [
+      { key: "views", name: "播放", color: GS },
+      { key: "likes", name: "点赞", color: GOLD },
+      { key: "coins", name: "投币", color: BLUE },
+      { key: "shares", name: "分享", color: GREEN },
+      { key: "avg", name: "日均播放", color: "#B08D1B" },
+    ];
+    c.setOption({
+      tooltip: {
+        trigger: "axis",
+        valueFormatter: function (v) { return fmtNum(v); },
+        formatter: function (params) {
+          var i = params[0].dataIndex;
+          var lines = ["<b>" + fullNames[i] + "</b>",
+            "发布时间：" + (cur[i].pubdate ? dateOf(cur[i].pubdate) : "—"),
+            "上线天数：" + (days[i] != null ? days[i] + " 天" : "—")];
+          params.forEach(function (p) {
+            lines.push(p.marker + p.seriesName + "：" + fmtNum(p.value));
+          });
+          return lines.join("<br>");
+        },
+      },
+      legend: { top: 4 },
+      grid: COMMON.grid,
+      xAxis: { type: "category", data: names, axisLabel: { fontSize: 10, rotate: 14, width: 70, overflow: "truncate" } },
+      yAxis: { type: "value", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
+      series: metrics.map(function (m) {
+        var data = cur.map(function (v, i) {
+          return m.key === "avg" ? avgs[i] : v[m.key];
+        });
+        return { name: m.name, type: "bar", data: data, itemStyle: { color: m.color }, barMaxWidth: 22 };
+      }),
+    }, true);
   }
 
   /* ================= 微博热搜表 ================= */
