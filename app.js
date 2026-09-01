@@ -243,21 +243,41 @@
     }, true);
   }
 
-  /* ================= B站官号最新7视频：发布至今数据表 ================= */
+  /* ================= B站官号最新7视频：发布至今可视化数据表 ================= */
+  function barCell(value, max, color, bold) {
+    var pct = max > 0 ? Math.max(2, Math.round(value / max * 100)) : 0;
+    return '<td class="num"><div class="cellbar">' +
+      '<div class="bar ' + color + '" style="width:' + pct + '%"></div>' +
+      '<span class="val' + (bold ? " top" : "") + '">' + fmtWan(value) + "</span></div></td>";
+  }
   function renderBiliTable() {
     var cur = currentAnchors();
     var now = Math.floor(Date.now() / 1000);
+    // 各列最大值（用于数据条归一化）
+    var maxs = { views: 0, likes: 0, coins: 0, shares: 0, avg: 0 };
+    cur.forEach(function (v) {
+      ["views", "likes", "coins", "shares"].forEach(function (k) { if (v[k] > maxs[k]) maxs[k] = v[k]; });
+      var days = v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
+      var avg = (v.views != null && days) ? Math.round(v.views / days) : 0;
+      if (avg > maxs.avg) maxs.avg = avg;
+    });
     var html = "<table><tr><th>视频</th><th>发布时间</th><th>上线天数</th>" +
       "<th class='num'>播放</th><th class='num'>点赞</th><th class='num'>投币</th><th class='num'>分享</th>" +
       "<th class='num'>日均播放</th></tr>";
     cur.forEach(function (v) {
       var days = v.pubdate ? Math.max(1, Math.floor((now - v.pubdate) / 86400)) : null;
       var avg = (v.views != null && days) ? Math.round(v.views / days) : null;
-      html += "<tr><td>" + (v.name || "") + "</td><td style='white-space:nowrap'>" + (v.pubdate ? dateOf(v.pubdate) : "—") + "</td>" +
-        "<td>" + (days != null ? days + " 天" : "—") + "</td>" +
-        "<td class='num'>" + fmtWan(v.views) + "</td><td class='num'>" + fmtWan(v.likes) + "</td>" +
-        "<td class='num'>" + fmtWan(v.coins) + "</td><td class='num'>" + fmtWan(v.shares) + "</td>" +
-        "<td class='num'>" + (avg != null ? fmtNum(avg) : "—") + "</td></tr>";
+      var dayCls = days != null && days <= 30 ? " style='color:#8B1E1E;font-weight:700'" : "";
+      html += "<tr><td>" + (v.name || "") + "</td>" +
+        "<td style='white-space:nowrap'>" + (v.pubdate ? dateOf(v.pubdate) : "—") + "</td>" +
+        "<td" + dayCls + ">" + (days != null ? days + " 天" : "—") + "</td>" +
+        barCell(v.views || 0, maxs.views, "gs", v.views === maxs.views) +
+        barCell(v.likes || 0, maxs.likes, "gold", v.likes === maxs.likes) +
+        barCell(v.coins || 0, maxs.coins, "blue", v.coins === maxs.coins) +
+        barCell(v.shares || 0, maxs.shares, "green", v.shares === maxs.shares) +
+        '<td class="num"><div class="cellbar">' +
+        '<div class="bar gold" style="width:' + (avg != null ? Math.max(2, Math.round(avg / maxs.avg * 100)) : 0) + '%"></div>' +
+        '<span class="val' + (avg === maxs.avg ? " top" : "") + '">' + (avg != null ? fmtNum(avg) : "—") + "</span></div></td></tr>";
     });
     html += "</table>";
     var el = document.getElementById("bili_table");
