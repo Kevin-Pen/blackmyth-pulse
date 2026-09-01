@@ -1,223 +1,8 @@
 {
  "date": "2026-09-02",
- "collected_at": "2026-09-02 02:28:03 (UTC+8)",
- "bili": {
-  "anchors": [
-   {
-    "title": "游戏科学新作《黑神话：悟空》13分钟实机演示",
-    "views": 65664609,
-    "danmaku": 452360,
-    "likes": 3548929,
-    "coins": 3696745,
-    "favorites": 1322179,
-    "shares": 1538145,
-    "bvid": "BV1x54y1e7zf",
-    "name": "黑猴·13分钟首曝实机",
-    "pubdate": "2020-08-20"
-   },
-   {
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "views": 16042854,
-    "danmaku": 31519,
-    "likes": 835242,
-    "coins": 646305,
-    "favorites": 179666,
-    "shares": 354782,
-    "bvid": "BV1SQ4y1V7do",
-    "name": "黑猴·发售日预告",
-    "pubdate": "2023-12-08"
-   },
-   {
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "views": 24761379,
-    "danmaku": 112176,
-    "likes": 1561795,
-    "coins": 1324673,
-    "favorites": 368503,
-    "shares": 629568,
-    "bvid": "BV1oH4y1c7Kk",
-    "name": "黑猴·最终预告",
-    "pubdate": "2024-08-08"
-   },
-   {
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "views": 16501036,
-    "danmaku": 256671,
-    "likes": 1073779,
-    "coins": 532221,
-    "favorites": 190694,
-    "shares": 542020,
-    "bvid": "BV1sHePzWEbG",
-    "name": "钟馗·先导预告",
-    "pubdate": "2025-08-20"
-   },
-   {
-    "title": "《黑神话：钟馗》15分钟实机演示",
-    "views": 12425807,
-    "danmaku": 148101,
-    "likes": 926960,
-    "coins": 718250,
-    "favorites": 225117,
-    "shares": 496756,
-    "bvid": "BV1kS8H6VERt",
-    "name": "钟馗·15分钟实机",
-    "pubdate": "2026-08-20"
-   }
-  ],
-  "hot": [
-   {
-    "title": "《黑神话：钟馗》15分钟实机演示",
-    "play": 12425807,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "author": "黑神话"
-   },
-   {
-    "title": "《黑神话：钟馗》15分钟实机演示开启DLSS5简易效果测试",
-    "play": 42880,
-    "pubdate": 1788066320,
-    "bvid": "BV1su4D6WE1o",
-    "author": "管我怎么去否认"
-   },
-   {
-    "title": "【万字硬核考据】全方位拆解《黑钟馗》-主角/怪物/战斗/剧情/符箓",
-    "play": 2943527,
-    "pubdate": 1787232927,
-    "bvid": "BV1Ew8P6pEUE",
-    "author": "天师道的白山正"
-   },
-   {
-    "title": "黑钟馗的价值甚至不如这个demo",
-    "play": 7980,
-    "pubdate": 1787920675,
-    "bvid": "BV1mhtN6eE43",
-    "author": "NTR少年"
-   },
-   {
-    "title": "真能这样拔剑？？？？动作解析《黑神话：钟馗》",
-    "play": 386556,
-    "pubdate": 1787910156,
-    "bvid": "BV1mstA6fEhb",
-    "author": "剑-盛"
-   },
-   {
-    "title": "【4K双杜比】《黑神话：钟馗》全新15分钟游戏实机演示！赶超《黑神话：悟空》?",
-    "play": 52098,
-    "pubdate": 1787294477,
-    "bvid": "BV1Dm8T6EEQy",
-    "author": "4K杜比修复计划-PX"
-   },
-   {
-    "title": "别吹黑神话钟馗了！论动作，鬼武者才是真正的动作游戏天花板",
-    "play": 2287,
-    "pubdate": 1788250660,
-    "bvid": "BV1cZt363Edd",
-    "author": "BIANTDDL"
-   },
-   {
-    "title": "钟馗",
-    "play": 30239,
-    "pubdate": 1787779200,
-    "bvid": "BV1NZ8D6hED8",
-    "author": "姜不够"
-   },
-   {
-    "title": "老外震撼！黑神话钟馗BGM竟是中国民间乐器演奏",
-    "play": 16876,
-    "pubdate": 1788001859,
-    "bvid": "BV1mR4C6zEkL",
-    "author": "老铁出击"
-   },
-   {
-    "title": "杀死比赛！为什么主角是杜平？黑神话钟馗还是黑神话杜平",
-    "play": 6389,
-    "pubdate": 1788148200,
-    "bvid": "BV1votx6MEWk",
-    "author": "姜戈DJungle"
-   },
-   {
-    "title": "黑神话钟馗对比GTA6加长版预览视频",
-    "play": 2699,
-    "pubdate": 1787896372,
-    "bvid": "BV1P8tc6SEao",
-    "author": "上次见面还是在上次呢"
-   },
-   {
-    "title": "外网顶流主播emiru看《黑神话钟馗》：我最期待的待发售游戏！太帅了！别提小机器人了！",
-    "play": 37955,
-    "pubdate": 1788044922,
-    "bvid": "BV1BA4S6BE3H",
-    "author": "HOK小鸽"
-   },
-   {
-    "title": "【疯奶大硕】看《黑神话：钟馗》15分钟实机演示",
-    "play": 5186,
-    "pubdate": 1787708690,
-    "bvid": "BV1WW8X6aEhL",
-    "author": "请叫俺阿兵"
-   },
-   {
-    "title": "人鬼未辨，神魔难分！细节拆解黑神话钟馗实机演示",
-    "play": 754763,
-    "pubdate": 1787542200,
-    "bvid": "BV1hM8865EGA",
-    "author": "川同学不穿童鞋"
-   },
-   {
-    "title": "黑神话钟馗，这里开始后的bgm非常好听，有种倩女幽魂的味儿",
-    "play": 320231,
-    "pubdate": 1787207239,
-    "bvid": "BV1A48F6SEh8",
-    "author": "墨雨Yatoro"
-   },
-   {
-    "title": "挑眉哥：看《黑神话：钟馗》15分钟实机，这是实机？太疯狂了",
-    "play": 389361,
-    "pubdate": 1787358943,
-    "bvid": "BV1Cc8k6qE2X",
-    "author": "stephanErlinda"
-   },
-   {
-    "title": "装机猿：黑神话钟馗这画面什么配置？我分析5070ti起步，5070都未必拉得动——但别慌，展示的是最好一面，实际玩可以降画质",
-    "play": 28237,
-    "pubdate": 1787271584,
-    "bvid": "BV1DK8T6jEbV",
-    "author": "爱看热闹的四蛋"
-   },
-   {
-    "title": "逐帧解析《黑神话钟馗》螃蟹，蛛网，藤壶全是隐喻？天师钟馗为何舍弃俊朗外貌？",
-    "play": 1539,
-    "pubdate": 1788265071,
-    "bvid": "BV1Mct36JEUC",
-    "author": "朔方有胖胖花"
-   },
-   {
-    "title": "【陈子豪】看《黑神话：钟馗》15分钟实机演示",
-    "play": 1256,
-    "pubdate": 1788212504,
-    "bvid": "BV1ZctY6ZEEs",
-    "author": "大魔王上崎裡沙"
-   },
-   {
-    "title": "【远古时代装机猿】弹幕：怎么评价黑神话钟馗？钟馗和影之刃感觉哪个质量好些？",
-    "play": 42662,
-    "pubdate": 1787230258,
-    "bvid": "BV1vW8c66E1R",
-    "author": "彼咔丘"
-   }
-  ],
-  "hot_error": null
- },
- "weibo": {
-  "date": "2026-09-02",
-  "topics": []
- },
- "errors": {
-  "steam_players_api": "temporarily unavailable, using 02:15 value"
- },
+ "collected_at": "2026-09-02 02:47:35 (UTC+8)",
  "steam": {
-  "players": 13504,
-  "players_note": "2026-09-02 02:15 实测快照（Steam 在线接口暂时不可用，沿用最近值）",
+  "players": 11281,
   "reviews": {
    "total": 1209657,
    "positive": 1167280,
@@ -356,5 +141,187 @@
     "peak": 47042.0
    }
   ]
- }
+ },
+ "bili": {
+  "anchors": [
+   {
+    "bvid": "BV1x54y1e7zf",
+    "name": "黑猴·13分钟首曝实机",
+    "pubdate": "2020-08-20",
+    "error": "HTTP Error 412: Precondition Failed"
+   },
+   {
+    "bvid": "BV1SQ4y1V7do",
+    "name": "黑猴·发售日预告",
+    "pubdate": "2023-12-08",
+    "error": "HTTP Error 412: Precondition Failed"
+   },
+   {
+    "bvid": "BV1oH4y1c7Kk",
+    "name": "黑猴·最终预告",
+    "pubdate": "2024-08-08",
+    "error": "HTTP Error 412: Precondition Failed"
+   },
+   {
+    "bvid": "BV1sHePzWEbG",
+    "name": "钟馗·先导预告",
+    "pubdate": "2025-08-20",
+    "error": "HTTP Error 412: Precondition Failed"
+   },
+   {
+    "bvid": "BV1kS8H6VERt",
+    "name": "钟馗·15分钟实机",
+    "pubdate": "2026-08-20",
+    "error": "HTTP Error 412: Precondition Failed"
+   }
+  ],
+  "hot": [
+   {
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "play": 12426172,
+    "pubdate": 1787191200,
+    "bvid": "BV1kS8H6VERt",
+    "author": "黑神话"
+   },
+   {
+    "title": "《黑神话：钟馗》15分钟实机演示开启DLSS5简易效果测试",
+    "play": 42951,
+    "pubdate": 1788066320,
+    "bvid": "BV1su4D6WE1o",
+    "author": "管我怎么去否认"
+   },
+   {
+    "title": "【万字硬核考据】全方位拆解《黑钟馗》-主角/怪物/战斗/剧情/符箓",
+    "play": 2943603,
+    "pubdate": 1787232927,
+    "bvid": "BV1Ew8P6pEUE",
+    "author": "天师道的白山正"
+   },
+   {
+    "title": "黑钟馗的价值甚至不如这个demo",
+    "play": 7982,
+    "pubdate": 1787920675,
+    "bvid": "BV1mhtN6eE43",
+    "author": "NTR少年"
+   },
+   {
+    "title": "真能这样拔剑？？？？动作解析《黑神话：钟馗》",
+    "play": 386657,
+    "pubdate": 1787910156,
+    "bvid": "BV1mstA6fEhb",
+    "author": "剑-盛"
+   },
+   {
+    "title": "【4K双杜比】《黑神话：钟馗》全新15分钟游戏实机演示！赶超《黑神话：悟空》?",
+    "play": 52112,
+    "pubdate": 1787294477,
+    "bvid": "BV1Dm8T6EEQy",
+    "author": "4K杜比修复计划-PX"
+   },
+   {
+    "title": "别吹黑神话钟馗了！论动作，鬼武者才是真正的动作游戏天花板",
+    "play": 2323,
+    "pubdate": 1788250660,
+    "bvid": "BV1cZt363Edd",
+    "author": "BIANTDDL"
+   },
+   {
+    "title": "钟馗",
+    "play": 30241,
+    "pubdate": 1787779200,
+    "bvid": "BV1NZ8D6hED8",
+    "author": "姜不够"
+   },
+   {
+    "title": "老外震撼！黑神话钟馗BGM竟是中国民间乐器演奏",
+    "play": 16895,
+    "pubdate": 1788001859,
+    "bvid": "BV1mR4C6zEkL",
+    "author": "老铁出击"
+   },
+   {
+    "title": "杀死比赛！为什么主角是杜平？黑神话钟馗还是黑神话杜平",
+    "play": 6415,
+    "pubdate": 1788148200,
+    "bvid": "BV1votx6MEWk",
+    "author": "姜戈DJungle"
+   },
+   {
+    "title": "黑神话钟馗对比GTA6加长版预览视频",
+    "play": 2699,
+    "pubdate": 1787896372,
+    "bvid": "BV1P8tc6SEao",
+    "author": "上次见面还是在上次呢"
+   },
+   {
+    "title": "外网顶流主播emiru看《黑神话钟馗》：我最期待的待发售游戏！太帅了！别提小机器人了！",
+    "play": 38007,
+    "pubdate": 1788044922,
+    "bvid": "BV1BA4S6BE3H",
+    "author": "HOK小鸽"
+   },
+   {
+    "title": "【疯奶大硕】看《黑神话：钟馗》15分钟实机演示",
+    "play": 5186,
+    "pubdate": 1787708690,
+    "bvid": "BV1WW8X6aEhL",
+    "author": "请叫俺阿兵"
+   },
+   {
+    "title": "人鬼未辨，神魔难分！细节拆解黑神话钟馗实机演示",
+    "play": 754933,
+    "pubdate": 1787542200,
+    "bvid": "BV1hM8865EGA",
+    "author": "川同学不穿童鞋"
+   },
+   {
+    "title": "黑神话钟馗，这里开始后的bgm非常好听，有种倩女幽魂的味儿",
+    "play": 320243,
+    "pubdate": 1787207239,
+    "bvid": "BV1A48F6SEh8",
+    "author": "墨雨Yatoro"
+   },
+   {
+    "title": "挑眉哥：看《黑神话：钟馗》15分钟实机，这是实机？太疯狂了",
+    "play": 389387,
+    "pubdate": 1787358943,
+    "bvid": "BV1Cc8k6qE2X",
+    "author": "stephanErlinda"
+   },
+   {
+    "title": "装机猿：黑神话钟馗这画面什么配置？我分析5070ti起步，5070都未必拉得动——但别慌，展示的是最好一面，实际玩可以降画质",
+    "play": 28237,
+    "pubdate": 1787271584,
+    "bvid": "BV1DK8T6jEbV",
+    "author": "爱看热闹的四蛋"
+   },
+   {
+    "title": "逐帧解析《黑神话钟馗》螃蟹，蛛网，藤壶全是隐喻？天师钟馗为何舍弃俊朗外貌？",
+    "play": 1574,
+    "pubdate": 1788265071,
+    "bvid": "BV1Mct36JEUC",
+    "author": "朔方有胖胖花"
+   },
+   {
+    "title": "【远古时代装机猿】弹幕：怎么评价黑神话钟馗？钟馗和影之刃感觉哪个质量好些？",
+    "play": 42662,
+    "pubdate": 1787230258,
+    "bvid": "BV1vW8c66E1R",
+    "author": "彼咔丘"
+   },
+   {
+    "title": "【全网最完整】《黑神话：钟馗》BGM无杂音纯享版（补全实机鼓组+弦乐）",
+    "play": 11939,
+    "pubdate": 1787914800,
+    "bvid": "BV1DwtP6vE7s",
+    "author": "俗子寻衿"
+   }
+  ],
+  "hot_error": null
+ },
+ "weibo": {
+  "date": "2026-09-02",
+  "topics": []
+ },
+ "errors": {}
 }
