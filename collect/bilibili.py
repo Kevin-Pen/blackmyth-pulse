@@ -49,12 +49,15 @@ def _wbi_keys():
     return img, sub
 
 
-def wbi_search(keyword, pages=1):
+def wbi_search(keyword, pages=1, order="totalrank"):
+    """站内检索；order: totalrank=综合排序 / click=最多播放"""
     img, sub = _wbi_keys()
     mixin = hashlib.md5((img + sub).encode()).hexdigest()[:32]
     out = []
     for p in range(1, pages + 1):
         params = {"search_type": "video", "keyword": keyword, "page": p}
+        if order:
+            params["order"] = order
         params["wts"] = int(time.time())
         q = dict(sorted(params.items()))
         qs = urllib.parse.urlencode(q)
@@ -105,7 +108,8 @@ def collect():
         time.sleep(0.4)
     hot, hot_error = [], None
     try:
-        hot = wbi_search("黑神话钟馗", pages=1)
+        # 播放量排序（order=click），保证「热度」与播放量可理解地对应
+        hot = wbi_search("黑神话钟馗", pages=1, order="click")
     except Exception as e:  # noqa: BLE001
         hot_error = str(e)
     return {"anchors": anchors, "hot": hot, "hot_error": hot_error}
