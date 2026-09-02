@@ -135,7 +135,7 @@
   }
 
   /* ================= KPI（实时通道优先，快照兜底） ================= */
-  var LIVE_API = "https://blackmyth-pulse.pages.dev/api/live"; // Cloudflare Pages Functions 实时代理
+  var LIVE_API = "https://1480092088-f1b7830s39.ap-guangzhou.tencentscf.com"; // 腾讯云 SCF 实时代理
   var live = { steam: null, bili: {}, connected: false };
 
   function renderKpis() {
