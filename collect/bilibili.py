@@ -37,11 +37,40 @@ OFFICIAL_FALLBACK = [
 ]
 
 
+_COOKIE = None  # buvid 访客 cookie（惰性获取）
+
+
+def _ensure_cookie():
+    """获取访客 buvid3，缓解风控 412（无登录态）"""
+    global _COOKIE
+    if _COOKIE:
+        return _COOKIE
+    try:
+        import http.cookiejar
+        cj = http.cookiejar.CookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+        req = urllib.request.Request("https://www.bilibili.com/", headers=UA)
+        opener.open(req, timeout=15).read(200)
+        parts = []
+        for c in cj:
+            if c.name in ("buvid3", "buvid4", "b_nut"):
+                parts.append("%s=%s" % (c.name, c.value))
+        if parts:
+            _COOKIE = "; ".join(parts)
+    except Exception:  # noqa: BLE001
+        pass
+    return _COOKIE
+
+
 def _get(url, timeout=20, tries=3):
     last = None
     for a in range(tries):
         try:
-            req = urllib.request.Request(url, headers=UA)
+            headers = dict(UA)
+            ck = _ensure_cookie()
+            if ck:
+                headers["Cookie"] = ck
+            req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return json.loads(r.read().decode("utf-8", "replace"))
         except Exception as e:  # noqa: BLE001

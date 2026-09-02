@@ -42,6 +42,21 @@ def collect_all():
             errors[name] = str(e)
             if old.get(name) is not None:
                 snap[name] = old[name]  # 保留早前成功数据
+    # B站按视频保留：单视频抓取失败（如 412 风控）时，沿用旧快照中同一视频的数值
+    if snap.get("bili") and old.get("bili"):
+        old_by_bv = {a["bvid"]: a for a in old["bili"].get("anchors") or [] if a.get("bvid")}
+        kept = 0
+        for a in snap["bili"].get("anchors") or []:
+            if a.get("error") or a.get("views") is None:
+                prev = old_by_bv.get(a.get("bvid"))
+                if prev and not prev.get("error") and prev.get("views") is not None:
+                    for k in ("views", "danmaku", "likes", "coins", "favorites", "shares", "pubdate", "title", "name"):
+                        if k not in a or a[k] is None:
+                            a[k] = prev.get(k)
+                    a["preserved_from"] = old.get("collected_at", "?")
+                    kept += 1
+        if kept:
+            errors["bili_preserved"] = "%d videos kept from previous snapshot" % kept
     try:
         snap["weibo"] = weibo.collect(date_str)
     except Exception as e:  # noqa: BLE001

@@ -91,6 +91,23 @@
         return { bvid: bv, name: s.name, pubdate: s.pubdate, views: p.views, likes: p.likes, coins: p.coins, shares: p.shares };
       });
     }
+    // 容错：当前快照某视频缺值（采集被风控拦截）时，回退历史序列最近一次有效值
+    cur = cur.map(function (v) {
+      if (v.views != null) return v;
+      var s = L.bili[v.bvid];
+      if (!s || !s.points || !s.points.length) return v;
+      var last = null;
+      for (var i = s.points.length - 1; i >= 0; i--) {
+        if (s.points[i].views != null) { last = s.points[i]; break; }
+      }
+      if (!last) return v;
+      var out = {};
+      Object.keys(v).forEach(function (k) { out[k] = v[k]; });
+      ["views", "likes", "coins", "shares"].forEach(function (k) {
+        if (out[k] == null && last[k] != null) out[k] = last[k];
+      });
+      return out;
+    });
     cur.sort(function (a, b) { return (a.pubdate || 0) - (b.pubdate || 0); });
     return cur;
   }
