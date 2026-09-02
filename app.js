@@ -1,41 +1,43 @@
 /* 「黑神话」IP 宣发监测面板 —— 交互式监测工具（黑白水墨主题 + 面板切换） */
 (function () {
   "use strict";
-  /* 黑白水墨灰度色板 */
-  var WHITE = "#F5F5F5", L2 = "#C4C4C4", L3 = "#8F8F8F", L4 = "#5C5C5C";
+  /* 黑白高对比色板 + 野兽派强调色 */
+  var BLACK = "#000000", GRAY = "#808080", LGRAY = "#B3B3B3";
+  var PINK = "#ff006e", BLUE = "#00d9ff", YELLOW = "#ff9500", GREEN = "#ccff00";
   var COMMON = {
-    textStyle: { fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
+    textStyle: { fontFamily: "ui-monospace, Consolas, 'Microsoft YaHei', monospace" },
     grid: { left: 62, right: 30, top: 42, bottom: 50 },
   };
-  /* 水墨暗色图表主题：白色轴线 / 灰阶文字 / 暗色悬浮框 */
-  echarts.registerTheme("ink", {
-    textStyle: { color: "#C9C9C9", fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
-    legend: { textStyle: { color: "#C9C9C9" } },
+  /* 野兽派图表主题：白底 / 纯黑轴线文字 / 硬边阴影悬浮框 */
+  echarts.registerTheme("brutal", {
+    textStyle: { color: "#000", fontFamily: "ui-monospace, Consolas, 'Microsoft YaHei', monospace" },
+    legend: { textStyle: { color: "#000", fontWeight: 700 } },
     categoryAxis: {
-      axisLine: { lineStyle: { color: "rgba(255,255,255,.3)" } },
-      axisLabel: { color: "#A6A6A6" },
-      axisTick: { show: false },
+      axisLine: { lineStyle: { color: "#000" } },
+      axisLabel: { color: "#000" },
+      axisTick: { lineStyle: { color: "#000" } },
       splitLine: { show: false },
     },
     valueAxis: {
-      axisLine: { show: false },
-      axisLabel: { color: "#A6A6A6" },
-      splitLine: { lineStyle: { color: "rgba(255,255,255,.08)" } },
-      nameTextStyle: { color: "#A6A6A6" },
+      axisLine: { show: true, lineStyle: { color: "#000" } },
+      axisLabel: { color: "#000" },
+      splitLine: { lineStyle: { color: "rgba(0,0,0,.12)" } },
+      nameTextStyle: { color: "#000" },
     },
     tooltip: {
-      backgroundColor: "rgba(16,16,16,.96)",
-      borderColor: "rgba(255,255,255,.5)",
-      textStyle: { color: "#EFEFEF" },
-      extraCssText: "box-shadow: 0 8px 28px rgba(0,0,0,.7); border-radius: 8px;",
+      backgroundColor: "#fff",
+      borderColor: "#000",
+      borderWidth: 2,
+      textStyle: { color: "#000" },
+      extraCssText: "box-shadow: 6px 6px 0 0 rgba(0,0,0,1); border-radius: 0;",
     },
     dataZoom: {
-      textStyle: { color: "#A6A6A6" },
-      backgroundColor: "rgba(22,22,22,.7)",
-      dataBackground: { lineStyle: { color: "rgba(255,255,255,.3)" }, areaStyle: { color: "rgba(255,255,255,.06)" } },
-      fillerColor: "rgba(255,255,255,.12)",
-      handleStyle: { color: "#E8E8E8" },
-      borderColor: "rgba(255,255,255,.3)",
+      textStyle: { color: "#000" },
+      backgroundColor: "#fff",
+      dataBackground: { lineStyle: { color: "#000" }, areaStyle: { color: "rgba(0,0,0,.08)" } },
+      fillerColor: "rgba(0,0,0,.15)",
+      handleStyle: { color: "#000" },
+      borderColor: "#000",
     },
   });
 
@@ -69,7 +71,7 @@
     var el = document.getElementById(id);
     if (!el) return null;
     if (charts[id]) { charts[id].dispose(); }
-    var c = echarts.init(el, "ink");
+    var c = echarts.init(el, "brutal");
     charts[id] = c;
     return c;
   }
@@ -138,7 +140,7 @@
     var markLines = [];
     ["August 2025", "August 2026"].forEach(function (m) {
       var i = sc.findIndex(function (r) { return r.month === m; });
-      if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "insideEndTop", color: "#E8E8E8", fontSize: 11 }, lineStyle: { color: "#FFFFFF", type: "dashed" } });
+      if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "insideEndTop", color: "#000", fontWeight: 700, fontSize: 11 }, lineStyle: { color: "#000", type: "dashed" } });
     });
     c.setOption({
       tooltip: { trigger: "axis" },
@@ -151,8 +153,8 @@
       ],
       dataZoom: zoom(),
       series: [
-        { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: L3, opacity: .8 }, barMaxWidth: 16 },
-        { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: WHITE }, markLine: { symbol: "none", data: markLines } },
+        { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: "#000000" }, barMaxWidth: 16 },
+        { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: PINK }, lineStyle: { width: 3 }, markLine: { symbol: "none", data: markLines } },
       ],
     }, true);
   }
@@ -202,14 +204,14 @@
         series: [
           {
             name: "累计评价（直方图口径）", type: "line", smooth: true, data: cum,
-            itemStyle: { color: WHITE }, areaStyle: { opacity: .10 },
+            itemStyle: { color: BLACK }, lineStyle: { width: 3 }, areaStyle: { color: "rgba(0,0,0,1)", opacity: .08 },
             markLine: mark.length ? {
               symbol: "none", data: mark,
-              label: { fontSize: 10, color: "#C9C9C9", formatter: "{b}" },
-              lineStyle: { color: "#FFFFFF", type: "dashed" },
+              label: { fontSize: 10, color: "#000", fontWeight: 700, formatter: "{b}" },
+              lineStyle: { color: "#000", type: "dashed" },
             } : undefined,
           },
-          { name: "月好评率", type: "bar", yAxisIndex: 1, data: rates, barMaxWidth: 14, itemStyle: { color: L3, opacity: .8 } },
+          { name: "月好评率", type: "bar", yAxisIndex: 1, data: rates, barMaxWidth: 14, itemStyle: { color: PINK } },
         ],
       }, true);
       return;
@@ -226,8 +228,8 @@
       ],
       dataZoom: zoom(),
       series: [
-        { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: WHITE }, areaStyle: { opacity: .1 } },
-        { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: L3 } },
+        { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: BLACK }, lineStyle: { width: 3 }, areaStyle: { color: "rgba(0,0,0,1)", opacity: .08 } },
+        { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: PINK }, lineStyle: { width: 3 } },
       ],
     }, true);
   }
@@ -240,10 +242,10 @@
     var names = cur.map(function (v) { return shortName(v.name, 8); });
     var fullNames = cur.map(function (v) { return v.name; });
     var metrics = [
-      { key: "views", name: "播放", color: WHITE },
-      { key: "likes", name: "点赞", color: L2 },
-      { key: "coins", name: "投币", color: L3 },
-      { key: "shares", name: "分享", color: L4 },
+      { key: "views", name: "播放", color: "#000000" },
+      { key: "likes", name: "点赞", color: PINK },
+      { key: "coins", name: "投币", color: BLUE },
+      { key: "shares", name: "分享", color: YELLOW },
     ];
     c.setOption({
       tooltip: {
@@ -280,11 +282,11 @@
       return (v.views != null && days[i]) ? Math.round(v.views / days[i]) : null;
     });
     var metrics = [
-      { key: "views", name: "播放", color: WHITE },
-      { key: "likes", name: "点赞", color: L2 },
-      { key: "coins", name: "投币", color: L3 },
-      { key: "shares", name: "分享", color: L4 },
-      { key: "avg", name: "日均播放", color: "#DCDCDC" },
+      { key: "views", name: "播放", color: "#000000" },
+      { key: "likes", name: "点赞", color: PINK },
+      { key: "coins", name: "投币", color: BLUE },
+      { key: "shares", name: "分享", color: YELLOW },
+      { key: "avg", name: "日均播放", color: GREEN },
     ];
     c.setOption({
       tooltip: {
@@ -462,18 +464,6 @@
       }
     }).catch(function () { /* 网络波动静默忽略 */ });
   }, 5 * 60 * 1000);
-
-  // 迷幻入场：滚动到视口内的 .reveal 元素模糊渐显
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.06 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-  } else {
-    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("visible"); });
-  }
 
   boot();
 })();
