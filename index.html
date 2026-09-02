@@ -7,73 +7,159 @@
 <script src="echarts.min.js"></script>
 <style>
   :root {
-    --gs: #8B1E1E; --gold: #C9A227; --ink: #26211C; --sub: #7A736B;
-    --bg: #F7F4EE; --card: #FFFFFF; --line: #E7E1D5;
+    --gs: #A8261F;          /* 游科红（暗底提亮） */
+    --gold: #C9A227;
+    --ink-bg: #0E0C09;     /* 水墨底 */
+    --card: rgba(255, 247, 230, 0.055);
+    --card-border: rgba(201, 162, 39, 0.18);
+    --text: #D9CCB6;
+    --text-dim: #96896F;
+    --text-bright: #EFE3C8;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--ink); font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; }
-  header { background: linear-gradient(135deg, #6E1515 0%, var(--gs) 55%, #A53131 100%); color: #fff; padding: 30px 6% 24px; }
-  header h1 { font-size: 25px; letter-spacing: 2px; }
-  header .sub { margin-top: 8px; font-size: 13.5px; color: #F3E3C0; }
-  header .meta { margin-top: 6px; font-size: 12px; color: #D9C8B8; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 4% 40px; }
-  /* 工具栏 */
-  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
-  .toolbar .btn {
-    border: 1px solid var(--gs); background: #fff; color: var(--gs); font-size: 12.5px;
-    padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all .15s;
-    font-family: inherit;
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink-bg);
+    color: var(--text);
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    overflow-x: hidden;
   }
-  .toolbar .btn:hover { background: var(--gs); color: #fff; }
-  .toolbar .btn.primary { background: var(--gs); color: #fff; }
-  .toolbar .btn.primary:hover { background: #6E1515; }
-  .toolbar .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-  .toolbar .seg button { border: none; background: #fff; color: var(--sub); font-size: 12px; padding: 6px 12px; cursor: pointer; font-family: inherit; }
-  .toolbar .seg button.on { background: var(--gs); color: #fff; }
-  .toolbar .hint { font-size: 11.5px; color: var(--sub); margin-left: auto; }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
-  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06); }
-  .kpi .v { font-size: 24px; font-weight: 700; color: var(--gs); line-height: 1.15; }
-  .kpi .v small { font-size: 13px; font-weight: 400; color: var(--sub); }
-  .kpi .l { margin-top: 6px; font-size: 12px; color: var(--sub); }
-  .sec { margin-top: 26px; }
-  .sec h2 { font-size: 16px; color: var(--gs); border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 12px; }
-  .sec .note { font-size: 12px; color: var(--sub); margin: -6px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; box-shadow: 0 1px 4px rgba(60,40,20,.06); }
+  /* ===== 雾霭背景（迷幻底光） ===== */
+  .fog { position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(70px); opacity: .30; }
+  .fog.f1 { width: 52vw; height: 52vw; left: -14vw; top: -16vw; background: radial-gradient(circle, rgba(201,162,39,.32), transparent 65%); animation: drift 26s ease-in-out infinite alternate; }
+  .fog.f2 { width: 44vw; height: 44vw; right: -12vw; top: 30vh; background: radial-gradient(circle, rgba(168,38,31,.30), transparent 65%); animation: drift 32s ease-in-out infinite alternate-reverse; }
+  .fog.f3 { width: 38vw; height: 38vw; left: 12vw; bottom: -14vw; background: radial-gradient(circle, rgba(96,62,18,.35), transparent 65%); animation: drift 38s ease-in-out infinite alternate; }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(6vw, -4vh) scale(1.12); }
+  }
+  /* 悬浮尘光粒子 */
+  .dust { position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; background: radial-gradient(circle, rgba(232,200,120,.9), transparent 70%); filter: blur(1.5px); animation: rise linear infinite; }
+  .d1 { width: 5px; height: 5px; left: 8%;  animation-duration: 17s; animation-delay: 0s; }
+  .d2 { width: 3px; height: 3px; left: 24%; animation-duration: 23s; animation-delay: 3s; }
+  .d3 { width: 6px; height: 6px; left: 46%; animation-duration: 19s; animation-delay: 6s; }
+  .d4 { width: 3px; height: 3px; left: 64%; animation-duration: 26s; animation-delay: 1s; }
+  .d5 { width: 4px; height: 4px; left: 81%; animation-duration: 21s; animation-delay: 8s; }
+  .d6 { width: 3px; height: 3px; left: 92%; animation-duration: 29s; animation-delay: 4s; }
+  @keyframes rise {
+    0%   { bottom: -4vh; opacity: 0; transform: translateY(0); }
+    12%  { opacity: .8; }
+    88%  { opacity: .35; }
+    100% { bottom: 104vh; opacity: 0; transform: translateY(-30px); }
+  }
+  ::selection { background: rgba(201,162,39,.35); }
+  ::-webkit-scrollbar { width: 9px; }
+  ::-webkit-scrollbar-track { background: #0B0907; }
+  ::-webkit-scrollbar-thumb { background: rgba(201,162,39,.35); border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(201,162,39,.6); }
+
+  header {
+    position: relative; z-index: 1;
+    background: linear-gradient(160deg, #1A120B 0%, #120D09 55%, #1A0D0B 100%);
+    border-bottom: 1px solid rgba(201,162,39,.25);
+    padding: 40px 6% 32px;
+  }
+  header::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201,162,39,.7), rgba(168,38,31,.7), transparent);
+    filter: blur(1px);
+  }
+  header h1 {
+    font-size: 27px; letter-spacing: 4px; color: var(--text-bright);
+    text-shadow: 0 0 26px rgba(201,162,39,.45), 0 2px 10px rgba(0,0,0,.8);
+    font-family: "STKaiti", "KaiTi", "FangSong", "SimSun", serif;
+    font-weight: 700;
+  }
+  header .sub { margin-top: 9px; font-size: 13.5px; color: #C9B98F; letter-spacing: 1px; }
+  header .meta { margin-top: 7px; font-size: 12px; color: #8F8168; }
+
+  .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 22px 4% 46px; }
+
+  /* ===== 工具栏 ===== */
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 18px; }
+  .toolbar .btn {
+    border: 1px solid rgba(201,162,39,.45); background: rgba(201,162,39,.08); color: #E8D5A0;
+    font-size: 12.5px; padding: 7px 15px; border-radius: 8px; cursor: pointer;
+    transition: all .25s ease; font-family: inherit; backdrop-filter: blur(8px);
+  }
+  .toolbar .btn:hover { background: var(--gold); color: #171106; box-shadow: 0 0 22px rgba(201,162,39,.55); transform: translateY(-1px); }
+  .toolbar .btn.primary { background: linear-gradient(135deg, rgba(201,162,39,.9), rgba(168,38,31,.85)); color: #FFF6E0; border-color: transparent; }
+  .toolbar .btn.primary:hover { background: linear-gradient(135deg, #E2BA3E, #C0362C); }
+  .toolbar .seg { display: inline-flex; border: 1px solid rgba(201,162,39,.35); border-radius: 8px; overflow: hidden; }
+  .toolbar .seg button { border: none; background: transparent; color: var(--text-dim); font-size: 12px; padding: 7px 13px; cursor: pointer; font-family: inherit; transition: all .2s; }
+  .toolbar .seg button.on { background: linear-gradient(135deg, rgba(201,162,39,.85), rgba(168,38,31,.7)); color: #FFF6E0; }
+  .toolbar .hint { font-size: 11.5px; color: #8F8168; margin-left: auto; }
+
+  /* ===== 毛玻璃卡片 ===== */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 14px; }
+  .kpi {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+    padding: 17px 15px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0,0,0,.45); transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
+  }
+  .kpi:hover { transform: translateY(-3px); border-color: rgba(201,162,39,.5); box-shadow: 0 12px 36px rgba(0,0,0,.55), 0 0 24px rgba(201,162,39,.18); }
+  .kpi .v { font-size: 25px; font-weight: 700; color: #EBC86E; line-height: 1.15; text-shadow: 0 0 18px rgba(201,162,39,.35); }
+  .kpi .v small { font-size: 13px; font-weight: 400; color: var(--text-dim); text-shadow: none; }
+  .kpi .l { margin-top: 6px; font-size: 12px; color: var(--text-dim); }
+
+  .sec { margin-top: 28px; }
+  .sec h2 { font-size: 16px; color: var(--text-bright); border-left: 4px solid var(--gold); padding-left: 11px; margin-bottom: 12px; letter-spacing: 1px; text-shadow: 0 0 14px rgba(201,162,39,.3); }
+  .sec h2 small { color: var(--text-dim); font-size: 12px; font-weight: 400; text-shadow: none; }
+  .sec .note { font-size: 12px; color: #8F8168; margin: -6px 0 10px; }
+  .card {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+    padding: 14px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0,0,0,.45); transition: border-color .3s, box-shadow .3s;
+  }
+  .card:hover { border-color: rgba(201,162,39,.38); box-shadow: 0 8px 30px rgba(0,0,0,.5), 0 0 30px rgba(201,162,39,.10); }
   .chart { width: 100%; height: 340px; }
   .chart.tall { height: 420px; }
+
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  th, td { padding: 7px 9px; text-align: left; border-bottom: 1px solid var(--line); }
-  th { color: var(--sub); font-weight: 500; font-size: 12px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.07); }
+  th { color: #A2937A; font-weight: 500; font-size: 12px; letter-spacing: 1px; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-  .rank { display: inline-block; min-width: 26px; text-align: center; padding: 1px 6px; border-radius: 20px; background: var(--gs); color: #fff; font-weight: 600; font-size: 11.5px; }
-  .rank.r16 { background: #B08D1B; } .rank.r33 { background: #9A8F80; }
-  /* 可视化表格：单元格内数据条 */
-  .cellbar { position: relative; min-width: 76px; height: 20px; }
-  .cellbar .bar { position: absolute; left: 0; top: 3px; bottom: 3px; border-radius: 3px; opacity: .32; }
-  .cellbar .bar.gs { background: var(--gs); }
-  .cellbar .bar.gold { background: var(--gold); }
-  .cellbar .bar.blue { background: #2E5E8C; }
-  .cellbar .bar.green { background: #2E7D5B; }
-  .cellbar .val { position: relative; z-index: 1; float: right; font-size: 12px; line-height: 20px; color: var(--ink); padding-right: 2px; }
-  .cellbar .val.top { font-weight: 700; color: var(--gs); }
-  .chip { display: inline-block; margin: 2px 4px 2px 0; padding: 2px 8px; border-radius: 6px; background: #FBF6EA; border: 1px solid var(--line); font-size: 12px; }
+  tbody tr { transition: background .2s; }
+  tr:hover { background: rgba(201,162,39,.07); }
+  .rank { display: inline-block; min-width: 26px; text-align: center; padding: 1px 6px; border-radius: 20px; background: linear-gradient(135deg, #A8261F, #6E1515); color: #FFE9C8; font-weight: 600; font-size: 11.5px; }
+  .rank.r16 { background: linear-gradient(135deg, #B08D1B, #7A5E12); }
+  .rank.r33 { background: rgba(140,130,115,.45); }
+  .chip { display: inline-block; margin: 2px 4px 2px 0; padding: 3px 9px; border-radius: 6px; background: rgba(201,162,39,.08); border: 1px solid rgba(201,162,39,.22); font-size: 12px; color: #D9C9A2; transition: all .2s; }
+  .chip:hover { background: rgba(201,162,39,.18); transform: translateY(-1px); }
+
   .timeline { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tl { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gs); border-radius: 8px; padding: 10px 12px; font-size: 12px; }
-  .tl .d { font-weight: 700; color: var(--gs); font-size: 12.5px; }
-  .tl .t { margin-top: 4px; color: var(--ink); line-height: 1.5; }
-  .tl.gold { border-top-color: var(--gold); }
-  footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--sub); line-height: 1.8; }
-  .tag { display: inline-block; padding: 1px 7px; margin-right: 6px; border-radius: 4px; background: #F0EAE0; font-size: 11px; }
-  /* 简报弹窗 */
-  .modal-mask { display: none; position: fixed; inset: 0; background: rgba(30,20,10,.45); z-index: 99; }
-  .modal { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: min(640px, 92vw); max-height: 82vh; background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; }
-  .modal h3 { font-size: 15px; color: var(--gs); margin-bottom: 10px; }
-  .modal textarea { width: 100%; flex: 1; min-height: 260px; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 12.5px; line-height: 1.7; resize: none; font-family: inherit; }
+  .tl {
+    flex: 1 1 160px; background: var(--card); border: 1px solid var(--card-border);
+    border-top: 3px solid rgba(201,162,39,.8); border-radius: 10px; padding: 11px 13px; font-size: 12px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 6px 22px rgba(0,0,0,.4); transition: transform .3s, box-shadow .3s;
+  }
+  .tl:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.5), 0 0 20px rgba(201,162,39,.15); }
+  .tl .d { font-weight: 700; color: #EBC86E; font-size: 12.5px; letter-spacing: 1px; }
+  .tl .t { margin-top: 4px; color: var(--text); line-height: 1.55; }
+  .tl.gold { border-top-color: rgba(168,38,31,.85); }
+  .tl.gold .d { color: #E28A6B; }
+
+  footer { position: relative; z-index: 1; margin-top: 36px; padding-top: 15px; border-top: 1px solid rgba(201,162,39,.2); font-size: 11.5px; color: #7E725B; line-height: 1.9; }
+  .tag { display: inline-block; padding: 1px 8px; margin-right: 6px; border-radius: 4px; background: rgba(201,162,39,.1); border: 1px solid rgba(201,162,39,.25); font-size: 11px; color: #C9B98F; }
+
+  /* ===== 简报弹窗 ===== */
+  .modal-mask { display: none; position: fixed; inset: 0; background: rgba(6,4,2,.7); backdrop-filter: blur(6px); z-index: 99; }
+  .modal { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: min(640px, 92vw); max-height: 82vh; background: rgba(26,20,13,.94); border: 1px solid rgba(201,162,39,.35); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(0,0,0,.7), 0 0 40px rgba(201,162,39,.12); backdrop-filter: blur(18px); }
+  .modal h3 { font-size: 15px; color: #EBC86E; margin-bottom: 10px; letter-spacing: 2px; }
+  .modal textarea { width: 100%; flex: 1; min-height: 260px; background: rgba(0,0,0,.35); color: #D9CCB6; border: 1px solid rgba(201,162,39,.25); border-radius: 8px; padding: 10px; font-size: 12.5px; line-height: 1.7; resize: none; font-family: inherit; }
   .modal .acts { margin-top: 10px; text-align: right; }
+
+  /* ===== 迷幻入场：模糊 + 上浮渐显 ===== */
+  .reveal { opacity: 0; transform: translateY(20px); filter: blur(10px); transition: opacity .85s cubic-bezier(.22,.61,.36,1), transform .85s cubic-bezier(.22,.61,.36,1), filter .85s cubic-bezier(.22,.61,.36,1); }
+  .reveal.visible { opacity: 1; transform: none; filter: blur(0); }
 </style>
 </head>
 <body>
+<div class="fog f1"></div><div class="fog f2"></div><div class="fog f3"></div>
+<span class="dust d1"></span><span class="dust d2"></span><span class="dust d3"></span>
+<span class="dust d4"></span><span class="dust d5"></span><span class="dust d6"></span>
+
 <header>
   <h1>「黑神话」IP 宣发监测面板</h1>
   <div class="sub">追踪新作《黑神话：钟馗》宣发对前作《黑神话：悟空》社区数据的实时影响 · 可交互监测工具</div>
@@ -82,7 +168,7 @@
 
 <div class="wrap">
   <!-- 工具栏 -->
-  <div class="toolbar">
+  <div class="toolbar reveal">
     <button class="btn primary" onclick="Tool.refresh()">↻ 立即刷新</button>
     <button class="btn" onclick="Tool.exportData()">⬇ 导出数据 (JSON)</button>
     <button class="btn" onclick="Tool.brief()">📋 生成今日监测简报</button>
@@ -97,61 +183,61 @@
   <div class="kpis" id="kpis"></div>
 
   <!-- 事件时间轴 -->
-  <div class="sec">
+  <div class="sec reveal">
     <h2>关键事件时间轴</h2>
     <div class="timeline">
       <div class="tl"><div class="d">2024-08-20</div><div class="t">《黑神话：悟空》发售<br>Steam 峰值 240.7 万在线</div></div>
       <div class="tl gold"><div class="d">2025-08-20 凌晨</div><div class="t">《黑神话：钟馗》首支先导预告<br>微博热搜第 1 · B站当日 800万+ 播放</div></div>
       <div class="tl gold"><div class="d">2026-08-05 / 12</div><div class="t">官宣全平台七折促销（8/12 开启）<br>玩家评论区集体「催更」钟馗</div></div>
       <div class="tl gold"><div class="d">2026-08-20 10:00</div><div class="t">《黑神话：钟馗》15分钟实机演示<br>B站 50 分钟近百万 · 峰值 10 万同时观看</div></div>
-      <div class="tl"><div class="d">2026-09 起</div><div class="t">本面板每日 23:30 自动更新<br>持续监测前作回流与社区舆情</div></div>
+      <div class="tl"><div class="d">2026-09 起</div><div class="t">本面板每 6 小时自动采集<br>持续监测前作回流与社区舆情</div></div>
     </div>
   </div>
 
   <!-- Steam 月度在线 -->
-  <div class="sec">
-    <h2>《黑神话：悟空》Steam 月度在线人数 <small style="color:var(--sub);font-size:12px">（可滚轮缩放 · 拖拽平移）</small></h2>
-    <div class="note">数据源：SteamCharts（每日自动刷新）。红线标注新作两次重大宣发节点。</div>
+  <div class="sec reveal">
+    <h2>《黑神话：悟空》Steam 月度在线人数 <small>（可滚轮缩放 · 拖拽平移）</small></h2>
+    <div class="note">数据源：SteamCharts（自动刷新）。红线标注新作两次重大宣发节点。</div>
     <div class="card"><div class="chart tall" id="c_players"></div></div>
   </div>
 
   <!-- Steam 评价：发售至今 -->
-  <div class="sec">
+  <div class="sec reveal">
     <h2>Steam 评价数据 · 发售至今（总评论数 &amp; 月好评率）</h2>
     <div class="note">数据源：Steam 官方评价直方图（2024-08 发售起逐月 rollups）。金色虚线为官方全量评价总数（直方图口径覆盖约 74%，仅影响累计线的高度，不影响趋势与月好评率）。</div>
     <div class="card"><div class="chart" id="c_reviews"></div></div>
   </div>
 
   <!-- B站官号最新视频 -->
-  <div class="sec">
+  <div class="sec reveal">
     <h2>B站官号「黑神话」最新 7 个视频（当前值对比 · 点击图例切换维度）</h2>
-    <div class="note">官方账号最新 7 条投稿，按发布时间递增；播放/点赞/投币/分享四个维度，点击图例切换，每日自动刷新。</div>
+    <div class="note">官方账号最新 7 条投稿，按发布时间递增；播放/点赞/投币/分享四个维度，点击图例切换，自动刷新。</div>
     <div class="card"><div class="chart" id="c_bili_bar"></div></div>
   </div>
-  <div class="sec">
+  <div class="sec reveal">
     <h2>B站官号「黑神话」最新 7 个视频 · 发布至今（点击图例切换维度）</h2>
     <div class="note">每个视频自发布日累计至今；含「日均播放」（总播放 ÷ 上线天数）维度，点击图例切换显示。</div>
     <div class="card"><div class="chart" id="c_bili_lifetime"></div></div>
   </div>
 
   <!-- 微博热搜追踪 -->
-  <div class="sec">
+  <div class="sec reveal">
     <h2>微博热搜·黑神话相关话题追踪</h2>
     <div class="note">数据源：微博热搜每日存档（GitHub 开源项目）。位次为当日出现最高位次，可用上方工具栏切换时间范围。</div>
     <div class="card" id="weibo_table"></div>
   </div>
 
   <!-- B站检索热度 -->
-  <div class="sec">
+  <div class="sec reveal">
     <h2>B站「黑神话钟馗」播放量 Top 10</h2>
-    <div class="note">按播放量降序（站内检索 order=click），每日刷新；「发布」列为各视频实际发布时间，与视频一一对应。</div>
+    <div class="note">按播放量降序（站内检索 order=click），自动刷新；「发布」列为各视频实际发布时间，与视频一一对应。</div>
     <div class="card" id="hot_table"></div>
   </div>
 
   <footer>
     <div>
-      <span class="tag">采集</span>Steam 官方接口（当前在线 / 评价）· SteamCharts 月表 · B站公开接口（视频数据 / wbi 检索）· 微博热搜每日存档
-      <br><span class="tag">更新</span>GitHub Actions 每日 23:30（UTC+8）自动采集并提交快照，本页随数据文件自动更新
+      <span class="tag">采集</span>Steam 官方接口（当前在线 / 评价直方图）· SteamCharts 月表 · B站公开接口（官号最新视频 / wbi 检索）· 微博热搜每日存档
+      <br><span class="tag">更新</span>GitHub Actions 每 6 小时自动采集并提交快照；本页每 5 分钟自动读取最新快照
       <br><span class="tag">口径</span>数据为公开接口快照；Steam 日度数据自面板上线起累积；微博仅收录「黑神话/钟馗/悟空」相关上榜话题；抓取失败时该源当日留空并在原始快照中记录错误
       <br><span class="tag">项目</span>源码见 GitHub 仓库 blackmyth-pulse · 求职作品集（数据分析与工具开发向）· 制作者：彭泽凯
     </div>
@@ -170,6 +256,6 @@
   </div>
 </div>
 
-<script src="app.js?v=20260902f"></script>
+<script src="app.js?v=20260902g"></script>
 </body>
 </html>

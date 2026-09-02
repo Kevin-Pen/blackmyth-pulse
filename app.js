@@ -6,6 +6,37 @@
     textStyle: { fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
     grid: { left: 62, right: 30, top: 42, bottom: 50 },
   };
+  /* 黑神话暗色主题（水墨底 + 金色刻度） */
+  echarts.registerTheme("heishen", {
+    textStyle: { color: "#D9CCB6", fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
+    legend: { textStyle: { color: "#C9BCA6" } },
+    categoryAxis: {
+      axisLine: { lineStyle: { color: "rgba(201,162,39,.35)" } },
+      axisLabel: { color: "#A2937A" },
+      axisTick: { show: false },
+      splitLine: { show: false },
+    },
+    valueAxis: {
+      axisLine: { show: false },
+      axisLabel: { color: "#A2937A" },
+      splitLine: { lineStyle: { color: "rgba(255,255,255,.08)" } },
+      nameTextStyle: { color: "#A2937A" },
+    },
+    tooltip: {
+      backgroundColor: "rgba(22,17,12,.95)",
+      borderColor: "rgba(201,162,39,.5)",
+      textStyle: { color: "#EFE3C8" },
+      extraCssText: "box-shadow: 0 8px 28px rgba(0,0,0,.6); border-radius: 8px;",
+    },
+    dataZoom: {
+      textStyle: { color: "#A2937A" },
+      backgroundColor: "rgba(20,16,11,.6)",
+      dataBackground: { lineStyle: { color: "rgba(201,162,39,.3)" }, areaStyle: { color: "rgba(201,162,39,.08)" } },
+      fillerColor: "rgba(201,162,39,.15)",
+      handleStyle: { color: "#C9A227" },
+      borderColor: "rgba(201,162,39,.3)",
+    },
+  });
   var L = null;              // latest.json
   var charts = {};           // echarts 实例
   var wbRange = 0;           // 微博表时间范围（0=全部）
@@ -36,7 +67,7 @@
     var el = document.getElementById(id);
     if (!el) return null;
     if (charts[id]) { charts[id].dispose(); }
-    var c = echarts.init(el);
+    var c = echarts.init(el, "heishen");
     charts[id] = c;
     return c;
   }
@@ -76,15 +107,12 @@
     var steam = L.steam || [];
     var last = steam.length ? steam[steam.length - 1] : {};
     var pv = lastOf("BV1sHePzWEbG"), demo = lastOf("BV1kS8H6VERt");
-    var wb = L.weibo || [];
-    var wbTopics = wb.reduce(function (a, d) { return a + (d.topics ? d.topics.length : 0); }, 0);
     var html = "";
     html += kpiCard(fmtNum(last.players), "", "黑猴 Steam 在线人数（最近采集）");
     html += kpiCard(fmtWan(last.reviews_total), last.reviews_rate != null ? "好评率 " + last.reviews_rate + "%" : "", "黑猴 Steam 累计评价（最近采集）");
     html += kpiCard(fmtWan(pv.views), "", "钟馗·先导预告 播放");
     html += kpiCard(fmtWan(demo.views), "", "钟馗·15分钟实机 播放");
     html += kpiCard(fmtWan((pv.likes || 0) + (demo.likes || 0)), "", "钟馗两条视频 点赞合计");
-    html += kpiCard(String(wbTopics), "近 " + Math.max(wb.length, 1) + " 个观察日", "微博黑神话相关上榜话题（席）");
     document.getElementById("kpis").innerHTML = html;
   }
 
@@ -427,6 +455,18 @@
       }
     }).catch(function () { /* 网络波动静默忽略，下次再试 */ });
   }, 5 * 60 * 1000);
+
+  // 迷幻入场：滚动到视口内的 .reveal 元素模糊渐显
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("visible"); });
+  }
 
   boot();
 })();
