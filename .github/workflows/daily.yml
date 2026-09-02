@@ -2,8 +2,8 @@ name: daily-collect
 
 on:
   schedule:
-    # 每 6 小时采集一次：11:30 / 17:30 / 23:30 / 05:30（UTC+8）
-    - cron: "30 3,9,15,21 * * *"
+    # 每小时采集一次（分钟错峰），保持快照新鲜
+    - cron: "23 * * * *"
   workflow_dispatch: {}
 
 permissions:

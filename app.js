@@ -134,18 +134,54 @@
     });
   }
 
-  /* ================= KPI ================= */
+  /* ================= KPI（实时通道优先，快照兜底） ================= */
+  var LIVE_API = "https://blackmyth-pulse.pages.dev/api/live"; // Cloudflare Pages Functions 实时代理
+  var live = { steam: null, bili: {}, connected: false };
+
   function renderKpis() {
     var steam = L.steam || [];
     var last = steam.length ? steam[steam.length - 1] : {};
     var pv = lastOf("BV1sHePzWEbG"), demo = lastOf("BV1kS8H6VERt");
+    var sPlayers = (live.steam && live.steam.players != null) ? live.steam.players : last.players;
+    var sRev = (live.steam && live.steam.reviews) ? live.steam.reviews : last;
+    var pvL = live.bili["BV1sHePzWEbG"], dmL = live.bili["BV1kS8H6VERt"];
+    var pvViews = pvL ? pvL.views : pv.views;
+    var dmViews = dmL ? dmL.views : demo.views;
+    var likesSum = (pvL ? pvL.likes : pv.likes || 0) + (dmL ? dmL.likes : demo.likes || 0);
+    var stLive = live.steam != null, bLive = pvL != null || dmL != null;
     var html = "";
-    html += kpiCard(fmtNum(last.players), "", "黑猴 Steam 在线人数（最近采集）");
-    html += kpiCard(fmtWan(last.reviews_total), last.reviews_rate != null ? "好评率 " + last.reviews_rate + "%" : "", "黑猴 Steam 累计评价（最近采集）");
-    html += kpiCard(fmtWan(pv.views), "", "钟馗·先导预告 播放");
-    html += kpiCard(fmtWan(demo.views), "", "钟馗·15分钟实机 播放");
-    html += kpiCard(fmtWan((pv.likes || 0) + (demo.likes || 0)), "", "钟馗两条视频 点赞合计");
+    html += kpiCard(fmtNum(sPlayers), stLive ? "实时" : "最近采集", "黑猴 Steam 在线人数");
+    html += kpiCard(fmtWan(sRev.reviews_total != null ? sRev.reviews_total : sRev.total),
+      (sRev.reviews_rate != null ? sRev.reviews_rate : sRev.rate) != null ? "好评率 " + (sRev.reviews_rate != null ? sRev.reviews_rate : sRev.rate) + "%" : "",
+      "黑猴 Steam 累计评价" + (stLive ? "（实时）" : "（最近采集）"));
+    html += kpiCard(fmtWan(pvViews), bLive ? "实时" : "最近采集", "钟馗·先导预告 播放");
+    html += kpiCard(fmtWan(dmViews), bLive ? "实时" : "最近采集", "钟馗·15分钟实机 播放");
+    html += kpiCard(fmtWan(likesSum), bLive ? "实时" : "最近采集", "钟馗两条视频 点赞合计");
     document.getElementById("kpis").innerHTML = html;
+  }
+
+  /* 实时通道轮询：每 60 秒请求一次，失败静默回落快照 */
+  function pollLive() {
+    if (!LIVE_API) return;
+    var ts = Date.now();
+    fetch(LIVE_API + "/steam?t=" + ts, { mode: "cors" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.ok) { live.steam = d; live.connected = true; renderKpis(); updateLiveStatus(); }
+      }).catch(function () { /* 静默 */ });
+    ["BV1sHePzWEbG", "BV1kS8H6VERt"].forEach(function (bv) {
+      fetch(LIVE_API + "/bili?bv=" + bv + "&t=" + ts, { mode: "cors" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d && d.ok) { live.bili[bv] = d.video; live.connected = true; renderKpis(); updateLiveStatus(); }
+        }).catch(function () { /* 静默 */ });
+    });
+  }
+  function updateLiveStatus() {
+    var el = document.getElementById("toolbarHint");
+    if (el && live.connected) {
+      el.textContent = (el.textContent || "").replace(/实时通道.*$/, "").trim() + " ｜ 实时通道已连接（60 秒轮询）";
+    }
   }
 
   /* ================= Steam 月度在线 ================= */
@@ -470,7 +506,9 @@
     Object.keys(charts).forEach(function (k) { charts[k].resize(); });
   });
 
-  // 页面打开期间每 5 分钟自动读取一次最新快照
+  // 实时通道：启动即轮询 + 每 60 秒一次；快照每 5 分钟自动读取
+  pollLive();
+  setInterval(pollLive, 60 * 1000);
   setInterval(function () {
     load().then(function (data) {
       var oldTime = L ? L.generated_at : "";
