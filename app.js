@@ -117,9 +117,25 @@
     return fetch("data/latest.json?t=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
   }
+  function fmtClock(iso) {
+    if (!iso) return "—";
+    var d = new Date(iso);
+    return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0") + ":" + String(d.getSeconds()).padStart(2, "0");
+  }
+  function refreshMeta() {
+    var el = document.getElementById("meta");
+    if (!el || !L) return;
+    var base = "快照（历史图表口径）采集于 " + L.generated_at + " · 每小时自动更新";
+    var livePart;
+    if (live.connected && live.lastFetchedAt) {
+      livePart = "｜ KPI 实时值 · 最近更新 " + fmtClock(live.lastFetchedAt) + "（60 秒轮询）";
+    } else {
+      livePart = "｜ KPI 暂用快照值（实时通道连接中/不可用，自动重试）";
+    }
+    el.textContent = base + livePart;
+  }
   function render() {
-    document.getElementById("meta").textContent =
-      "数据采集于 " + L.generated_at + " ｜ 每 6 小时自动采集（GitHub Actions）｜ 本页每 5 分钟自动读取最新快照";
+    refreshMeta();
     document.getElementById("toolbarHint").textContent = "已加载 " + (L.steam || []).length + " 天快照";
     renderKpis();
     switchTab(currentTab);
@@ -167,13 +183,13 @@
     fetch(LIVE_API + "/steam?t=" + ts, { mode: "cors" })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        if (d && d.ok) { live.steam = d; live.connected = true; renderKpis(); updateLiveStatus(); }
+        if (d && d.ok) { live.steam = d; live.connected = true; live.lastFetchedAt = d.fetched_at; renderKpis(); refreshMeta(); }
       }).catch(function () { /* 静默 */ });
     ["BV1sHePzWEbG", "BV1kS8H6VERt"].forEach(function (bv) {
       fetch(LIVE_API + "/bili?bv=" + bv + "&t=" + ts, { mode: "cors" })
         .then(function (r) { return r.json(); })
         .then(function (d) {
-          if (d && d.ok) { live.bili[bv] = d.video; live.connected = true; renderKpis(); updateLiveStatus(); }
+          if (d && d.ok) { live.bili[bv] = d.video; live.connected = true; live.lastFetchedAt = d.fetched_at; renderKpis(); refreshMeta(); }
         }).catch(function () { /* 静默 */ });
     });
   }
