@@ -1,45 +1,47 @@
-/* 「黑神话」IP 宣发监测面板 —— 交互式监测工具 */
+/* 「黑神话」IP 宣发监测面板 —— 交互式监测工具（黑白水墨主题 + 面板切换） */
 (function () {
   "use strict";
-  var GS = "#8B1E1E", GOLD = "#C9A227", BLUE = "#2E5E8C", GREEN = "#2E7D5B";
+  /* 黑白水墨灰度色板 */
+  var WHITE = "#F5F5F5", L2 = "#C4C4C4", L3 = "#8F8F8F", L4 = "#5C5C5C";
   var COMMON = {
     textStyle: { fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
     grid: { left: 62, right: 30, top: 42, bottom: 50 },
   };
-  /* 黑神话暗色主题（水墨底 + 金色刻度） */
-  echarts.registerTheme("heishen", {
-    textStyle: { color: "#D9CCB6", fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
-    legend: { textStyle: { color: "#C9BCA6" } },
+  /* 水墨暗色图表主题：白色轴线 / 灰阶文字 / 暗色悬浮框 */
+  echarts.registerTheme("ink", {
+    textStyle: { color: "#C9C9C9", fontFamily: "PingFang SC, Microsoft YaHei, sans-serif" },
+    legend: { textStyle: { color: "#C9C9C9" } },
     categoryAxis: {
-      axisLine: { lineStyle: { color: "rgba(201,162,39,.35)" } },
-      axisLabel: { color: "#A2937A" },
+      axisLine: { lineStyle: { color: "rgba(255,255,255,.3)" } },
+      axisLabel: { color: "#A6A6A6" },
       axisTick: { show: false },
       splitLine: { show: false },
     },
     valueAxis: {
       axisLine: { show: false },
-      axisLabel: { color: "#A2937A" },
+      axisLabel: { color: "#A6A6A6" },
       splitLine: { lineStyle: { color: "rgba(255,255,255,.08)" } },
-      nameTextStyle: { color: "#A2937A" },
+      nameTextStyle: { color: "#A6A6A6" },
     },
     tooltip: {
-      backgroundColor: "rgba(22,17,12,.95)",
-      borderColor: "rgba(201,162,39,.5)",
-      textStyle: { color: "#EFE3C8" },
-      extraCssText: "box-shadow: 0 8px 28px rgba(0,0,0,.6); border-radius: 8px;",
+      backgroundColor: "rgba(16,16,16,.96)",
+      borderColor: "rgba(255,255,255,.5)",
+      textStyle: { color: "#EFEFEF" },
+      extraCssText: "box-shadow: 0 8px 28px rgba(0,0,0,.7); border-radius: 8px;",
     },
     dataZoom: {
-      textStyle: { color: "#A2937A" },
-      backgroundColor: "rgba(20,16,11,.6)",
-      dataBackground: { lineStyle: { color: "rgba(201,162,39,.3)" }, areaStyle: { color: "rgba(201,162,39,.08)" } },
-      fillerColor: "rgba(201,162,39,.15)",
-      handleStyle: { color: "#C9A227" },
-      borderColor: "rgba(201,162,39,.3)",
+      textStyle: { color: "#A6A6A6" },
+      backgroundColor: "rgba(22,22,22,.7)",
+      dataBackground: { lineStyle: { color: "rgba(255,255,255,.3)" }, areaStyle: { color: "rgba(255,255,255,.06)" } },
+      fillerColor: "rgba(255,255,255,.12)",
+      handleStyle: { color: "#E8E8E8" },
+      borderColor: "rgba(255,255,255,.3)",
     },
   });
+
   var L = null;              // latest.json
   var charts = {};           // echarts 实例
-  var wbRange = 0;           // 微博表时间范围（0=全部）
+  var currentTab = "steam";
 
   function fmtWan(n) {
     if (n == null) return "—";
@@ -67,12 +69,28 @@
     var el = document.getElementById(id);
     if (!el) return null;
     if (charts[id]) { charts[id].dispose(); }
-    var c = echarts.init(el, "heishen");
+    var c = echarts.init(el, "ink");
     charts[id] = c;
     return c;
   }
   function zoom() {
     return [{ type: "inside", filterMode: "none" }, { type: "slider", height: 18, bottom: 4 }];
+  }
+  function shortName(name, n) {
+    if (!name) return "";
+    return name.length > n ? name.slice(0, n) + "…" : name;
+  }
+  function currentAnchors() {
+    var cur = (L.bili_current || []).slice();
+    if (!cur.length) {
+      cur = Object.keys(L.bili || {}).map(function (bv) {
+        var s = L.bili[bv];
+        var p = s.points && s.points.length ? s.points[s.points.length - 1] : {};
+        return { bvid: bv, name: s.name, pubdate: s.pubdate, views: p.views, likes: p.likes, coins: p.coins, shares: p.shares };
+      });
+    }
+    cur.sort(function (a, b) { return (a.pubdate || 0) - (b.pubdate || 0); });
+    return cur;
   }
 
   /* ================= 数据加载 ================= */
@@ -85,12 +103,7 @@
       "数据采集于 " + L.generated_at + " ｜ 每 6 小时自动采集（GitHub Actions）｜ 本页每 5 分钟自动读取最新快照";
     document.getElementById("toolbarHint").textContent = "已加载 " + (L.steam || []).length + " 天快照";
     renderKpis();
-    renderPlayers();
-    renderReviews();
-    renderBiliBar();
-    renderBiliLifetime();
-    renderWeibo();
-    renderHot();
+    switchTab(currentTab);
   }
   function boot() {
     load().then(function (data) {
@@ -125,7 +138,7 @@
     var markLines = [];
     ["August 2025", "August 2026"].forEach(function (m) {
       var i = sc.findIndex(function (r) { return r.month === m; });
-      if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "insideEndTop", color: GS, fontSize: 11 }, lineStyle: { color: GS, type: "dashed" } });
+      if (i >= 0) markLines.push({ xAxis: i, label: { formatter: m === "August 2025" ? "2025-08-20 钟馗首曝" : "2026-08-20 实机演示", position: "insideEndTop", color: "#E8E8E8", fontSize: 11 }, lineStyle: { color: "#FFFFFF", type: "dashed" } });
     });
     c.setOption({
       tooltip: { trigger: "axis" },
@@ -138,13 +151,13 @@
       ],
       dataZoom: zoom(),
       series: [
-        { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: BLUE, opacity: .8 }, barMaxWidth: 16 },
-        { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: GS }, markLine: { symbol: "none", data: markLines } },
+        { name: "月均在线", type: "bar", data: sc.map(function (r) { return Math.round(r.avg); }), itemStyle: { color: L3, opacity: .8 }, barMaxWidth: 16 },
+        { name: "月峰值在线", type: "line", yAxisIndex: 1, data: sc.map(function (r) { return r.peak; }), itemStyle: { color: WHITE }, markLine: { symbol: "none", data: markLines } },
       ],
     }, true);
   }
 
-  /* ================= Steam 评价：发售至今（总评论数 & 月好评率） ================= */
+  /* ================= Steam 评价：发售至今 ================= */
   function renderReviews() {
     var c = initChart("c_reviews");
     if (!c) return;
@@ -172,11 +185,10 @@
           trigger: "axis",
           formatter: function (params) {
             var i = params[0].dataIndex;
-            var lines = ["<b>" + months[i] + "</b>",
+            return ["<b>" + months[i] + "</b>",
               "当月新增评价：" + fmtNum(adds[i]),
               "累计评价（直方图口径）：" + fmtNum(cum[i]),
-              "月好评率：" + (rates[i] != null ? rates[i] + "%" : "—")];
-            return lines.join("<br>");
+              "月好评率：" + (rates[i] != null ? rates[i] + "%" : "—")].join("<br>");
           },
         },
         legend: { top: 4 },
@@ -190,19 +202,18 @@
         series: [
           {
             name: "累计评价（直方图口径）", type: "line", smooth: true, data: cum,
-            itemStyle: { color: BLUE }, areaStyle: { opacity: .14 },
+            itemStyle: { color: WHITE }, areaStyle: { opacity: .10 },
             markLine: mark.length ? {
               symbol: "none", data: mark,
-              label: { fontSize: 10, color: GOLD, formatter: "{b}" },
-              lineStyle: { color: GOLD, type: "dashed" },
+              label: { fontSize: 10, color: "#C9C9C9", formatter: "{b}" },
+              lineStyle: { color: "#FFFFFF", type: "dashed" },
             } : undefined,
           },
-          { name: "月好评率", type: "bar", yAxisIndex: 1, data: rates, barMaxWidth: 14, itemStyle: { color: GREEN, opacity: .8 } },
+          { name: "月好评率", type: "bar", yAxisIndex: 1, data: rates, barMaxWidth: 14, itemStyle: { color: L3, opacity: .8 } },
         ],
       }, true);
       return;
     }
-    // 兜底：无直方图时退回日度序列
     if (!steam.length) return;
     c.setOption({
       tooltip: { trigger: "axis" },
@@ -215,30 +226,13 @@
       ],
       dataZoom: zoom(),
       series: [
-        { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: BLUE }, areaStyle: { opacity: .12 } },
-        { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: GREEN } },
+        { name: "累计评价", type: "line", smooth: true, data: steam.map(function (s) { return s.reviews_total; }), itemStyle: { color: WHITE }, areaStyle: { opacity: .1 } },
+        { name: "好评率", type: "line", yAxisIndex: 1, data: steam.map(function (s) { return s.reviews_rate; }), itemStyle: { color: L3 } },
       ],
     }, true);
   }
 
   /* ================= B站官号最新7视频：当前值对比 ================= */
-  function shortName(name, n) {
-    if (!name) return "";
-    return name.length > n ? name.slice(0, n) + "…" : name;
-  }
-  function currentAnchors() {
-    var cur = (L.bili_current || []).slice();
-    if (!cur.length) {
-      // 兜底：从历史锚点序列取各视频最新值
-      cur = Object.keys(L.bili || {}).map(function (bv) {
-        var s = L.bili[bv];
-        var p = s.points && s.points.length ? s.points[s.points.length - 1] : {};
-        return { bvid: bv, name: s.name, pubdate: s.pubdate, views: p.views, likes: p.likes, coins: p.coins, shares: p.shares };
-      });
-    }
-    cur.sort(function (a, b) { return (a.pubdate || 0) - (b.pubdate || 0); });  // 发布时间递增
-    return cur;
-  }
   function renderBiliBar() {
     var cur = currentAnchors();
     var c = initChart("c_bili_bar");
@@ -246,10 +240,10 @@
     var names = cur.map(function (v) { return shortName(v.name, 8); });
     var fullNames = cur.map(function (v) { return v.name; });
     var metrics = [
-      { key: "views", name: "播放", color: GS },
-      { key: "likes", name: "点赞", color: GOLD },
-      { key: "coins", name: "投币", color: BLUE },
-      { key: "shares", name: "分享", color: GREEN },
+      { key: "views", name: "播放", color: WHITE },
+      { key: "likes", name: "点赞", color: L2 },
+      { key: "coins", name: "投币", color: L3 },
+      { key: "shares", name: "分享", color: L4 },
     ];
     c.setOption({
       tooltip: {
@@ -271,7 +265,7 @@
     }, true);
   }
 
-  /* ================= B站官号最新7视频：发布至今（同款柱状图） ================= */
+  /* ================= B站官号最新7视频：发布至今 ================= */
   function renderBiliLifetime() {
     var cur = currentAnchors();
     var c = initChart("c_bili_lifetime");
@@ -286,11 +280,11 @@
       return (v.views != null && days[i]) ? Math.round(v.views / days[i]) : null;
     });
     var metrics = [
-      { key: "views", name: "播放", color: GS },
-      { key: "likes", name: "点赞", color: GOLD },
-      { key: "coins", name: "投币", color: BLUE },
-      { key: "shares", name: "分享", color: GREEN },
-      { key: "avg", name: "日均播放", color: "#B08D1B" },
+      { key: "views", name: "播放", color: WHITE },
+      { key: "likes", name: "点赞", color: L2 },
+      { key: "coins", name: "投币", color: L3 },
+      { key: "shares", name: "分享", color: L4 },
+      { key: "avg", name: "日均播放", color: "#DCDCDC" },
     ];
     c.setOption({
       tooltip: {
@@ -322,9 +316,7 @@
 
   /* ================= 微博热搜表 ================= */
   function renderWeibo() {
-    var days = (L.weibo || []).slice();
-    if (wbRange > 0) days = days.slice(-wbRange);
-    days.reverse();
+    var days = (L.weibo || []).slice().reverse();
     var html = "<table><tr><th>日期</th><th>相关话题与位次（#N = 热搜位次）</th></tr>";
     if (!days.length) html += "<tr><td colspan='2'>暂无数据</td></tr>";
     days.forEach(function (d) {
@@ -335,8 +327,8 @@
       html += "<tr><td style='white-space:nowrap'>" + d.date + "</td><td>" + (chips || "当日无相关上榜话题") + "</td></tr>";
     });
     html += "</table>";
-    var wbEl = document.getElementById("weibo_table");
-    if (wbEl) wbEl.innerHTML = html;
+    var el = document.getElementById("weibo_table");
+    if (el) el.innerHTML = html;
   }
 
   /* ================= B站检索热度 ================= */
@@ -348,8 +340,25 @@
     });
     if (!hot.length) html += "<tr><td colspan='4'>暂无数据</td></tr>";
     html += "</table>";
-    var hotEl = document.getElementById("hot_table");
-    if (hotEl) hotEl.innerHTML = html;
+    var el = document.getElementById("hot_table");
+    if (el) el.innerHTML = html;
+  }
+
+  /* ================= 标签页切换 ================= */
+  var TAB_RENDERS = {
+    steam: [renderPlayers, renderReviews],
+    bili: [renderBiliBar, renderBiliLifetime],
+    public: [renderWeibo, renderHot],
+  };
+  function switchTab(name) {
+    currentTab = name;
+    document.querySelectorAll("#tabnav button").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-tab") === name);
+    });
+    document.querySelectorAll(".panel").forEach(function (p) {
+      p.classList.toggle("active", p.id === "panel-" + name);
+    });
+    (TAB_RENDERS[name] || []).forEach(function (fn) { fn(); });
   }
 
   /* ================= 工具栏 ================= */
@@ -411,7 +420,7 @@
         lines.push("· 最近观测日无相关上榜话题");
       }
       lines.push("");
-      lines.push("（数据来源：黑神话 IP 宣发监测面板 · 每日 23:30 自动更新）");
+      lines.push("（数据来源：黑神话 IP 宣发监测面板 · 每 6 小时自动更新）");
       var text = lines.join("\n");
       document.getElementById("briefText").value = text;
       document.getElementById("briefMask").style.display = "block";
@@ -431,20 +440,18 @@
   };
   window.Tool = Tool;
 
-  /* 微博时间范围切换 */
-  document.getElementById("wbRange").addEventListener("click", function (e) {
-    var btn = e.target;
-    if (btn.tagName !== "BUTTON") return;
-    wbRange = parseInt(btn.getAttribute("data-n"), 10) || 0;
-    this.querySelectorAll("button").forEach(function (b) { b.classList.toggle("on", b === btn); });
-    renderWeibo();
+  /* 标签页点击 */
+  document.getElementById("tabnav").addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    switchTab(btn.getAttribute("data-tab"));
   });
 
   window.addEventListener("resize", function () {
     Object.keys(charts).forEach(function (k) { charts[k].resize(); });
   });
 
-  // 页面打开期间每 5 分钟自动读取一次最新快照（数据有新采集即可无感更新）
+  // 页面打开期间每 5 分钟自动读取一次最新快照
   setInterval(function () {
     load().then(function (data) {
       var oldTime = L ? L.generated_at : "";
@@ -453,7 +460,7 @@
       if (oldTime && oldTime !== L.generated_at) {
         document.getElementById("toolbarHint").textContent = "已自动更新：" + L.generated_at;
       }
-    }).catch(function () { /* 网络波动静默忽略，下次再试 */ });
+    }).catch(function () { /* 网络波动静默忽略 */ });
   }, 5 * 60 * 1000);
 
   // 迷幻入场：滚动到视口内的 .reveal 元素模糊渐显
