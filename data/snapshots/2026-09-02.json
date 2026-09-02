@@ -1,8 +1,8 @@
 {
  "date": "2026-09-02",
- "collected_at": "2026-09-02 20:31:12 (UTC+8)",
+ "collected_at": "2026-09-02 20:34:32 (UTC+8)",
  "steam": {
-  "players": 29559,
+  "players": 31030,
   "reviews": {
    "total": 1209763,
    "positive": 1167380,
@@ -282,97 +282,112 @@
  "bili": {
   "anchors": [
    {
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "bvid": "BV1SQ4y1V7do",
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "pubdate": 1701993600,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 16043225,
     "danmaku": 31519,
     "likes": 835245,
     "coins": 646307,
     "favorites": 179661,
     "shares": 354782,
-    "pubdate": 1702001851,
-    "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "bvid": "BV1wz421e7wS",
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "pubdate": 1716076800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 8147911,
     "danmaku": 13090,
     "likes": 433317,
     "coins": 218126,
     "favorites": 57435,
     "shares": 141198,
-    "pubdate": 1716120300,
-    "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "bvid": "BV1ex4y1J7JE",
+    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "pubdate": 1717804800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 13591181,
     "danmaku": 13323,
     "likes": 573095,
     "coins": 298726,
     "favorites": 91505,
     "shares": 214302,
-    "pubdate": 1717795827,
-    "bvid": "BV1ex4y1J7JE",
-    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命"
+    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "bvid": "BV1oH4y1c7Kk",
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "pubdate": 1723075200,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 24763040,
     "danmaku": 112178,
     "likes": 1561817,
     "coins": 1324701,
     "favorites": 368496,
     "shares": 629576,
-    "pubdate": 1723082400,
-    "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "bvid": "BV1sHePzWEbG",
+    "name": "游戏科学新作《黑神话：钟馗》先导预告",
+    "pubdate": 1755657600,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 16502147,
     "danmaku": 256671,
     "likes": 1073798,
     "coins": 532230,
     "favorites": 190682,
     "shares": 542028,
-    "pubdate": 1755633699,
-    "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告"
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "bvid": "BV11PcgzWEJp",
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "pubdate": 1770940800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 10973981,
     "danmaku": 84184,
     "likes": 708882,
     "coins": 353981,
     "favorites": 122545,
     "shares": 307516,
-    "pubdate": 1770688800,
-    "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    },
    {
-    "title": "《黑神话：钟馗》15分钟实机演示",
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示",
+    "pubdate": 1787270400,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 12456751,
     "danmaku": 148237,
     "likes": 928224,
     "coins": 718711,
     "favorites": 225291,
     "shares": 496959,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示"
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "preserved_from": "2026-09-02 20:31:12 (UTC+8)"
    }
   ],
   "hot": [],
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-09-01",
-  "topics": [],
-  "error": "archive not available"
+  "date": "2026-09-02",
+  "topics": []
  },
- "errors": {}
+ "errors": {
+  "bili_preserved": "7 videos kept from previous snapshot"
+ }
 }
