@@ -54,3 +54,11 @@ python3 -m http.server 8000   # 打开 http://localhost:8000 预览
 ## 部署
 
 - GitHub Pages（main 分支根目录）；采集任务由 GitHub Actions 定时执行并提交数据。
+
+## 实时通道（腾讯云 SCF）
+
+- 浏览器每 60 秒轮询腾讯云函数（广州），KPI 实时刷新；失败静默回落快照
+- 云函数代码：`tencent-scf/index.js`（Web 函数，Node.js 原生 http，无需依赖）
+- 端点：`GET /steam`（Steam 在线+评价）、`GET /bili?bv=BVxx`（B站单视频）
+- 架构：浏览器 → SCF（国内机房）→ Steam/B站官方接口；B站因国内出口而免于数据中心风控
+- 免费额度：腾讯云 SCF 每月 40 万 GBs + 100 万次调用免费，本工具用量远低于额度
