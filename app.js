@@ -51,7 +51,7 @@
   }
   function render() {
     document.getElementById("meta").textContent =
-      "数据截至 " + L.generated_at + " ｜ 每日 23:30（UTC+8）自动更新";
+      "数据采集于 " + L.generated_at + " ｜ 每 6 小时自动采集（GitHub Actions）｜ 本页每 5 分钟自动读取最新快照";
     document.getElementById("toolbarHint").textContent = "已加载 " + (L.steam || []).length + " 天快照";
     renderKpis();
     renderPlayers();
@@ -79,8 +79,8 @@
     var wb = L.weibo || [];
     var wbTopics = wb.reduce(function (a, d) { return a + (d.topics ? d.topics.length : 0); }, 0);
     var html = "";
-    html += kpiCard(fmtNum(last.players), "", "黑猴 Steam 实时在线（人）");
-    html += kpiCard(fmtWan(last.reviews_total), last.reviews_rate != null ? "好评率 " + last.reviews_rate + "%" : "", "黑猴 Steam 累计评价");
+    html += kpiCard(fmtNum(last.players), "", "黑猴 Steam 在线人数（最近采集）");
+    html += kpiCard(fmtWan(last.reviews_total), last.reviews_rate != null ? "好评率 " + last.reviews_rate + "%" : "", "黑猴 Steam 累计评价（最近采集）");
     html += kpiCard(fmtWan(pv.views), "", "钟馗·先导预告 播放");
     html += kpiCard(fmtWan(demo.views), "", "钟馗·15分钟实机 播放");
     html += kpiCard(fmtWan((pv.likes || 0) + (demo.likes || 0)), "", "钟馗两条视频 点赞合计");
@@ -415,6 +415,18 @@
   window.addEventListener("resize", function () {
     Object.keys(charts).forEach(function (k) { charts[k].resize(); });
   });
+
+  // 页面打开期间每 5 分钟自动读取一次最新快照（数据有新采集即可无感更新）
+  setInterval(function () {
+    load().then(function (data) {
+      var oldTime = L ? L.generated_at : "";
+      L = data;
+      render();
+      if (oldTime && oldTime !== L.generated_at) {
+        document.getElementById("toolbarHint").textContent = "已自动更新：" + L.generated_at;
+      }
+    }).catch(function () { /* 网络波动静默忽略，下次再试 */ });
+  }, 5 * 60 * 1000);
 
   boot();
 })();
