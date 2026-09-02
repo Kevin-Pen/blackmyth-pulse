@@ -57,6 +57,11 @@ def collect_all():
                     kept += 1
         if kept:
             errors["bili_preserved"] = "%d videos kept from previous snapshot" % kept
+        # 热榜同样保留：新热榜为空（风控/接口异常）时沿用旧值
+        old_hot = (old.get("bili") or {}).get("hot") or []
+        if not (snap["bili"].get("hot") or []) and old_hot:
+            snap["bili"]["hot"] = old_hot
+            errors["bili_hot_preserved"] = "hot list kept from previous snapshot"
     try:
         snap["weibo"] = weibo.collect(date_str)
     except Exception as e:  # noqa: BLE001
