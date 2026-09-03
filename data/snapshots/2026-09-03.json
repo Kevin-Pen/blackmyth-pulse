@@ -1,12 +1,12 @@
 {
  "date": "2026-09-03",
- "collected_at": "2026-09-03 09:16:01 (UTC+8)",
+ "collected_at": "2026-09-03 13:55:24 (UTC+8)",
  "steam": {
-  "players": 8061,
+  "players": 16490,
   "reviews": {
-   "total": 1209823,
-   "positive": 1167437,
-   "negative": 42386,
+   "total": 1209852,
+   "positive": 1167462,
+   "negative": 42390,
    "rate": 96.5
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17644.28,
+    "avg": 17614.22,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 244,
-     "recommendations_down": 13
+     "recommendations_up": 264,
+     "recommendations_down": 15
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
