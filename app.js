@@ -143,6 +143,7 @@
     load().then(function (data) {
       L = data;
       render();
+      pollLive();
     }).catch(function (e) {
       document.getElementById("meta").textContent = "数据加载失败：" + e.message;
       document.getElementById("kpis").innerHTML = kpiCard("—", "", "数据暂不可用");
@@ -177,7 +178,7 @@
 
   /* 实时通道轮询：每 60 秒请求一次，失败静默回落快照 */
   function pollLive() {
-    if (!LIVE_API) return;
+    if (!LIVE_API || !L) return;
     var ts = Date.now();
     fetch(LIVE_API + "/steam?t=" + ts, { mode: "cors" })
       .then(function (r) { return r.json(); })
@@ -526,8 +527,7 @@
     Object.keys(charts).forEach(function (k) { charts[k].resize(); });
   });
 
-  // 实时通道：启动即轮询 + 每 60 秒一次；快照每 5 分钟自动读取
-  pollLive();
+  // 实时通道：数据加载完成后启动轮询 + 每 60 秒一次；快照每 5 分钟自动读取
   setInterval(pollLive, 60 * 1000);
   setInterval(function () {
     load().then(function (data) {
