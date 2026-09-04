@@ -25,14 +25,22 @@ def collect_all():
     t = cn_now()
     date_str = t.strftime("%Y-%m-%d")
     path = os.path.join(SNAP, "%s.json" % date_str)
-    # 当天早前的成功数据：单源失败时保留，避免失败覆盖成功
+    # 回退源：优先当天早前快照；当天不存在（新的一天首跑）时用最近一天的快照，
+    # 避免跨天采集失败导致数据断档
     old = {}
-    if os.path.exists(path):
-        try:
-            with open(path, encoding="utf-8") as f:
-                old = json.load(f)
-        except Exception:  # noqa: BLE001
-            old = {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            old = json.load(f)
+    except Exception:  # noqa: BLE001
+        for fn in sorted(os.listdir(SNAP), reverse=True):
+            if not fn.endswith(".json") or fn == "%s.json" % date_str:
+                continue
+            try:
+                with open(os.path.join(SNAP, fn), encoding="utf-8") as f:
+                    old = json.load(f)
+                break
+            except Exception:  # noqa: BLE001
+                continue
     snap = {"date": date_str, "collected_at": t.strftime("%Y-%m-%d %H:%M:%S") + " (UTC+8)"}
     errors = {}
     for name, fn in (("steam", steam.collect), ("bili", bilibili.collect)):
