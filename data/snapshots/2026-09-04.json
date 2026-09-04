@@ -1,12 +1,12 @@
 {
  "date": "2026-09-04",
- "collected_at": "2026-09-04 14:01:38 (UTC+8)",
+ "collected_at": "2026-09-04 19:29:05 (UTC+8)",
  "steam": {
-  "players": 15274,
+  "players": 22829,
   "reviews": {
-   "total": 1209998,
-   "positive": 1167598,
-   "negative": 42400,
+   "total": 1210036,
+   "positive": 1167634,
+   "negative": 42402,
    "rate": 96.5
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17855.54,
+    "avg": 17860.29,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 379,
-     "recommendations_down": 30
+     "recommendations_up": 399,
+     "recommendations_down": 33
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -285,97 +285,51 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16044299,
-    "danmaku": 31519,
-    "likes": 835257,
-    "coins": 646317,
-    "favorites": 179646,
-    "shares": 354784,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
     "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 8148322,
-    "danmaku": 13090,
-    "likes": 433322,
-    "coins": 218129,
-    "favorites": 57432,
-    "shares": 141198,
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1ex4y1J7JE",
     "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
     "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13592351,
-    "danmaku": 13323,
-    "likes": 573119,
-    "coins": 298738,
-    "favorites": 91501,
-    "shares": 214303,
-    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
     "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 24767392,
-    "danmaku": 112184,
-    "likes": 1561871,
-    "coins": 1324758,
-    "favorites": 368475,
-    "shares": 629582,
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
     "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16505079,
-    "danmaku": 256680,
-    "likes": 1073841,
-    "coins": 532256,
-    "favorites": 190671,
-    "shares": 542037,
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV11PcgzWEJp",
     "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
     "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 10976341,
-    "danmaku": 84199,
-    "likes": 708919,
-    "coins": 354018,
-    "favorites": 122549,
-    "shares": 307524,
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "preserved_from": "2026-09-04 13:54:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：钟馗》15分钟实机演示",
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示",
+    "pubdate": 1787270400,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 12543986,
     "danmaku": 148644,
     "likes": 931943,
     "coins": 719955,
     "favorites": 225845,
     "shares": 497511,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示"
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "preserved_from": "2026-09-04 14:01:38 (UTC+8)"
    }
   ],
   "hot": [
@@ -547,7 +501,7 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "6 videos kept from previous snapshot",
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
