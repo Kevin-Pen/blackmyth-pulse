@@ -91,12 +91,14 @@
         return { bvid: bv, name: s.name, pubdate: s.pubdate, views: p.views, likes: p.likes, coins: p.coins, shares: p.shares };
       });
     }
-    // 容错：某视频任一指标缺值（采集被风控拦截/部分失败）时，逐指标回退历史最近有效值
+    // 实时值优先（腾讯云通道），缺失指标逐级回退历史序列最近有效值
     cur = cur.map(function (v) {
       var s = L.bili[v.bvid];
+      var lv = live.bili[v.bvid];
       var out = {};
       Object.keys(v).forEach(function (k) { out[k] = v[k]; });
       ["views", "likes", "coins", "shares"].forEach(function (k) {
+        if (lv && lv[k] != null) { out[k] = lv[k]; return; }
         if (out[k] == null && s && s.points && s.points.length) {
           for (var i = s.points.length - 1; i >= 0; i--) {
             if (s.points[i][k] != null) { out[k] = s.points[i][k]; break; }
@@ -182,13 +184,18 @@
       .then(function (d) {
         if (d && d.ok) { live.steam = d; live.connected = true; live.lastFetchedAt = d.fetched_at; renderKpis(); refreshMeta(); }
       }).catch(function () { /* 静默 */ });
-    ["BV1sHePzWEbG", "BV1kS8H6VERt"].forEach(function (bv) {
-      fetch(LIVE_API + "/bili?bv=" + bv + "&t=" + ts, { mode: "cors" })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          if (d && d.ok) { live.bili[bv] = d.video; live.connected = true; live.lastFetchedAt = d.fetched_at; renderKpis(); refreshMeta(); }
-        }).catch(function () { /* 静默 */ });
-    });
+    // 一次拉全部 7 个视频（腾讯云出口对 B站友好），KPI 与两个 B站图表同步实时
+    var bvs = (L.bili_current || []).map(function (v) { return v.bvid; }).join(",");
+    if (!bvs) return;
+    fetch(LIVE_API + "/bili-list?bvs=" + bvs + "&t=" + ts, { mode: "cors" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.ok && d.videos && d.videos.length) {
+          d.videos.forEach(function (v) { if (v.views != null) live.bili[v.bvid] = v; });
+          live.connected = true; live.lastFetchedAt = d.fetched_at;
+          renderKpis(); renderBiliBar(); renderBiliLifetime(); refreshMeta();
+        }
+      }).catch(function () { /* 静默 */ });
   }
   function updateLiveStatus() {
     var el = document.getElementById("toolbarHint");
@@ -352,7 +359,7 @@
       { key: "likes", name: "点赞", color: PINK },
       { key: "coins", name: "投币", color: BLUE },
       { key: "shares", name: "分享", color: YELLOW },
-      { key: "avg", name: "日均播放", color: GREEN },
+      { key: "avg", name: "全周期日均播放", color: GREEN },
     ];
     c.setOption({
       tooltip: {
