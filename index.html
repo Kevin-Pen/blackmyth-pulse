@@ -163,6 +163,23 @@
   .modal textarea:focus { outline: none; box-shadow: 6px 6px 0 0 rgba(0,0,0,1); }
   .modal .acts { margin-top: 12px; text-align: right; }
 
+  /* ===== 移动端优化 ===== */
+  @media (max-width: 600px) {
+    header { padding: 24px 5% 20px; }
+    header h1 { font-size: 21px; letter-spacing: 3px; }
+    header .sub { font-size: 12px; }
+    .chart { height: 280px; }
+    .chart.tall { height: 320px; }
+    .toolbar .btn { flex: 1 1 42%; }
+    .tabnav button { flex: 1 1 auto; padding: 9px 8px; font-size: 12px; letter-spacing: .03em; }
+    .kpi .v { font-size: 22px; }
+    .sec h2 { font-size: 15px; }
+    #weibo_table, #hot_table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #weibo_table table { min-width: 460px; }
+    #hot_table table { min-width: 520px; }
+    .modal textarea { min-height: 200px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
   }
@@ -271,6 +288,6 @@
   </div>
 </div>
 
-<script src="app.js?v=20260902n"></script>
+<script src="app.js?v=20260902o"></script>
 </body>
 </html>
