@@ -1,12 +1,12 @@
 {
  "date": "2026-09-04",
- "collected_at": "2026-09-04 06:39:04 (UTC+8)",
+ "collected_at": "2026-09-04 09:04:43 (UTC+8)",
  "steam": {
-  "players": 5871,
+  "players": 7286,
   "reviews": {
-   "total": 1209968,
-   "positive": 1167572,
-   "negative": 42396,
+   "total": 1209976,
+   "positive": 1167579,
+   "negative": 42397,
    "rate": 96.5
   },
   "steamcharts": [
@@ -137,13 +137,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17641.85,
+    "avg": 17894.74,
     "peak": 47042.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1788393600,
+   "end_date": 1788480000,
    "rollups": [
     {
      "date": 1722470400,
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 344,
-     "recommendations_down": 25
+     "recommendations_up": 356,
+     "recommendations_down": 27
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -297,15 +297,7 @@
     "bvid": "BV1ex4y1J7JE",
     "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
     "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13592190,
-    "danmaku": 13323,
-    "likes": 573117,
-    "coins": 298738,
-    "favorites": 91500,
-    "shares": 214303,
-    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-04 03:57:29 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
@@ -501,7 +493,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
