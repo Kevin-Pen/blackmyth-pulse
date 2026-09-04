@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛博悟空 · 桌宠原型 v2</title>
+<style>
+  body { background: #f5f5f5; margin: 0; font-family: monospace; }
+  .tip { padding: 12px; color: #444; line-height: 1.7; }
+  canvas { position: fixed; z-index: 9999; cursor: grab; image-rendering: pixelated; }
+  canvas:active { cursor: grabbing; }
+</style>
+</head>
+<body>
+<div class="tip">
+  <b>赛博悟空 · 原型 v2</b><br>
+  拖拽移动｜点击：跳起来+金箍棒闪青光｜待机：溜达、护目镜扫描线、天线灯闪烁、肩棒微光<br>
+  造型：金箍棒横搭肩头、双手搭棒、头盔遮住大部分脸（霓虹深渊感）
+</div>
+<canvas id="pet"></canvas>
+<script>
+(function () {
+  var S = 1.6;                 // 显示缩放
+  var CW = 160, CH = 172;     // 逻辑画布
+  var canvas = document.getElementById("pet");
+  canvas.width = CW; canvas.height = CH;
+  canvas.style.width = (CW * S) + "px";
+  canvas.style.height = (CH * S) + "px";
+  var ctx = canvas.getContext("2d");
+
+  // ===== 野兽派主题色板 =====
+  var BLACK = "#000000", WHITE = "#FFFFFF";
+  var PINK = "#FF006E", CYAN = "#00D9FF", YELLOW = "#FF9500", GREEN = "#CCFF00";
+  var DARK = "#161616", DARKER = "#0B0B0B";
+  var GRAY = "#D9D9D9";
+
+  function rr(x, y, w, h, fill, stroke, lw) {
+    if (fill) { ctx.fillStyle = fill; ctx.fillRect(x, y, w, h); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 2; ctx.strokeRect(x + 1, y + 1, w - 2, h - 2); }
+  }
+
+  // ===== 赛博悟空绘制（前端视角，棒横搭肩头）=====
+  function drawWukong(t, o) {
+    var bob = Math.sin(t * 0.12) * 2;      // 待机浮动
+    var walk = o.moving ? Math.sin(t * 0.4) * 2 : 0;
+    ctx.save();
+    ctx.translate(CW / 2, 4 + bob);
+    ctx.scale(o.dir, 1);
+    ctx.translate(-CW / 2, 0);
+
+    // ---- 尾巴（身后右侧）----
+    ctx.strokeStyle = BLACK; ctx.lineWidth = 6; ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(96, 124);
+    ctx.quadraticCurveTo(126, 122, 132, 96 + Math.sin(t * 0.2) * 3);
+    ctx.stroke();
+    ctx.strokeStyle = PINK; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(128, 100); ctx.lineTo(133, 96 + Math.sin(t * 0.2) * 3); ctx.stroke();
+
+    // ---- 金箍棒（肩后横杆，两端粉色，棒身黄）----
+    var glow = (Math.sin(t * 0.08) > 0.7) ? PINK : null;
+    rr(4, 72 + walk, 152, 8, YELLOW, BLACK, 2);
+    rr(4, 72 + walk, 12, 8, PINK, BLACK, 2);
+    rr(144, 72 + walk, 12, 8, PINK, BLACK, 2);
+    if (glow) { rr(6, 73 + walk, 148, 6, glow, null, 0); ctx.globalAlpha = 0.25; ctx.fillStyle = PINK; ctx.fillRect(6, 73 + walk, 148, 6); ctx.globalAlpha = 1; }
+
+    // ---- 腿（黑裤 + 黄靴）----
+    rr(58, 118, 18, 34, BLACK, BLACK, 2);
+    rr(84, 118, 18, 34, BLACK, BLACK, 2);
+    rr(56, 144, 22, 10, YELLOW, BLACK, 2);
+    rr(82, 144, 22, 10, YELLOW, BLACK, 2);
+
+    // ---- 躯干（白色战甲大色块）----
+    rr(52, 80, 56, 44, WHITE, BLACK, 2);
+    rr(60, 96, 14, 14, PINK, BLACK, 2);       // 左胸粉色能量块
+    rr(86, 96, 14, 14, PINK, BLACK, 2);       // 右胸粉色能量块
+
+    // ---- 手臂：从躯干抬到棒上，双拳搭棒 ----
+    ctx.strokeStyle = BLACK; ctx.lineWidth = 10; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(56, 88); ctx.lineTo(36, 78); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(104, 88); ctx.lineTo(124, 78); ctx.stroke();
+    rr(26, 72, 16, 12, WHITE, BLACK, 2);      // 左拳
+    rr(118, 72, 16, 12, WHITE, BLACK, 2);     // 右拳
+
+    // ---- 头盔大色块（遮住大部分脸）----
+    rr(56, 6, 48, 68, DARK, BLACK, 2);
+    // 护目镜（青色大条 + 扫描线）
+    rr(60, 26, 40, 18, CYAN, BLACK, 2);
+    var sx = 61 + ((t * 14) % 38);            // 扫描光带
+    ctx.fillStyle = WHITE; ctx.globalAlpha = 0.55;
+    ctx.fillRect(sx, 27, 4, 16); ctx.globalAlpha = 1;
+    // 面甲下部（深色呼吸灯）
+    rr(64, 48, 32, 8, DARKER, BLACK, 2);
+    if (Math.sin(t * 0.15) > 0.4) { rr(68, 50, 8, 4, PINK, null, 0); rr(84, 50, 8, 4, PINK, null, 0); }
+    // 露出的下巴/嘴（白色小块）
+    rr(68, 58, 24, 12, WHITE, BLACK, 2);
+    rr(76, 63, 8, 4, BLACK, null, 0);
+    // 两侧耳部（内粉）
+    rr(46, 40, 10, 12, DARK, BLACK, 2);
+    rr(104, 40, 10, 12, DARK, BLACK, 2);
+    rr(50, 44, 4, 4, PINK, null, 0);
+    rr(106, 44, 4, 4, PINK, null, 0);
+    // 天线 + 呼吸灯（绿）
+    ctx.strokeStyle = BLACK; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(80, 6); ctx.lineTo(80, -2); ctx.stroke();
+    var blink = (Math.floor(t * 1.2) % 2 === 0);
+    ctx.fillStyle = blink ? GREEN : DARKER;
+    ctx.fillRect(76, -8, 8, 8);
+    ctx.strokeRect(76, -8, 8, 8);
+
+    // ---- 两侧肩甲（黑块）----
+    rr(46, 78, 12, 12, DARK, BLACK, 2);
+    rr(102, 78, 12, 12, DARK, BLACK, 2);
+
+    ctx.restore();
+  }
+
+  // ===== 状态 =====
+  var pet = {
+    x: window.innerWidth - 256 - 60, y: window.innerHeight - 275 - 40,
+    vx: 0.6, vy: 0, dir: -1,
+    dragging: false, offX: 0, offY: 0,
+    jumping: false, moving: false,
+    bubble: null,
+  };
+  var LINES = [
+    "呔！妖怪哪里走！",
+    "8月20日，直面天命！",
+    "本大圣在此，实时数据尔等看好~",
+    "钟馗老兄的实机演示不错嘛",
+    "金箍棒下无妖怪，数据面板无断档！",
+    "赛博西游，启动！",
+  ];
+  var lineIdx = 0;
+
+  function tick(dt) {
+    pet.moving = false;
+    if (!pet.dragging && !pet.jumping) {
+      pet.x += pet.vx * dt;
+      pet.moving = true;
+      if (pet.x < 8) { pet.x = 8; pet.vx = Math.abs(pet.vx); pet.dir = 1; }
+      if (pet.x > window.innerWidth - 256 - 8) { pet.x = window.innerWidth - 256 - 8; pet.vx = -Math.abs(pet.vx); pet.dir = -1; }
+      if (Math.random() < 0.004) { pet.vx = (Math.random() < 0.5 ? -1 : 1) * (0.3 + Math.random() * 0.7); pet.dir = pet.vx < 0 ? -1 : 1; }
+    }
+    if (pet.jumping) {
+      pet.vy += 0.6 * dt;
+      pet.y += pet.vy;
+      if (pet.y >= window.innerHeight - 275 - 40) {
+        pet.y = window.innerHeight - 275 - 40;
+        pet.jumping = false; pet.vy = 0;
+      }
+    }
+    if (pet.bubble) { pet.bubble.t -= dt; if (pet.bubble.t <= 0) pet.bubble = null; }
+  }
+
+  function render(t) {
+    ctx.clearRect(0, 0, CW, CH);
+    drawWukong(t, pet);
+    if (pet.bubble) {
+      ctx.font = "bold 13px 'Microsoft YaHei', monospace";
+      var tw = ctx.measureText(pet.bubble.text).width;
+      var bw = tw + 20, bh = 30;
+      var bx = pet.dir === 1 ? -bw + 6 : CW - 6;
+      var by = -bh - 14;
+      ctx.fillStyle = WHITE; ctx.strokeStyle = BLACK; ctx.lineWidth = 2;
+      ctx.fillRect(bx + 3, by + 3, bw, bh);
+      ctx.strokeRect(bx + 3, by + 3, bw, bh);
+      ctx.fillStyle = BLACK;
+      ctx.fillText(pet.bubble.text, bx + 13, by + 23);
+    }
+  }
+
+  function speak(text) { pet.bubble = { text: text, t: 3.2 }; }
+  function randomLine() { speak(LINES[lineIdx % LINES.length]); lineIdx++; }
+
+  canvas.addEventListener("pointerdown", function (e) {
+    pet.dragging = true;
+    pet.offX = e.clientX - pet.x; pet.offY = e.clientY - pet.y;
+    pet.bubble = null;
+  });
+  window.addEventListener("pointermove", function (e) {
+    if (pet.dragging) { pet.x = e.clientX - pet.offX; pet.y = e.clientY - pet.offY; }
+  });
+  window.addEventListener("pointerup", function () {
+    if (!pet.dragging) return;
+    pet.dragging = false;
+    pet.jumping = true; pet.vy = -11;
+    setTimeout(randomLine, 350);
+  });
+
+  var start = performance.now();
+  function loop(now) {
+    var dt = Math.min((now - start) / 16.7, 3);
+    start = now;
+    var t = now / 1000;
+    tick(dt);
+    canvas.style.left = pet.x + "px";
+    canvas.style.top = pet.y + "px";
+    render(t);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  setInterval(function () { if (!pet.dragging) randomLine(); }, 45000);
+})();
+</script>
+</body>
+</html>

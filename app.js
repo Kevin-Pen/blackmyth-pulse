@@ -8,6 +8,12 @@
     textStyle: { fontFamily: "ui-monospace, Consolas, 'Microsoft YaHei', monospace" },
     grid: { left: 62, right: 30, top: 42, bottom: 50 },
   };
+  function isMobile() { return typeof window !== "undefined" && window.innerWidth < 600; }
+  function catAxis(deskRotate, deskFont) {
+    // 移动端：更小字号 + 隔一个显示一个 + 隐藏重叠；桌面：完整显示
+    var m = isMobile();
+    return { rotate: m ? (deskRotate || 0) + 15 : (deskRotate || 0), fontSize: m ? 8 : (deskFont || 10), interval: m ? 1 : 0, hideOverlap: true };
+  }
   /* 野兽派图表主题：白底 / 纯黑轴线文字 / 硬边阴影悬浮框 */
   echarts.registerTheme("brutal", {
     textStyle: { color: "#000", fontFamily: "ui-monospace, Consolas, 'Microsoft YaHei', monospace" },
@@ -220,7 +226,7 @@
       tooltip: { trigger: "axis" },
       legend: { top: 4 },
       grid: COMMON.grid,
-      xAxis: { type: "category", data: months, axisLabel: { fontSize: 10 } },
+      xAxis: { type: "category", data: months, axisLabel: catAxis(0, 10) },
       yAxis: [
         { type: "value", name: "月均在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
         { type: "value", name: "月峰值在线", axisLabel: { formatter: function (v) { return v >= 1000 ? (v / 1000) + "k" : v; } } },
@@ -269,7 +275,7 @@
         },
         legend: { top: 4 },
         grid: COMMON.grid,
-        xAxis: { type: "category", data: months, axisLabel: { rotate: 45, fontSize: 9 } },
+        xAxis: { type: "category", data: months, axisLabel: catAxis(45, 9) },
         yAxis: [
           { type: "value", name: "累计评价", axisLabel: { formatter: function (v) { return fmtWan(v); } } },
           { type: "value", name: "月好评率 %", min: 80, max: 100 },
