@@ -1,13 +1,13 @@
 {
  "date": "2026-09-05",
- "collected_at": "2026-09-05 13:51:56 (UTC+8)",
+ "collected_at": "2026-09-05 18:45:02 (UTC+8)",
  "steam": {
-  "players": 23048,
+  "players": 26288,
   "reviews": {
-   "total": 1210184,
-   "positive": 1167769,
-   "negative": 42415,
-   "rate": 96.5
+   "total": 1210230,
+   "positive": 1167806,
+   "negative": 42424,
+   "rate": 96.49
   },
   "steamcharts": [
    {
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 18115.59,
+    "avg": 18170.83,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 501,
-     "recommendations_down": 47
+     "recommendations_up": 533,
+     "recommendations_down": 53
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -312,18 +312,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 10977463,
-    "danmaku": 84217,
-    "likes": 708937,
-    "coins": 354032,
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "views": 10978173,
+    "danmaku": 84222,
+    "likes": 708955,
+    "coins": 354040,
     "favorites": 122545,
     "shares": 307526,
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "preserved_from": "2026-09-05 09:05:50 (UTC+8)"
+    "pubdate": 1770688800,
+    "bvid": "BV11PcgzWEJp",
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -501,7 +499,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
