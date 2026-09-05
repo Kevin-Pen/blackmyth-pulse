@@ -1,12 +1,12 @@
 {
  "date": "2026-09-06",
- "collected_at": "2026-09-06 00:52:22 (UTC+8)",
+ "collected_at": "2026-09-06 03:07:30 (UTC+8)",
  "steam": {
-  "players": 22276,
+  "players": 11354,
   "reviews": {
-   "total": 1210289,
-   "positive": 1167857,
-   "negative": 42432,
+   "total": 1210304,
+   "positive": 1167869,
+   "negative": 42435,
    "rate": 96.49
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 18275.19,
+    "avg": 18270.62,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 567,
-     "recommendations_down": 58
+     "recommendations_up": 577,
+     "recommendations_down": 59
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -320,7 +320,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787191200,
+    "pubdate": 1787270400,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
@@ -489,7 +489,7 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-09-05",
+  "date": "2026-09-06",
   "topics": []
  },
  "errors": {
