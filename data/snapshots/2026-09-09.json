@@ -1,12 +1,12 @@
 {
  "date": "2026-09-09",
- "collected_at": "2026-09-09 12:55:19 (UTC+8)",
+ "collected_at": "2026-09-09 17:53:32 (UTC+8)",
  "steam": {
-  "players": 13245,
+  "players": 15992,
   "reviews": {
-   "total": 1210817,
-   "positive": 1168335,
-   "negative": 42482,
+   "total": 1210832,
+   "positive": 1168348,
+   "negative": 42484,
    "rate": 96.49
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 19017.32,
+    "avg": 18983.25,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 926,
-     "recommendations_down": 101
+     "recommendations_up": 940,
+     "recommendations_down": 102
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -302,7 +302,7 @@
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
+    "pubdate": 1723082400,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -492,5 +492,7 @@
   "date": "2026-09-09",
   "topics": []
  },
- "errors": {}
+ "errors": {
+  "bili_hot_preserved": "hot list kept from previous snapshot"
+ }
 }
