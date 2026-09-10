@@ -1,12 +1,12 @@
 {
  "date": "2026-09-11",
- "collected_at": "2026-09-11 02:33:44 (UTC+8)",
+ "collected_at": "2026-09-11 05:42:01 (UTC+8)",
  "steam": {
-  "players": 8437,
+  "players": 5181,
   "reviews": {
-   "total": 1210976,
-   "positive": 1168494,
-   "negative": 42482,
+   "total": 1210991,
+   "positive": 1168506,
+   "negative": 42485,
    "rate": 96.49
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 19108.8,
+    "avg": 19056.01,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1068,
-     "recommendations_down": 112
+     "recommendations_up": 1077,
+     "recommendations_down": 113
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -285,15 +285,7 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16047557,
-    "danmaku": 31521,
-    "likes": 835295,
-    "coins": 646338,
-    "favorites": 179602,
-    "shares": 354791,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-10 22:30:46 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -310,13 +302,13 @@
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723082400,
+    "pubdate": 1723075200,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755633699,
+    "pubdate": 1755657600,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -328,7 +320,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787191200,
+    "pubdate": 1787270400,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
@@ -501,6 +493,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot"
+  "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
