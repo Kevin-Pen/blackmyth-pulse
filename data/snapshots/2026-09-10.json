@@ -1,12 +1,12 @@
 {
  "date": "2026-09-10",
- "collected_at": "2026-09-10 17:51:14 (UTC+8)",
+ "collected_at": "2026-09-10 22:30:46 (UTC+8)",
  "steam": {
-  "players": 15178,
+  "players": 28428,
   "reviews": {
-   "total": 1210925,
-   "positive": 1168441,
-   "negative": 42484,
+   "total": 1210959,
+   "positive": 1168477,
+   "negative": 42482,
    "rate": 96.49
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 19112.41,
+    "avg": 19133.99,
     "peak": 47042.0
    }
   ],
@@ -272,7 +272,7 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1017,
+     "recommendations_up": 1049,
      "recommendations_down": 109
     }
    ],
@@ -282,10 +282,16 @@
  "bili": {
   "anchors": [
    {
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "views": 16047557,
+    "danmaku": 31521,
+    "likes": 835295,
+    "coins": 646338,
+    "favorites": 179602,
+    "shares": 354791,
+    "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -308,7 +314,7 @@
    {
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755633699,
+    "pubdate": 1755657600,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -492,5 +498,7 @@
   "date": "2026-09-10",
   "topics": []
  },
- "errors": {}
+ "errors": {
+  "bili_hot_preserved": "hot list kept from previous snapshot"
+ }
 }
