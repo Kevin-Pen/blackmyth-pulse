@@ -1,4 +1,5 @@
 #!/bin/bash
-# 本地每日采集入口（Windows 计划任务 / crontab 均可调用）
+# 本地手动采集入口（采集一次并更新 data/，不提交不推送）
+# 定时采集由 GitHub Actions 负责（见 .github/workflows/daily.yml）
 cd "$(dirname "$0")/.."
 python3 collect/run.py >> data/collect.log 2>&1
