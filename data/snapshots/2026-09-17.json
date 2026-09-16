@@ -1,12 +1,12 @@
 {
  "date": "2026-09-17",
- "collected_at": "2026-09-17 01:08:05 (UTC+8)",
+ "collected_at": "2026-09-17 04:14:58 (UTC+8)",
  "steam": {
-  "players": 10707,
+  "players": 5319,
   "reviews": {
-   "total": 1211714,
-   "positive": 1169149,
-   "negative": 42565,
+   "total": 1211720,
+   "positive": 1169156,
+   "negative": 42564,
    "rate": 96.49
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 18838.39,
+    "avg": 18792.55,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1606,
-     "recommendations_down": 178
+     "recommendations_up": 1610,
+     "recommendations_down": 180
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -489,7 +489,7 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-09-16",
+  "date": "2026-09-17",
   "topics": []
  },
  "errors": {
