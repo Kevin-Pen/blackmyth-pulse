@@ -1,11 +1,11 @@
 {
  "date": "2026-09-21",
- "collected_at": "2026-09-21 06:32:43 (UTC+8)",
+ "collected_at": "2026-09-21 09:14:29 (UTC+8)",
  "steam": {
-  "players": 4774,
+  "players": 5430,
   "reviews": {
-   "total": 1212099,
-   "positive": 1169491,
+   "total": 1212107,
+   "positive": 1169499,
    "negative": 42608,
    "rate": 96.48
   },
@@ -137,13 +137,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17995.16,
+    "avg": 17841.24,
     "peak": 47042.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1789862400,
+   "end_date": 1789948800,
    "rollups": [
     {
      "date": 1722470400,
@@ -272,7 +272,7 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1878,
+     "recommendations_up": 1885,
      "recommendations_down": 214
     }
    ],
@@ -302,13 +302,13 @@
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
+    "pubdate": 1723082400,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755657600,
+    "pubdate": 1755633699,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -320,7 +320,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
+    "pubdate": 1787191200,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
