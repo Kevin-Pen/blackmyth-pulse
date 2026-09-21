@@ -1,12 +1,12 @@
 {
  "date": "2026-09-22",
- "collected_at": "2026-09-22 03:35:44 (UTC+8)",
+ "collected_at": "2026-09-22 07:22:44 (UTC+8)",
  "steam": {
-  "players": 5615,
+  "players": 3743,
   "reviews": {
-   "total": 1212162,
-   "positive": 1169544,
-   "negative": 42618,
+   "total": 1212178,
+   "positive": 1169557,
+   "negative": 42621,
    "rate": 96.48
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17689.47,
+    "avg": 17635.26,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1930,
-     "recommendations_down": 220
+     "recommendations_up": 1939,
+     "recommendations_down": 221
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -314,7 +314,7 @@
    {
     "bvid": "BV11PcgzWEJp",
     "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
+    "pubdate": 1770688800,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -327,7 +327,7 @@
   "hot": [
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "play": 13132093,
+    "play": 13153676,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "author": "黑神话",
@@ -335,23 +335,23 @@
    },
    {
     "title": "细节狂魔！波兰魂游狂热玩家逐帧扒《黑神话钟馗》实机细节，痛斥欧美大厂，游戏本该是这个水准！",
-    "play": 182099,
+    "play": 183033,
     "pubdate": 1787402955,
     "bvid": "BV1mx8m6REy3",
     "author": "HOK小鸽",
     "mid": "499040952"
    },
    {
-    "title": "Steam上架盗版《黑神话：钟馗》！售价仅36元！",
-    "play": 13537,
-    "pubdate": 1789472561,
-    "bvid": "BV1gwen6wESF",
-    "author": "老蕉Banous",
-    "mid": "10999014"
+    "title": "美百万粉博主刚看《黑神话钟馗》实机：这游戏要年度了，看到了制作组复仇的气势！",
+    "play": 13193,
+    "pubdate": 1789912294,
+    "bvid": "BV1vmeB6WEhy",
+    "author": "阿羊的杂货铺丶",
+    "mid": "3546383925644076"
    },
    {
     "title": "挑眉哥：看《黑神话：钟馗》15分钟实机，这是实机？太疯狂了",
-    "play": 407090,
+    "play": 408011,
     "pubdate": 1787358943,
     "bvid": "BV1Cc8k6qE2X",
     "author": "stephanErlinda",
@@ -359,131 +359,131 @@
    },
    {
     "title": "【万字硬核考据】全方位拆解《黑钟馗》-主角/怪物/战斗/剧情/符箓",
-    "play": 3019956,
+    "play": 3021344,
     "pubdate": 1787232927,
     "bvid": "BV1Ew8P6pEUE",
     "author": "天师道的白山正",
     "mid": "70744200"
    },
    {
-    "title": "【最新弹幕翻译】韩国人气主播看《黑神话钟馗》，看到附身秒爱上，被爽到了！韩国网友满屏热议中国游戏！",
-    "play": 62410,
-    "pubdate": 1788598200,
-    "bvid": "BV1Gft264EoM",
-    "author": "弹评数据",
-    "mid": "1967222088"
-   },
-   {
-    "title": "GBG：看《黑神话：钟馗》15分钟实机，激动坏了，太疯狂了！！",
-    "play": 550397,
-    "pubdate": 1787194349,
-    "bvid": "BV17ebZ6TEsf",
-    "author": "stephanErlinda",
-    "mid": "432654003"
-   },
-   {
-    "title": "国单先锋回来了！老外博主看《黑神话：钟馗》15分钟实机演示的反应reaction!!!",
-    "play": 387606,
-    "pubdate": 1787213385,
-    "bvid": "BV1mibf69EcH",
-    "author": "译向今司call-Yixiang",
-    "mid": "321813007"
-   },
-   {
-    "title": "【全网最完整】《黑神话：钟馗》BGM无杂音纯享版（补全实机鼓组+弦乐）",
-    "play": 64286,
-    "pubdate": 1787914800,
-    "bvid": "BV1DwtP6vE7s",
-    "author": "俗子寻衿",
-    "mid": "3461581935479310"
-   },
-   {
     "title": "战神之父david jaffy看黑神话钟馗PV 对比新战神劳菲 钟馗更出色更有带入感 战神越来越“机械、套路化” 缺少钟馗做“梦想项目”的热情和执着",
-    "play": 579499,
+    "play": 580515,
     "pubdate": 1787287356,
     "bvid": "BV1U88M6SEhw",
     "author": "SarkyTwistyKitty",
     "mid": "1911346146"
    },
    {
+    "title": "GBG：看《黑神话：钟馗》15分钟实机，激动坏了，太疯狂了！！",
+    "play": 550800,
+    "pubdate": 1787194349,
+    "bvid": "BV17ebZ6TEsf",
+    "author": "stephanErlinda",
+    "mid": "432654003"
+   },
+   {
+    "title": "含Fxxk量极高的欧美皮套姐《看黑神话：钟馗》最新实机演示。画面过于真实，不担心优化，相信他们的能力。就算他们用AI，也无所谓。【熟肉+评论】",
+    "play": 9329,
+    "pubdate": 1789618911,
+    "bvid": "BV1rkeM6LECs",
+    "author": "千草烤肉子",
+    "mid": "696910797"
+   },
+   {
     "title": "《黑神话：钟馗》实机演示 民乐制作花絮",
-    "play": 990994,
+    "play": 997896,
     "pubdate": 1787392800,
     "bvid": "BV1v1816PE2L",
     "author": "8082Audio",
     "mid": "1816809420"
    },
    {
-    "title": "【IGN】《黑神话：钟馗》6分钟实机预告",
-    "play": 1419833,
-    "pubdate": 1770689379,
-    "bvid": "BV1oFFUz2EhS",
-    "author": "IGN中国",
-    "mid": "652239032"
+    "title": "国单先锋回来了！老外博主看《黑神话：钟馗》15分钟实机演示的反应reaction!!!",
+    "play": 388203,
+    "pubdate": 1787213385,
+    "bvid": "BV1mibf69EcH",
+    "author": "译向今司call-Yixiang",
+    "mid": "321813007"
    },
    {
-    "title": "【女流66】一起看《黑神话：钟馗》15分钟实机演示：就是这个味儿，游戏科学太牛了",
-    "play": 264372,
-    "pubdate": 1787196721,
-    "bvid": "BV1rmbo6BEyn",
-    "author": "不懒bot",
-    "mid": "2794753"
-   },
-   {
-    "title": "能创造怪物？钟馗使用黑猴废案！时隔1个月，我在预告片之外又发现了点秘密",
-    "play": 91933,
-    "pubdate": 1789812000,
-    "bvid": "BV198eU61ET4",
-    "author": "离谱的东仔",
-    "mid": "633193"
-   },
-   {
-    "title": "《黑神话钟馗》支线任务构想(一）",
-    "play": 6482,
-    "pubdate": 1789729200,
-    "bvid": "BV1sKeU6AEHT",
-    "author": "荞麦面映画",
-    "mid": "3546973869181440"
+    "title": "【最新弹幕翻译】韩国人气主播看《黑神话钟馗》，看到附身秒爱上，被爽到了！韩国网友满屏热议中国游戏！",
+    "play": 63867,
+    "pubdate": 1788598200,
+    "bvid": "BV1Gft264EoM",
+    "author": "弹评数据",
+    "mid": "1967222088"
    },
    {
     "title": "【IGN】《黑神话：钟馗》实机演示",
-    "play": 1976681,
+    "play": 1997875,
     "pubdate": 1787191500,
     "bvid": "BV1SDbZ6sETi",
     "author": "IGN中国",
     "mid": "652239032"
    },
    {
-    "title": "【4K双杜比】《黑神话：钟馗》全新15分钟游戏实机演示！赶超《黑神话：悟空》?",
-    "play": 91363,
-    "pubdate": 1787294477,
-    "bvid": "BV1Dm8T6EEQy",
-    "author": "4K杜比修复计划-PX",
-    "mid": "536111971"
+    "title": "《黑神话：牛来》",
+    "play": 2639280,
+    "pubdate": 1787367662,
+    "bvid": "BV1UR8C6JEs8",
+    "author": "增殖的发呆",
+    "mid": "13641305"
    },
    {
-    "title": "完整还原！【黑神话钟馗】预告片到底讲了什么故事",
-    "play": 1554705,
-    "pubdate": 1755687368,
-    "bvid": "BV1CiegzMEPJ",
-    "author": "附魔星Fms",
-    "mid": "28266043"
-   },
-   {
-    "title": "【黑神话：悟空】4K 最高画质 全收集 全结局 全剧情流程通关攻略 西游背景动作角色扮演游戏 首款国产3A大作【完结】",
-    "play": 23641070,
-    "pubdate": 1724122563,
-    "bvid": "BV1AE4m1d7XT",
-    "author": "11的游戏世界",
-    "mid": "360046931"
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "play": 16526306,
+    "pubdate": 1755633699,
+    "bvid": "BV1sHePzWEbG",
+    "author": "黑神话",
+    "mid": "642389251"
    },
    {
     "title": "【熟肉】意大利老哥看《黑神话钟馗》：我一眼就能认出CG…等等 这居然是实机？！",
-    "play": 330614,
+    "play": 331826,
     "pubdate": 1787427987,
     "bvid": "BV1WV8U6XEnt",
     "author": "GC713",
     "mid": "3537122147437427"
+   },
+   {
+    "title": "【日网评论】日本105万粉游戏主播看《黑神话 钟馗》实机视频 直播间实时评论！（弹幕机翻）",
+    "play": 53446,
+    "pubdate": 1787659154,
+    "bvid": "BV1wmh56xEGB",
+    "author": "唱歌好听の阿布",
+    "mid": "431238596"
+   },
+   {
+    "title": "【IGN】《黑神话：钟馗》6分钟实机预告",
+    "play": 1419907,
+    "pubdate": 1770689379,
+    "bvid": "BV1oFFUz2EhS",
+    "author": "IGN中国",
+    "mid": "652239032"
+   },
+   {
+    "title": "【全网最完整】《黑神话：钟馗》BGM无杂音纯享版（补全实机鼓组+弦乐）",
+    "play": 67134,
+    "pubdate": 1787914800,
+    "bvid": "BV1DwtP6vE7s",
+    "author": "俗子寻衿",
+    "mid": "3461581935479310"
+   },
+   {
+    "title": "外网顶流主播emiru看《黑神话钟馗》：我最期待的待发售游戏！太帅了！别提小机器人了！",
+    "play": 55108,
+    "pubdate": 1788044922,
+    "bvid": "BV1BA4S6BE3H",
+    "author": "HOK小鸽",
+    "mid": "499040952"
+   },
+   {
+    "title": "Maximilian看黑神话钟馗，精良到离谱了",
+    "play": 105255,
+    "pubdate": 1787301516,
+    "bvid": "BV1Ad8q6xE3x",
+    "author": "大懒猫BBQ",
+    "mid": "111616003"
    }
   ],
   "hot_error": null
@@ -492,7 +492,5 @@
   "date": "2026-09-22",
   "topics": []
  },
- "errors": {
-  "bili_hot_preserved": "hot list kept from previous snapshot"
- }
+ "errors": {}
 }
