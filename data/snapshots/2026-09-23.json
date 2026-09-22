@@ -1,12 +1,12 @@
 {
  "date": "2026-09-23",
- "collected_at": "2026-09-23 02:09:22 (UTC+8)",
+ "collected_at": "2026-09-23 05:28:44 (UTC+8)",
  "steam": {
-  "players": 7408,
+  "players": 4317,
   "reviews": {
-   "total": 1212240,
-   "positive": 1169614,
-   "negative": 42626,
+   "total": 1212247,
+   "positive": 1169620,
+   "negative": 42627,
    "rate": 96.48
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 17183.89,
+    "avg": 17121.05,
     "peak": 47042.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 1987,
-     "recommendations_down": 224
+     "recommendations_up": 1991,
+     "recommendations_down": 225
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -285,15 +285,7 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16051981,
-    "danmaku": 31523,
-    "likes": 835335,
-    "coins": 646369,
-    "favorites": 179553,
-    "shares": 354799,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-22 21:29:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -320,15 +312,21 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "views": 10994137,
+    "danmaku": 84255,
+    "likes": 709224,
+    "coins": 354219,
+    "favorites": 122433,
+    "shares": 307572,
+    "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
+    "pubdate": 1787191200,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
@@ -497,11 +495,10 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
