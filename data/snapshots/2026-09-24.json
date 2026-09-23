@@ -1,12 +1,12 @@
 {
  "date": "2026-09-24",
- "collected_at": "2026-09-24 04:30:28 (UTC+8)",
+ "collected_at": "2026-09-24 07:47:19 (UTC+8)",
  "steam": {
-  "players": 4311,
+  "players": 3453,
   "reviews": {
-   "total": 1212319,
-   "positive": 1169681,
-   "negative": 42638,
+   "total": 1212328,
+   "positive": 1169689,
+   "negative": 42639,
    "rate": 96.48
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 16519.95,
+    "avg": 16467.64,
     "peak": 46287.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 2045,
-     "recommendations_down": 232
+     "recommendations_up": 2050,
+     "recommendations_down": 233
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -285,15 +285,7 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16052411,
-    "danmaku": 31524,
-    "likes": 835336,
-    "coins": 646373,
-    "favorites": 179544,
-    "shares": 354799,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-09-24 01:15:05 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -501,7 +493,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
