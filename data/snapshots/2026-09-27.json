@@ -1,12 +1,12 @@
 {
  "date": "2026-09-27",
- "collected_at": "2026-09-27 16:21:15 (UTC+8)",
+ "collected_at": "2026-09-27 22:08:27 (UTC+8)",
  "steam": {
-  "players": 17864,
+  "players": 21211,
   "reviews": {
-   "total": 1212578,
-   "positive": 1169928,
-   "negative": 42650,
+   "total": 1212609,
+   "positive": 1169957,
+   "negative": 42652,
    "rate": 96.48
   },
   "steamcharts": [
@@ -137,7 +137,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 15104.91,
+    "avg": 15133.41,
     "peak": 43763.0
    }
   ],
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 2277,
-     "recommendations_down": 246
+     "recommendations_up": 2301,
+     "recommendations_down": 249
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -308,7 +308,7 @@
    {
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755633699,
+    "pubdate": 1755657600,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -320,7 +320,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787191200,
+    "pubdate": 1787270400,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
