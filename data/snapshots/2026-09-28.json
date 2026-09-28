@@ -1,12 +1,12 @@
 {
  "date": "2026-09-28",
- "collected_at": "2026-09-28 06:21:10 (UTC+8)",
+ "collected_at": "2026-09-28 08:57:13 (UTC+8)",
  "steam": {
-  "players": 4307,
+  "players": 4436,
   "reviews": {
-   "total": 1212651,
-   "positive": 1169999,
-   "negative": 42652,
+   "total": 1212658,
+   "positive": 1170004,
+   "negative": 42654,
    "rate": 96.48
   },
   "steamcharts": [
@@ -137,13 +137,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 15080.83,
+    "avg": 14801.46,
     "peak": 43763.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1790467200,
+   "end_date": 1790553600,
    "rollups": [
     {
      "date": 1722470400,
@@ -272,8 +272,8 @@
     },
     {
      "date": 1788220800,
-     "recommendations_up": 2334,
-     "recommendations_down": 249
+     "recommendations_up": 2340,
+     "recommendations_down": 250
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -288,16 +288,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "bvid": "BV1wz421e7wS",
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "pubdate": 1716076800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 8151900,
     "danmaku": 13091,
     "likes": 433372,
     "coins": 218168,
     "favorites": 57381,
     "shares": 141203,
-    "pubdate": 1716120300,
-    "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "preserved_from": "2026-09-28 06:21:10 (UTC+8)"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -499,6 +501,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
