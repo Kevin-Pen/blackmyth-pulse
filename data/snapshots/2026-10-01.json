@@ -1,12 +1,12 @@
 {
  "date": "2026-10-01",
- "collected_at": "2026-10-01 14:09:16 (UTC+8)",
+ "collected_at": "2026-10-01 21:32:26 (UTC+8)",
  "steam": {
-  "players": 13849,
+  "players": 18970,
   "reviews": {
-   "total": 1212867,
-   "positive": 1170207,
-   "negative": 42660,
+   "total": 1212895,
+   "positive": 1170233,
+   "negative": 42662,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 13355.39,
+    "avg": 13385.32,
     "peak": 37080.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 12,
-     "recommendations_down": 2
+     "recommendations_up": 43,
+     "recommendations_down": 3
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -292,10 +292,16 @@
  "bili": {
   "anchors": [
    {
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "views": 16054363,
+    "danmaku": 31526,
+    "likes": 835357,
+    "coins": 646383,
+    "favorites": 179486,
+    "shares": 354800,
+    "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -310,22 +316,30 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "bvid": "BV1oH4y1c7Kk",
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "pubdate": 1723075200,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 24820641,
     "danmaku": 112376,
     "likes": 1562650,
     "coins": 1325344,
     "favorites": 368313,
     "shares": 629724,
-    "pubdate": 1723082400,
-    "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "preserved_from": "2026-10-01 14:09:16 (UTC+8)"
    },
    {
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "views": 16532858,
+    "danmaku": 256745,
+    "likes": 1074198,
+    "coins": 532510,
+    "favorites": 190524,
+    "shares": 542134,
+    "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -509,6 +523,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
