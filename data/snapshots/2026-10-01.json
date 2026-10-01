@@ -1,12 +1,12 @@
 {
  "date": "2026-10-01",
- "collected_at": "2026-10-01 07:58:01 (UTC+8)",
+ "collected_at": "2026-10-01 14:09:16 (UTC+8)",
  "steam": {
-  "players": 3854,
+  "players": 13849,
   "reviews": {
-   "total": 1212848,
-   "positive": 1170191,
-   "negative": 42657,
+   "total": 1212867,
+   "positive": 1170207,
+   "negative": 42660,
    "rate": 96.48
   },
   "steamcharts": [
@@ -136,14 +136,19 @@
     "peak": 47042.0
    },
    {
+    "month": "September 2026",
+    "avg": 13388.81,
+    "peak": 37080.0
+   },
+   {
     "month": "Last 30 Days",
-    "avg": 13574.3,
-    "peak": 38512.0
+    "avg": 13355.39,
+    "peak": 37080.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1790726400,
+   "end_date": 1790812800,
    "rollups": [
     {
      "date": 1722470400,
@@ -274,6 +279,11 @@
      "date": 1788220800,
      "recommendations_up": 2494,
      "recommendations_down": 268
+    },
+    {
+     "date": 1790812800,
+     "recommendations_up": 12,
+     "recommendations_down": 2
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -285,15 +295,7 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16054213,
-    "danmaku": 31526,
-    "likes": 835356,
-    "coins": 646383,
-    "favorites": 179491,
-    "shares": 354800,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-01 03:29:20 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -308,10 +310,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "views": 24820641,
+    "danmaku": 112376,
+    "likes": 1562650,
+    "coins": 1325344,
+    "favorites": 368313,
+    "shares": 629724,
+    "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -501,7 +509,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
