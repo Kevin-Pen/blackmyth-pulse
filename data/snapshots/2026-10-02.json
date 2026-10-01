@@ -1,11 +1,11 @@
 {
  "date": "2026-10-02",
- "collected_at": "2026-10-02 03:37:37 (UTC+8)",
+ "collected_at": "2026-10-02 07:57:34 (UTC+8)",
  "steam": {
-  "players": 5468,
+  "players": 3674,
   "reviews": {
-   "total": 1212922,
-   "positive": 1170256,
+   "total": 1212931,
+   "positive": 1170265,
    "negative": 42666,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 13360.29,
+    "avg": 13309.3,
     "peak": 37080.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 69,
+     "recommendations_up": 76,
      "recommendations_down": 5
     }
    ],
@@ -295,15 +295,7 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16054363,
-    "danmaku": 31526,
-    "likes": 835357,
-    "coins": 646383,
-    "favorites": 179486,
-    "shares": 354800,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-01 21:32:26 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -327,21 +319,19 @@
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
     "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16532858,
-    "danmaku": 256745,
-    "likes": 1074198,
-    "coins": 532510,
-    "favorites": 190524,
-    "shares": 542134,
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "preserved_from": "2026-10-01 21:32:26 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "views": 10999307,
+    "danmaku": 84276,
+    "likes": 709298,
+    "coins": 354267,
+    "favorites": 122379,
+    "shares": 307590,
+    "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -519,7 +509,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
