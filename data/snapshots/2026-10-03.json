@@ -1,11 +1,11 @@
 {
  "date": "2026-10-03",
- "collected_at": "2026-10-03 02:31:46 (UTC+8)",
+ "collected_at": "2026-10-03 07:04:24 (UTC+8)",
  "steam": {
-  "players": 7122,
+  "players": 3701,
   "reviews": {
-   "total": 1213005,
-   "positive": 1170333,
+   "total": 1213015,
+   "positive": 1170343,
    "negative": 42672,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 13139.82,
+    "avg": 13093.99,
     "peak": 35979.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 143,
+     "recommendations_up": 150,
      "recommendations_down": 9
     }
    ],
@@ -295,29 +295,13 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16054598,
-    "danmaku": 31527,
-    "likes": 835357,
-    "coins": 646385,
-    "favorites": 179478,
-    "shares": 354800,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-02 20:51:07 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
     "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 8152324,
-    "danmaku": 13091,
-    "likes": 433376,
-    "coins": 218172,
-    "favorites": 57372,
-    "shares": 141203,
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "preserved_from": "2026-10-02 20:51:07 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -515,11 +499,10 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-10-02",
+  "date": "2026-10-03",
   "topics": []
  },
  "errors": {
-  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
