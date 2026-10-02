@@ -1,11 +1,11 @@
 {
  "date": "2026-10-02",
- "collected_at": "2026-10-02 07:57:34 (UTC+8)",
+ "collected_at": "2026-10-02 13:52:49 (UTC+8)",
  "steam": {
-  "players": 3674,
+  "players": 12941,
   "reviews": {
-   "total": 1212931,
-   "positive": 1170265,
+   "total": 1212951,
+   "positive": 1170285,
    "negative": 42666,
    "rate": 96.48
   },
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 13309.3,
-    "peak": 37080.0
+    "avg": 13120.16,
+    "peak": 35979.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1790812800,
+   "end_date": 1790899200,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 76,
+     "recommendations_up": 93,
      "recommendations_down": 5
     }
    ],
@@ -310,10 +310,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "views": 24821714,
+    "danmaku": 112378,
+    "likes": 1562662,
+    "coins": 1325360,
+    "favorites": 368305,
+    "shares": 629727,
+    "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -322,16 +328,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "bvid": "BV11PcgzWEJp",
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "pubdate": 1770940800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 10999307,
     "danmaku": 84276,
     "likes": 709298,
     "coins": 354267,
     "favorites": 122379,
     "shares": 307590,
-    "pubdate": 1770688800,
-    "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "preserved_from": "2026-10-02 07:57:34 (UTC+8)"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -509,6 +517,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
