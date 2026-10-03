@@ -1,12 +1,12 @@
 {
  "date": "2026-10-04",
- "collected_at": "2026-10-04 02:02:53 (UTC+8)",
+ "collected_at": "2026-10-04 05:28:08 (UTC+8)",
  "steam": {
-  "players": 8749,
+  "players": 4657,
   "reviews": {
-   "total": 1213112,
-   "positive": 1170440,
-   "negative": 42672,
+   "total": 1213119,
+   "positive": 1170446,
+   "negative": 42673,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 12945.36,
+    "avg": 12907.4,
     "peak": 35956.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 230,
-     "recommendations_down": 13
+     "recommendations_up": 237,
+     "recommendations_down": 14
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -298,10 +298,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "views": 8152447,
+    "danmaku": 13091,
+    "likes": 433379,
+    "coins": 218172,
+    "favorites": 57370,
+    "shares": 141203,
+    "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -319,15 +325,7 @@
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
     "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16534075,
-    "danmaku": 256753,
-    "likes": 1074212,
-    "coins": 532514,
-    "favorites": 190492,
-    "shares": 542141,
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "preserved_from": "2026-10-03 21:31:03 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -338,7 +336,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
+    "pubdate": 1787191200,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
@@ -507,11 +505,10 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
