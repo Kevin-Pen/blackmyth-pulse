@@ -1,12 +1,12 @@
 {
  "date": "2026-10-04",
- "collected_at": "2026-10-04 15:01:37 (UTC+8)",
+ "collected_at": "2026-10-04 21:18:17 (UTC+8)",
  "steam": {
-  "players": 14312,
+  "players": 18263,
   "reviews": {
-   "total": 1213157,
-   "positive": 1170479,
-   "negative": 42678,
+   "total": 1213184,
+   "positive": 1170502,
+   "negative": 42682,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 12726.54,
+    "avg": 12750.72,
     "peak": 35956.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 257,
-     "recommendations_down": 18
+     "recommendations_up": 274,
+     "recommendations_down": 20
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -293,27 +293,29 @@
   "anchors": [
    {
     "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "views": 16054975,
+    "views": 16055044,
     "danmaku": 31527,
-    "likes": 835361,
+    "likes": 835362,
     "coins": 646388,
-    "favorites": 179467,
+    "favorites": 179463,
     "shares": 354801,
     "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "bvid": "BV1wz421e7wS",
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "pubdate": 1716076800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 8152482,
     "danmaku": 13091,
     "likes": 433379,
     "coins": 218172,
     "favorites": 57371,
     "shares": 141203,
-    "pubdate": 1716120300,
-    "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "preserved_from": "2026-10-04 15:01:37 (UTC+8)"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -515,6 +517,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
