@@ -1,12 +1,12 @@
 {
  "date": "2026-10-06",
- "collected_at": "2026-10-06 06:45:52 (UTC+8)",
+ "collected_at": "2026-10-06 11:07:41 (UTC+8)",
  "steam": {
-  "players": 3154,
+  "players": 7894,
   "reviews": {
-   "total": 1213289,
-   "positive": 1170601,
-   "negative": 42688,
+   "total": 1213295,
+   "positive": 1170606,
+   "negative": 42689,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 12525.8,
-    "peak": 35956.0
+    "avg": 12222.48,
+    "peak": 33924.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1791158400,
+   "end_date": 1791244800,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 347,
+     "recommendations_up": 353,
      "recommendations_down": 27
     }
    ],
@@ -310,16 +310,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "bvid": "BV1oH4y1c7Kk",
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "pubdate": 1723075200,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 24825319,
     "danmaku": 112396,
     "likes": 1562705,
     "coins": 1325386,
     "favorites": 368230,
     "shares": 629737,
-    "pubdate": 1723082400,
-    "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "preserved_from": "2026-10-06 06:45:52 (UTC+8)"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -334,16 +336,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：钟馗》15分钟实机演示",
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示",
+    "pubdate": 1787270400,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 13323767,
     "danmaku": 152446,
     "likes": 963633,
     "coins": 729416,
     "favorites": 230102,
     "shares": 501209,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示"
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "preserved_from": "2026-10-06 06:45:52 (UTC+8)"
    }
   ],
   "hot": [
@@ -515,6 +519,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
