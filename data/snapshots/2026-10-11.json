@@ -1,12 +1,12 @@
 {
  "date": "2026-10-11",
- "collected_at": "2026-10-11 02:42:28 (UTC+8)",
+ "collected_at": "2026-10-11 06:41:23 (UTC+8)",
  "steam": {
-  "players": 6504,
+  "players": 3445,
   "reviews": {
-   "total": 1213587,
-   "positive": 1170880,
-   "negative": 42707,
+   "total": 1213591,
+   "positive": 1170883,
+   "negative": 42708,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 11251.88,
+    "avg": 11214.49,
     "peak": 30930.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 595,
-     "recommendations_down": 55
+     "recommendations_up": 597,
+     "recommendations_down": 56
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -298,10 +298,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "views": 8153045,
+    "danmaku": 13091,
+    "likes": 433385,
+    "coins": 218177,
+    "favorites": 57349,
+    "shares": 141203,
+    "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -313,21 +319,19 @@
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
     "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 24829704,
-    "danmaku": 112410,
-    "likes": 1562746,
-    "coins": 1325435,
-    "favorites": 368161,
-    "shares": 629756,
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "preserved_from": "2026-10-10 21:51:42 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "views": 16537705,
+    "danmaku": 256762,
+    "likes": 1074256,
+    "coins": 532544,
+    "favorites": 190429,
+    "shares": 542162,
+    "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -511,7 +515,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
