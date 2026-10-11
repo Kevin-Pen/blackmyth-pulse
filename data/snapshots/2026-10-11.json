@@ -1,11 +1,11 @@
 {
  "date": "2026-10-11",
- "collected_at": "2026-10-11 06:41:23 (UTC+8)",
+ "collected_at": "2026-10-11 09:59:29 (UTC+8)",
  "steam": {
-  "players": 3445,
+  "players": 6512,
   "reviews": {
-   "total": 1213591,
-   "positive": 1170883,
+   "total": 1213601,
+   "positive": 1170893,
    "negative": 42708,
    "rate": 96.48
   },
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 11214.49,
+    "avg": 11133.51,
     "peak": 30930.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1791590400,
+   "end_date": 1791676800,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 597,
+     "recommendations_up": 601,
      "recommendations_down": 56
     }
    ],
@@ -298,16 +298,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "bvid": "BV1wz421e7wS",
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "pubdate": 1716076800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 8153045,
     "danmaku": 13091,
     "likes": 433385,
     "coins": 218177,
     "favorites": 57349,
     "shares": 141203,
-    "pubdate": 1716120300,
-    "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "preserved_from": "2026-10-11 06:41:23 (UTC+8)"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -322,16 +324,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "bvid": "BV1sHePzWEbG",
+    "name": "游戏科学新作《黑神话：钟馗》先导预告",
+    "pubdate": 1755657600,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 16537705,
     "danmaku": 256762,
     "likes": 1074256,
     "coins": 532544,
     "favorites": 190429,
     "shares": 542162,
-    "pubdate": 1755633699,
-    "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告"
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "preserved_from": "2026-10-11 06:41:23 (UTC+8)"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -515,6 +519,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
