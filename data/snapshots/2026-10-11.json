@@ -1,12 +1,12 @@
 {
  "date": "2026-10-11",
- "collected_at": "2026-10-11 09:59:29 (UTC+8)",
+ "collected_at": "2026-10-11 17:03:41 (UTC+8)",
  "steam": {
-  "players": 6512,
+  "players": 16038,
   "reviews": {
-   "total": 1213601,
-   "positive": 1170893,
-   "negative": 42708,
+   "total": 1213626,
+   "positive": 1170916,
+   "negative": 42710,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 11133.51,
+    "avg": 11149.5,
     "peak": 30930.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 601,
-     "recommendations_down": 56
+     "recommendations_up": 620,
+     "recommendations_down": 57
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -301,15 +301,7 @@
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
     "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 8153045,
-    "danmaku": 13091,
-    "likes": 433385,
-    "coins": 218177,
-    "favorites": 57349,
-    "shares": 141203,
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "preserved_from": "2026-10-11 06:41:23 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -327,15 +319,7 @@
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
     "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16537705,
-    "danmaku": 256762,
-    "likes": 1074256,
-    "coins": 532544,
-    "favorites": 190429,
-    "shares": 542162,
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "preserved_from": "2026-10-11 06:41:23 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -519,7 +503,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
