@@ -1,12 +1,12 @@
 {
  "date": "2026-10-14",
- "collected_at": "2026-10-14 05:21:00 (UTC+8)",
+ "collected_at": "2026-10-14 08:24:33 (UTC+8)",
  "steam": {
-  "players": 2993,
+  "players": 2714,
   "reviews": {
-   "total": 1213746,
-   "positive": 1171025,
-   "negative": 42721,
+   "total": 1213757,
+   "positive": 1171035,
+   "negative": 42722,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,8 +142,8 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10639.55,
-    "peak": 28955.0
+    "avg": 10391.21,
+    "peak": 26550.0
    }
   ],
   "histogram": {
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 741,
+     "recommendations_up": 745,
      "recommendations_down": 75
     }
    ],
@@ -502,5 +502,7 @@
   "date": "2026-10-14",
   "topics": []
  },
- "errors": {}
+ "errors": {
+  "bili_hot_preserved": "hot list kept from previous snapshot"
+ }
 }
