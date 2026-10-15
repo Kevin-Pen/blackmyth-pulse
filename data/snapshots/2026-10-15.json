@@ -1,12 +1,12 @@
 {
  "date": "2026-10-15",
- "collected_at": "2026-10-15 18:05:32 (UTC+8)",
+ "collected_at": "2026-10-15 23:07:36 (UTC+8)",
  "steam": {
-  "players": 8945,
+  "players": 13799,
   "reviews": {
-   "total": 1213819,
-   "positive": 1171078,
-   "negative": 42741,
+   "total": 1213837,
+   "positive": 1171094,
+   "negative": 42743,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10183.89,
+    "avg": 10201.88,
     "peak": 26041.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 795,
+     "recommendations_up": 809,
      "recommendations_down": 85
     }
    ],
@@ -328,10 +328,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "views": 13425113,
+    "danmaku": 152897,
+    "likes": 966159,
+    "coins": 730431,
+    "favorites": 230342,
+    "shares": 501708,
+    "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：钟馗》15分钟实机演示"
    }
   ],
   "hot": [
