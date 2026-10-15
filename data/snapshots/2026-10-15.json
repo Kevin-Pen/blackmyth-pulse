@@ -1,12 +1,12 @@
 {
  "date": "2026-10-15",
- "collected_at": "2026-10-15 07:58:13 (UTC+8)",
+ "collected_at": "2026-10-15 12:52:43 (UTC+8)",
  "steam": {
-  "players": 2486,
+  "players": 7413,
   "reviews": {
-   "total": 1213807,
-   "positive": 1171070,
-   "negative": 42737,
+   "total": 1213817,
+   "positive": 1171079,
+   "negative": 42738,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10290.52,
-    "peak": 26550.0
+    "avg": 10201.81,
+    "peak": 26041.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1791936000,
+   "end_date": 1792022400,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 781,
+     "recommendations_up": 787,
      "recommendations_down": 82
     }
    ],
