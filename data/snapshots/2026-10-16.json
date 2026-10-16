@@ -1,11 +1,11 @@
 {
  "date": "2026-10-16",
- "collected_at": "2026-10-16 06:28:10 (UTC+8)",
+ "collected_at": "2026-10-16 09:30:07 (UTC+8)",
  "steam": {
-  "players": 2573,
+  "players": 3446,
   "reviews": {
-   "total": 1213845,
-   "positive": 1171100,
+   "total": 1213848,
+   "positive": 1171103,
    "negative": 42745,
    "rate": 96.48
   },
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10151.48,
+    "avg": 10077.4,
     "peak": 26041.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1792022400,
+   "end_date": 1792108800,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 814,
+     "recommendations_up": 817,
      "recommendations_down": 87
     }
    ],
@@ -319,15 +319,7 @@
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告",
     "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16540474,
-    "danmaku": 256769,
-    "likes": 1074283,
-    "coins": 532568,
-    "favorites": 190395,
-    "shares": 542182,
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "preserved_from": "2026-10-16 03:15:00 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -511,7 +503,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
