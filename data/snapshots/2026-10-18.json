@@ -1,11 +1,11 @@
 {
  "date": "2026-10-18",
- "collected_at": "2026-10-18 01:19:34 (UTC+8)",
+ "collected_at": "2026-10-18 03:31:47 (UTC+8)",
  "steam": {
-  "players": 9509,
+  "players": 5444,
   "reviews": {
-   "total": 1213944,
-   "positive": 1171190,
+   "total": 1213952,
+   "positive": 1171198,
    "negative": 42754,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10057.72,
+    "avg": 10046.02,
     "peak": 26041.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 905,
+     "recommendations_up": 909,
      "recommendations_down": 98
     }
    ],
@@ -301,15 +301,7 @@
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
     "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 8153698,
-    "danmaku": 13091,
-    "likes": 433389,
-    "coins": 218178,
-    "favorites": 57334,
-    "shares": 141206,
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "preserved_from": "2026-10-17 22:16:36 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -321,15 +313,7 @@
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
     "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 24839773,
-    "danmaku": 112461,
-    "likes": 1562862,
-    "coins": 1325531,
-    "favorites": 368088,
-    "shares": 629793,
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "preserved_from": "2026-10-17 22:16:36 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -341,15 +325,7 @@
     "bvid": "BV11PcgzWEJp",
     "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
     "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 11007025,
-    "danmaku": 84302,
-    "likes": 709396,
-    "coins": 354312,
-    "favorites": 122277,
-    "shares": 307617,
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "preserved_from": "2026-10-17 22:16:36 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -523,11 +499,10 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "topics": []
  },
  "errors": {
-  "bili_preserved": "3 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
