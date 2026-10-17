@@ -1,12 +1,12 @@
 {
  "date": "2026-10-17",
- "collected_at": "2026-10-17 08:35:28 (UTC+8)",
+ "collected_at": "2026-10-17 13:41:24 (UTC+8)",
  "steam": {
-  "players": 3632,
+  "players": 12357,
   "reviews": {
-   "total": 1213885,
-   "positive": 1171136,
-   "negative": 42749,
+   "total": 1213898,
+   "positive": 1171151,
+   "negative": 42747,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9984.4,
+    "avg": 9978.96,
     "peak": 26041.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1792108800,
+   "end_date": 1792195200,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 854,
+     "recommendations_up": 865,
      "recommendations_down": 93
     }
    ],
@@ -307,15 +307,7 @@
     "bvid": "BV1ex4y1J7JE",
     "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
     "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13608894,
-    "danmaku": 13325,
-    "likes": 573309,
-    "coins": 298867,
-    "favorites": 91406,
-    "shares": 214348,
-    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-17 05:23:11 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
@@ -324,16 +316,28 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "views": 16541324,
+    "danmaku": 256771,
+    "likes": 1074294,
+    "coins": 532572,
+    "favorites": 190388,
+    "shares": 542190,
+    "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "views": 11006551,
+    "danmaku": 84299,
+    "likes": 709384,
+    "coins": 354306,
+    "favorites": 122277,
+    "shares": 307616,
+    "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -511,7 +515,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
