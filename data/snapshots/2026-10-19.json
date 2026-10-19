@@ -1,11 +1,11 @@
 {
  "date": "2026-10-19",
- "collected_at": "2026-10-19 05:35:42 (UTC+8)",
+ "collected_at": "2026-10-19 08:15:14 (UTC+8)",
  "steam": {
-  "players": 3474,
+  "players": 2941,
   "reviews": {
-   "total": 1214026,
-   "positive": 1171266,
+   "total": 1214035,
+   "positive": 1171275,
    "negative": 42760,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 10008.79,
+    "avg": 9990.14,
     "peak": 26041.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 972,
+     "recommendations_up": 976,
      "recommendations_down": 104
     }
    ],
@@ -310,10 +310,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "views": 24841998,
+    "danmaku": 112467,
+    "likes": 1562889,
+    "coins": 1325547,
+    "favorites": 368073,
+    "shares": 629801,
+    "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -328,10 +334,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "views": 13484938,
+    "danmaku": 153237,
+    "likes": 968591,
+    "coins": 731099,
+    "favorites": 230782,
+    "shares": 501957,
+    "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：钟馗》15分钟实机演示"
    }
   ],
   "hot": [
