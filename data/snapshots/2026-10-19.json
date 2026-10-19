@@ -1,11 +1,11 @@
 {
  "date": "2026-10-19",
- "collected_at": "2026-10-19 08:15:14 (UTC+8)",
+ "collected_at": "2026-10-19 12:54:56 (UTC+8)",
  "steam": {
-  "players": 2941,
+  "players": 7010,
   "reviews": {
-   "total": 1214035,
-   "positive": 1171275,
+   "total": 1214046,
+   "positive": 1171286,
    "negative": 42760,
    "rate": 96.48
   },
@@ -142,13 +142,13 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9990.14,
+    "avg": 9910.79,
     "peak": 26041.0
    }
   ],
   "histogram": {
    "start_date": 1724112000,
-   "end_date": 1792281600,
+   "end_date": 1792368000,
    "rollups": [
     {
      "date": 1722470400,
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 976,
+     "recommendations_up": 983,
      "recommendations_down": 104
     }
    ],
@@ -310,16 +310,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "bvid": "BV1oH4y1c7Kk",
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "pubdate": 1723075200,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 24841998,
     "danmaku": 112467,
     "likes": 1562889,
     "coins": 1325547,
     "favorites": 368073,
     "shares": 629801,
-    "pubdate": 1723082400,
-    "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "preserved_from": "2026-10-19 08:15:14 (UTC+8)"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -334,16 +336,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：钟馗》15分钟实机演示",
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示",
+    "pubdate": 1787270400,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 13484938,
     "danmaku": 153237,
     "likes": 968591,
     "coins": 731099,
     "favorites": 230782,
     "shares": 501957,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示"
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "preserved_from": "2026-10-19 08:15:14 (UTC+8)"
    }
   ],
   "hot": [
@@ -515,6 +519,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
