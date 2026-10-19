@@ -1,11 +1,11 @@
 {
  "date": "2026-10-19",
- "collected_at": "2026-10-19 12:54:56 (UTC+8)",
+ "collected_at": "2026-10-19 18:56:48 (UTC+8)",
  "steam": {
-  "players": 7010,
+  "players": 9458,
   "reviews": {
-   "total": 1214046,
-   "positive": 1171286,
+   "total": 1214051,
+   "positive": 1171291,
    "negative": 42760,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9910.79,
+    "avg": 9893.23,
     "peak": 26041.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 983,
+     "recommendations_up": 991,
      "recommendations_down": 104
     }
    ],
@@ -304,24 +304,22 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "views": 13609873,
+    "danmaku": 13325,
+    "likes": 573318,
+    "coins": 298871,
+    "favorites": 91390,
+    "shares": 214351,
+    "pubdate": 1717795827,
     "bvid": "BV1ex4y1J7JE",
-    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
     "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 24841998,
-    "danmaku": 112467,
-    "likes": 1562889,
-    "coins": 1325547,
-    "favorites": 368073,
-    "shares": 629801,
-    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "preserved_from": "2026-10-19 08:15:14 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1sHePzWEbG",
@@ -339,15 +337,7 @@
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
     "pubdate": 1787270400,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13484938,
-    "danmaku": 153237,
-    "likes": 968591,
-    "coins": 731099,
-    "favorites": 230782,
-    "shares": 501957,
-    "title": "《黑神话：钟馗》15分钟实机演示",
-    "preserved_from": "2026-10-19 08:15:14 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    }
   ],
   "hot": [
@@ -519,7 +509,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
