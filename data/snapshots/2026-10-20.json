@@ -1,12 +1,12 @@
 {
  "date": "2026-10-20",
- "collected_at": "2026-10-20 15:44:36 (UTC+8)",
+ "collected_at": "2026-10-20 21:40:01 (UTC+8)",
  "steam": {
-  "players": 7330,
+  "players": 16094,
   "reviews": {
-   "total": 1214096,
-   "positive": 1171332,
-   "negative": 42764,
+   "total": 1214099,
+   "positive": 1171336,
+   "negative": 42763,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9647.44,
+    "avg": 9660.26,
     "peak": 25186.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 1016,
+     "recommendations_up": 1025,
      "recommendations_down": 108
     }
    ],
@@ -295,21 +295,19 @@
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
     "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 16059088,
-    "danmaku": 31528,
-    "likes": 835405,
-    "coins": 646423,
-    "favorites": 179391,
-    "shares": 354813,
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-20 09:55:11 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "views": 8154048,
+    "danmaku": 13091,
+    "likes": 433390,
+    "coins": 218182,
+    "favorites": 57325,
+    "shares": 141207,
+    "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -320,7 +318,7 @@
    {
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
+    "pubdate": 1723082400,
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
@@ -336,10 +334,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示",
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "views": 13505410,
+    "danmaku": 153339,
+    "likes": 969285,
+    "coins": 731314,
+    "favorites": 230872,
+    "shares": 502076,
     "pubdate": 1787191200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示"
    }
   ],
   "hot": [
@@ -511,7 +515,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
