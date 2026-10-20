@@ -1,12 +1,12 @@
 {
  "date": "2026-10-21",
- "collected_at": "2026-10-21 02:32:05 (UTC+8)",
+ "collected_at": "2026-10-21 06:24:45 (UTC+8)",
  "steam": {
-  "players": 4500,
+  "players": 2529,
   "reviews": {
-   "total": 1214115,
-   "positive": 1171351,
-   "negative": 42764,
+   "total": 1214125,
+   "positive": 1171358,
+   "negative": 42767,
    "rate": 96.48
   },
   "steamcharts": [
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9658.41,
+    "avg": 9632.46,
     "peak": 25186.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 1037,
-     "recommendations_down": 109
+     "recommendations_up": 1043,
+     "recommendations_down": 110
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -301,15 +301,7 @@
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
     "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 8154048,
-    "danmaku": 13091,
-    "likes": 433390,
-    "coins": 218182,
-    "favorites": 57325,
-    "shares": 141207,
-    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "preserved_from": "2026-10-20 21:40:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -339,15 +331,7 @@
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
     "pubdate": 1787270400,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13505410,
-    "danmaku": 153339,
-    "likes": 969285,
-    "coins": 731314,
-    "favorites": 230872,
-    "shares": 502076,
-    "title": "《黑神话：钟馗》15分钟实机演示",
-    "preserved_from": "2026-10-20 21:40:01 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    }
   ],
   "hot": [
@@ -515,11 +499,10 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "topics": []
  },
  "errors": {
-  "bili_preserved": "2 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
