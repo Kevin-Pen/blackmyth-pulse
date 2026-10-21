@@ -1,11 +1,11 @@
 {
  "date": "2026-10-21",
- "collected_at": "2026-10-21 09:42:27 (UTC+8)",
+ "collected_at": "2026-10-21 15:48:47 (UTC+8)",
  "steam": {
-  "players": 3624,
+  "players": 7241,
   "reviews": {
-   "total": 1214128,
-   "positive": 1171361,
+   "total": 1214134,
+   "positive": 1171367,
    "negative": 42767,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9498.28,
+    "avg": 9471.28,
     "peak": 23409.0
    }
   ],
@@ -282,8 +282,8 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 1046,
-     "recommendations_down": 110
+     "recommendations_up": 1055,
+     "recommendations_down": 111
     }
    ],
    "coverage_note": "Steam 商店评价直方图 rollups 口径，覆盖约 74% 评价；全量总数以评价接口（review_summary）为准"
@@ -304,10 +304,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "views": 13610545,
+    "danmaku": 13325,
+    "likes": 573322,
+    "coins": 298873,
+    "favorites": 91385,
+    "shares": 214353,
+    "pubdate": 1717795827,
     "bvid": "BV1ex4y1J7JE",
-    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
@@ -328,16 +334,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "《黑神话：钟馗》15分钟实机演示",
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示",
+    "pubdate": 1787270400,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 13510048,
     "danmaku": 153366,
     "likes": 969449,
     "coins": 731381,
     "favorites": 230892,
     "shares": 502092,
-    "pubdate": 1787191200,
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示"
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "preserved_from": "2026-10-21 09:42:27 (UTC+8)"
    }
   ],
   "hot": [
@@ -509,6 +517,7 @@
   "topics": []
  },
  "errors": {
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
