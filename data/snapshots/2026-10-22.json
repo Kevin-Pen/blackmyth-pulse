@@ -1,11 +1,11 @@
 {
  "date": "2026-10-22",
- "collected_at": "2026-10-22 02:45:24 (UTC+8)",
+ "collected_at": "2026-10-22 06:27:57 (UTC+8)",
  "steam": {
-  "players": 4486,
+  "players": 2623,
   "reviews": {
-   "total": 1214167,
-   "positive": 1171398,
+   "total": 1214171,
+   "positive": 1171402,
    "negative": 42769,
    "rate": 96.48
   },
@@ -142,7 +142,7 @@
    },
    {
     "month": "Last 30 Days",
-    "avg": 9484.48,
+    "avg": 9450.2,
     "peak": 23409.0
    }
   ],
@@ -282,7 +282,7 @@
     },
     {
      "date": 1790812800,
-     "recommendations_up": 1081,
+     "recommendations_up": 1086,
      "recommendations_down": 113
     }
    ],
@@ -331,15 +331,7 @@
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
     "pubdate": 1787270400,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13518028,
-    "danmaku": 153397,
-    "likes": 969653,
-    "coins": 731457,
-    "favorites": 230900,
-    "shares": 502137,
-    "title": "《黑神话：钟馗》15分钟实机演示",
-    "preserved_from": "2026-10-21 21:56:34 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    }
   ],
   "hot": [
@@ -511,7 +503,6 @@
   "topics": []
  },
  "errors": {
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
