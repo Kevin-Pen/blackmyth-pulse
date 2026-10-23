@@ -1,6 +1,6 @@
 {
  "date": "2026-10-24",
- "collected_at": "2026-10-24 02:29:18 (UTC+8)",
+ "collected_at": "2026-10-24 06:22:10 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -322,16 +322,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "bvid": "BV11PcgzWEJp",
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "pubdate": 1770940800,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 11011293,
     "danmaku": 84316,
     "likes": 709469,
     "coins": 354353,
     "favorites": 122248,
     "shares": 307631,
-    "pubdate": 1770688800,
-    "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "preserved_from": "2026-10-24 02:29:18 (UTC+8)"
    },
    {
     "bvid": "BV1kS8H6VERt",
@@ -510,6 +512,7 @@
  },
  "errors": {
   "steam": "Expecting value: line 1 column 1 (char 0)",
+  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
