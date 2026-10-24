@@ -1,6 +1,6 @@
 {
  "date": "2026-10-24",
- "collected_at": "2026-10-24 19:17:03 (UTC+8)",
+ "collected_at": "2026-10-24 22:39:20 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -292,16 +292,18 @@
  "bili": {
   "anchors": [
    {
-    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "bvid": "BV1SQ4y1V7do",
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "pubdate": 1701993600,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 16061725,
     "danmaku": 31529,
     "likes": 835425,
     "coins": 646446,
     "favorites": 179365,
     "shares": 354822,
-    "pubdate": 1702001851,
-    "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "preserved_from": "2026-10-24 19:17:03 (UTC+8)"
    },
    {
     "bvid": "BV1wz421e7wS",
@@ -322,16 +324,18 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
-    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "bvid": "BV1sHePzWEbG",
+    "name": "游戏科学新作《黑神话：钟馗》先导预告",
+    "pubdate": 1755657600,
+    "error": "HTTP Error 412: Precondition Failed",
     "views": 16550235,
     "danmaku": 256785,
     "likes": 1074457,
     "coins": 532635,
     "favorites": 190347,
     "shares": 542219,
-    "pubdate": 1755633699,
-    "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告"
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "preserved_from": "2026-10-24 19:17:03 (UTC+8)"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -349,7 +353,7 @@
   "hot": [
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "play": 16550235,
+    "play": 16550431,
     "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
     "author": "黑神话",
@@ -357,7 +361,7 @@
    },
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "play": 13571691,
+    "play": 13575603,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "author": "黑神话",
@@ -365,7 +369,7 @@
    },
    {
     "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "play": 11011752,
+    "play": 11011911,
     "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
     "author": "黑神话",
@@ -373,7 +377,7 @@
    },
    {
     "title": "黑神话三部曲？【悟空+钟馗+姜子牙】游戏科学真有你的",
-    "play": 3774456,
+    "play": 3774457,
     "pubdate": 1722382200,
     "bvid": "BV1zE421w7Mj",
     "author": "Will游戏堂",
@@ -381,7 +385,7 @@
    },
    {
     "title": "【万字硬核考据】全方位拆解《黑钟馗》-主角/怪物/战斗/剧情/符箓",
-    "play": 3041851,
+    "play": 3042013,
     "pubdate": 1787232927,
     "bvid": "BV1Ew8P6pEUE",
     "author": "天师道的白山正",
@@ -389,7 +393,7 @@
    },
    {
     "title": "游戏科学《黑神话：钟馗》全新 6 分钟实机",
-    "play": 2761540,
+    "play": 2761541,
     "pubdate": 1770691299,
     "bvid": "BV1S7FUzNEiZ",
     "author": "英伟达GeForce",
@@ -397,7 +401,7 @@
    },
    {
     "title": "《黑神话：牛来》",
-    "play": 2654593,
+    "play": 2654647,
     "pubdate": 1787367662,
     "bvid": "BV1UR8C6JEs8",
     "author": "增殖的发呆",
@@ -405,7 +409,7 @@
    },
    {
     "title": "《钟馗》马年预告发布一个月后，我发现了点不一样的.....",
-    "play": 2505931,
+    "play": 2505932,
     "pubdate": 1772441709,
     "bvid": "BV1b5PjzQEET",
     "author": "Milk牛乃K",
@@ -413,7 +417,7 @@
    },
    {
     "title": "【IGN】《黑神话：钟馗》先导预告 | gamescom 2025",
-    "play": 2451519,
+    "play": 2451524,
     "pubdate": 1755634476,
     "bvid": "BV1sseKzFEPc",
     "author": "IGN中国",
@@ -421,7 +425,7 @@
    },
    {
     "title": "什么？黑神话钟馗抢先版",
-    "play": 2325268,
+    "play": 2325397,
     "pubdate": 1757846592,
     "bvid": "BV1o7pczuE2V",
     "author": "Z贤者",
@@ -429,7 +433,7 @@
    },
    {
     "title": "全面拆解钟馗隐藏细节！《黑神话钟馗》PV逐帧解析",
-    "play": 2312554,
+    "play": 2312634,
     "pubdate": 1787217575,
     "bvid": "BV1Ns8w6fE4k",
     "author": "利维坦mY",
@@ -437,7 +441,7 @@
    },
    {
     "title": "《黑神话：钟馗》预告片解析——捉山中鬼易，斩心中鬼难！【毒舌的南瓜】",
-    "play": 2300183,
+    "play": 2300187,
     "pubdate": 1755702647,
     "bvid": "BV1nyeGz6EVs",
     "author": "毒舌的南瓜",
@@ -445,7 +449,7 @@
    },
    {
     "title": "震撼世界！当《黑神话·钟馗》走进现实，中式美学天花板在此！",
-    "play": 2257946,
+    "play": 2260643,
     "pubdate": 1792144800,
     "bvid": "BV18XJC6sE7i",
     "author": "东尼ookii",
@@ -453,7 +457,7 @@
    },
    {
     "title": "【IGN】《黑神话：钟馗》实机演示",
-    "play": 2251709,
+    "play": 2253418,
     "pubdate": 1787191500,
     "bvid": "BV1SDbZ6sETi",
     "author": "IGN中国",
@@ -461,7 +465,7 @@
    },
    {
     "title": "曾经引爆全网的饥饿拉姆!结局到底多黑暗!？",
-    "play": 2241558,
+    "play": 2241574,
     "pubdate": 1755684000,
     "bvid": "BV1CXeuzqEKX",
     "author": "爱吃凤梨的枫栗",
@@ -469,7 +473,7 @@
    },
    {
     "title": "今年房租又降了！刚交了70000，房东没想到我们能租满五年",
-    "play": 2047738,
+    "play": 2048840,
     "pubdate": 1787311204,
     "bvid": "BV1Ph8i6XE5x",
     "author": "某天的游戏小屋",
@@ -477,7 +481,7 @@
    },
    {
     "title": "《黑神话：钟馗》实机终极深扒，游科成为世界第一ARPG开发商的底气！【游戏之外】",
-    "play": 1924521,
+    "play": 1924581,
     "pubdate": 1787213588,
     "bvid": "BV1Vxbf6aE9H",
     "author": "智能路障",
@@ -485,7 +489,7 @@
    },
    {
     "title": "你告诉我这是黑神话钟馗？",
-    "play": 1718561,
+    "play": 1718647,
     "pubdate": 1757728800,
     "bvid": "BV1Jfp5zUEdx",
     "author": "拧不动啊真拧不动",
@@ -493,7 +497,7 @@
    },
    {
     "title": "全面揭晓钟馗悟空的隐藏关联！《黑神话钟馗》PV终极解析",
-    "play": 1708421,
+    "play": 1708422,
     "pubdate": 1755688819,
     "bvid": "BV15Xegz4EXQ",
     "author": "利维坦mY",
@@ -501,7 +505,7 @@
    },
    {
     "title": "真神炸场！《黑神话：钟馗》解析，中国捉鬼大神的前世今生！",
-    "play": 1650656,
+    "play": 1650661,
     "pubdate": 1755693204,
     "bvid": "BV18HegzmE6f",
     "author": "文化遗产搬运委员会",
@@ -515,6 +519,7 @@
   "topics": []
  },
  "errors": {
-  "steam": "Expecting value: line 1 column 1 (char 0)"
+  "steam": "Expecting value: line 1 column 1 (char 0)",
+  "bili_preserved": "2 videos kept from previous snapshot"
  }
 }
