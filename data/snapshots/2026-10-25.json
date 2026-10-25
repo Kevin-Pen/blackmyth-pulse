@@ -1,6 +1,6 @@
 {
  "date": "2026-10-25",
- "collected_at": "2026-10-25 07:23:52 (UTC+8)",
+ "collected_at": "2026-10-25 12:56:29 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -310,10 +310,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "views": 24904144,
+    "danmaku": 112662,
+    "likes": 1563704,
+    "coins": 1326452,
+    "favorites": 368201,
+    "shares": 630028,
+    "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "bvid": "BV1sHePzWEbG",
