@@ -1,6 +1,6 @@
 {
  "date": "2026-10-26",
- "collected_at": "2026-10-26 05:54:11 (UTC+8)",
+ "collected_at": "2026-10-26 08:28:21 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -503,6 +503,7 @@
   "topics": []
  },
  "errors": {
-  "steam": "Expecting value: line 1 column 1 (char 0)"
+  "steam": "Expecting value: line 1 column 1 (char 0)",
+  "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
