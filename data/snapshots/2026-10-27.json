@@ -1,6 +1,6 @@
 {
  "date": "2026-10-27",
- "collected_at": "2026-10-27 04:36:17 (UTC+8)",
+ "collected_at": "2026-10-27 08:35:22 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -307,15 +307,7 @@
     "bvid": "BV1ex4y1J7JE",
     "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
     "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed",
-    "views": 13614729,
-    "danmaku": 13325,
-    "likes": 573367,
-    "coins": 298908,
-    "favorites": 91379,
-    "shares": 214364,
-    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "preserved_from": "2026-10-26 22:23:58 (UTC+8)"
+    "error": "HTTP Error 412: Precondition Failed"
    },
    {
     "bvid": "BV1oH4y1c7Kk",
@@ -512,7 +504,6 @@
  },
  "errors": {
   "steam": "Expecting value: line 1 column 1 (char 0)",
-  "bili_preserved": "1 videos kept from previous snapshot",
   "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
