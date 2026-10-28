@@ -1,6 +1,6 @@
 {
  "date": "2026-10-28",
- "collected_at": "2026-10-28 07:00:07 (UTC+8)",
+ "collected_at": "2026-10-28 10:24:32 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -292,10 +292,16 @@
  "bili": {
   "anchors": [
    {
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "views": 16063410,
+    "danmaku": 31529,
+    "likes": 835437,
+    "coins": 646450,
+    "favorites": 179352,
+    "shares": 354826,
+    "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
     "bvid": "BV1wz421e7wS",
