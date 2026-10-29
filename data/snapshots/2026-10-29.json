@@ -1,6 +1,6 @@
 {
  "date": "2026-10-29",
- "collected_at": "2026-10-29 05:44:47 (UTC+8)",
+ "collected_at": "2026-10-29 09:51:57 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -298,10 +298,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
+    "views": 8155787,
+    "danmaku": 13092,
+    "likes": 433407,
+    "coins": 218198,
+    "favorites": 57315,
+    "shares": 141212,
+    "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
-    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "pubdate": 1716076800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
    },
    {
     "bvid": "BV1ex4y1J7JE",
@@ -316,10 +322,16 @@
     "error": "HTTP Error 412: Precondition Failed"
    },
    {
+    "title": "游戏科学新作《黑神话：钟馗》先导预告",
+    "views": 16554153,
+    "danmaku": 256793,
+    "likes": 1074494,
+    "coins": 532663,
+    "favorites": 190321,
+    "shares": 542236,
+    "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
-    "name": "游戏科学新作《黑神话：钟馗》先导预告",
-    "pubdate": 1755657600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
     "bvid": "BV11PcgzWEJp",
@@ -330,7 +342,7 @@
    {
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示",
-    "pubdate": 1787270400,
+    "pubdate": 1787191200,
     "error": "HTTP Error 412: Precondition Failed"
    }
   ],
