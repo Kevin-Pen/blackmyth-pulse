@@ -1,6 +1,6 @@
 {
  "date": "2026-10-29",
- "collected_at": "2026-10-29 09:51:57 (UTC+8)",
+ "collected_at": "2026-10-29 16:39:50 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -292,58 +292,88 @@
  "bili": {
   "anchors": [
    {
+    "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
+    "views": 16064104,
+    "danmaku": 31530,
+    "likes": 835445,
+    "coins": 646452,
+    "favorites": 179351,
+    "shares": 354827,
+    "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
-    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "pubdate": 1701993600,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
     "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "views": 8155787,
+    "views": 8155842,
     "danmaku": 13092,
     "likes": 433407,
     "coins": 218198,
-    "favorites": 57315,
+    "favorites": 57313,
     "shares": 141212,
     "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
     "name": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售"
    },
    {
+    "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
+    "views": 13616384,
+    "danmaku": 13325,
+    "likes": 573381,
+    "coins": 298924,
+    "favorites": 91377,
+    "shares": 214372,
+    "pubdate": 1717795827,
     "bvid": "BV1ex4y1J7JE",
-    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "pubdate": 1717804800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命"
    },
    {
+    "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
+    "views": 24928256,
+    "danmaku": 112729,
+    "likes": 1564003,
+    "coins": 1326780,
+    "favorites": 368241,
+    "shares": 630106,
+    "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
-    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "pubdate": 1723075200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "views": 16554153,
+    "views": 16554545,
     "danmaku": 256793,
-    "likes": 1074494,
-    "coins": 532663,
-    "favorites": 190321,
-    "shares": 542236,
+    "likes": 1074498,
+    "coins": 532667,
+    "favorites": 190322,
+    "shares": 542240,
     "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
+    "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
+    "views": 11014975,
+    "danmaku": 84325,
+    "likes": 709509,
+    "coins": 354382,
+    "favorites": 122216,
+    "shares": 307645,
+    "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
-    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "pubdate": 1770940800,
-    "error": "HTTP Error 412: Precondition Failed"
+    "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
-    "bvid": "BV1kS8H6VERt",
-    "name": "《黑神话：钟馗》15分钟实机演示",
+    "title": "《黑神话：钟馗》15分钟实机演示",
+    "views": 13653573,
+    "danmaku": 153953,
+    "likes": 972792,
+    "coins": 732806,
+    "favorites": 231406,
+    "shares": 502837,
     "pubdate": 1787191200,
-    "error": "HTTP Error 412: Precondition Failed"
+    "bvid": "BV1kS8H6VERt",
+    "name": "《黑神话：钟馗》15分钟实机演示"
    }
   ],
   "hot": [
