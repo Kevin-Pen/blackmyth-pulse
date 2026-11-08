@@ -1,6 +1,6 @@
 {
  "date": "2026-11-08",
- "collected_at": "2026-11-08 15:29:59 (UTC+8)",
+ "collected_at": "2026-11-08 23:22:55 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -293,23 +293,23 @@
   "anchors": [
    {
     "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "views": 16069849,
+    "views": 16070017,
     "danmaku": 31530,
-    "likes": 835499,
-    "coins": 646486,
-    "favorites": 179304,
-    "shares": 354831,
+    "likes": 835500,
+    "coins": 646488,
+    "favorites": 179301,
+    "shares": 354832,
     "pubdate": 1702001851,
     "bvid": "BV1SQ4y1V7do",
     "name": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命"
    },
    {
     "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "views": 8157912,
+    "views": 8157975,
     "danmaku": 13092,
-    "likes": 433428,
+    "likes": 433429,
     "coins": 218212,
-    "favorites": 57296,
+    "favorites": 57294,
     "shares": 141216,
     "pubdate": 1716120300,
     "bvid": "BV1wz421e7wS",
@@ -317,9 +317,9 @@
    },
    {
     "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "views": 13623050,
+    "views": 13623241,
     "danmaku": 13325,
-    "likes": 573448,
+    "likes": 573449,
     "coins": 298968,
     "favorites": 91387,
     "shares": 214398,
@@ -329,23 +329,23 @@
    },
    {
     "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "views": 24963132,
-    "danmaku": 112817,
-    "likes": 1564380,
-    "coins": 1327153,
-    "favorites": 368240,
-    "shares": 630218,
+    "views": 24963974,
+    "danmaku": 112818,
+    "likes": 1564387,
+    "coins": 1327159,
+    "favorites": 368228,
+    "shares": 630220,
     "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
     "name": "《黑神话：悟空》最终预告 | 8月20日，重走西游"
    },
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "views": 16568646,
-    "danmaku": 256809,
-    "likes": 1074637,
-    "coins": 532782,
-    "favorites": 190286,
+    "views": 16569121,
+    "danmaku": 256810,
+    "likes": 1074639,
+    "coins": 532784,
+    "favorites": 190281,
     "shares": 542290,
     "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
@@ -353,24 +353,24 @@
    },
    {
     "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "views": 11026676,
+    "views": 11027142,
     "danmaku": 84351,
-    "likes": 709652,
-    "coins": 354495,
+    "likes": 709657,
+    "coins": 354496,
     "favorites": 122206,
-    "shares": 307674,
+    "shares": 307676,
     "pubdate": 1770688800,
     "bvid": "BV11PcgzWEJp",
     "name": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片"
    },
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "views": 14034634,
-    "danmaku": 155348,
-    "likes": 982893,
-    "coins": 736598,
-    "favorites": 233039,
-    "shares": 505055,
+    "views": 14044328,
+    "danmaku": 155392,
+    "likes": 983188,
+    "coins": 736704,
+    "favorites": 233080,
+    "shares": 505114,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示"
@@ -545,6 +545,7 @@
   "topics": []
  },
  "errors": {
-  "steam": "Expecting value: line 1 column 1 (char 0)"
+  "steam": "Expecting value: line 1 column 1 (char 0)",
+  "bili_hot_preserved": "hot list kept from previous snapshot"
  }
 }
