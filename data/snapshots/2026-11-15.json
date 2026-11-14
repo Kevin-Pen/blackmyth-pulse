@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "collected_at": "2026-11-15 03:16:21 (UTC+8)",
+ "collected_at": "2026-11-15 07:07:37 (UTC+8)",
  "steam": {
   "players": 2597,
   "reviews": {
@@ -293,9 +293,9 @@
   "anchors": [
    {
     "title": "《黑神话：悟空》发售日预告 | 2024.8.20，直面天命",
-    "views": 16072629,
+    "views": 16072654,
     "danmaku": 31530,
-    "likes": 835520,
+    "likes": 835519,
     "coins": 646500,
     "favorites": 179278,
     "shares": 354838,
@@ -305,7 +305,7 @@
    },
    {
     "title": "《黑神话：悟空》WeGame预告 | 2024.8.20同步发售",
-    "views": 8158901,
+    "views": 8158911,
     "danmaku": 13092,
     "likes": 433438,
     "coins": 218214,
@@ -317,7 +317,7 @@
    },
    {
     "title": "《黑神话：悟空》现已开启预购 | 2024.8.20，直面天命",
-    "views": 13626134,
+    "views": 13626171,
     "danmaku": 13326,
     "likes": 573473,
     "coins": 298980,
@@ -329,11 +329,11 @@
    },
    {
     "title": "《黑神话：悟空》最终预告 | 8月20日，重走西游",
-    "views": 24976347,
+    "views": 24976465,
     "danmaku": 112841,
-    "likes": 1564520,
-    "coins": 1327275,
-    "favorites": 368172,
+    "likes": 1564522,
+    "coins": 1327277,
+    "favorites": 368170,
     "shares": 630263,
     "pubdate": 1723082400,
     "bvid": "BV1oH4y1c7Kk",
@@ -341,19 +341,19 @@
    },
    {
     "title": "游戏科学新作《黑神话：钟馗》先导预告",
-    "views": 16575192,
+    "views": 16575249,
     "danmaku": 256817,
-    "likes": 1074711,
+    "likes": 1074712,
     "coins": 532814,
-    "favorites": 190251,
-    "shares": 542318,
+    "favorites": 190250,
+    "shares": 542319,
     "pubdate": 1755633699,
     "bvid": "BV1sHePzWEbG",
     "name": "游戏科学新作《黑神话：钟馗》先导预告"
    },
    {
     "title": "游戏科学拜个早年，《黑神话：钟馗》6分钟实机小短片",
-    "views": 11034344,
+    "views": 11034391,
     "danmaku": 84371,
     "likes": 709762,
     "coins": 354538,
@@ -365,12 +365,12 @@
    },
    {
     "title": "《黑神话：钟馗》15分钟实机演示",
-    "views": 14167910,
-    "danmaku": 155776,
-    "likes": 986551,
-    "coins": 737798,
-    "favorites": 233608,
-    "shares": 505749,
+    "views": 14168987,
+    "danmaku": 155777,
+    "likes": 986568,
+    "coins": 737803,
+    "favorites": 233611,
+    "shares": 505751,
     "pubdate": 1787191200,
     "bvid": "BV1kS8H6VERt",
     "name": "《黑神话：钟馗》15分钟实机演示"
@@ -541,7 +541,7 @@
   "hot_error": null
  },
  "weibo": {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "topics": []
  },
  "errors": {
